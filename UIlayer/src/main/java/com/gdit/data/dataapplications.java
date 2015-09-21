@@ -65,11 +65,11 @@ public class dataapplications implements Serializable {
         this.stdate = stdate;
     }
 
-    public String getEddate() {
+    public String getEddate1() {
         return eddate;
     }
 
-    public void setEddate(String eddate) {
+    public void setEddate1(String eddate) {
         this.eddate = eddate;
     }
 }
