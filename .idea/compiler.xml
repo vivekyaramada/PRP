@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <resourceExtensions />
+    <wildcardResourcePatterns />
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="false">
+        <processorPath useClasspath="true" />
+      </profile>
+      <profile default="false" name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="true" />
+        <module name="datalayer" />
+        <module name="rds-data" />
+        <module name="rds-ear" />
+        <module name="rdsentity" />
+        <module name="UIlayer" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel target="1.7">
+      <module name="datalayer" target="1.5" />
+      <module name="JSFDEMON" target="1.5" />
+      <module name="rds-data" target="1.5" />
+      <module name="rds-ear" target="1.5" />
+      <module name="rdsentity" target="1.5" />
+      <module name="UIlayer" target="1.5" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

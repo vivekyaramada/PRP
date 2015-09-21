@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-ear" build-on-make="true" name="rds-ear">
+    <output-path>$PROJECT_DIR$/out/artifacts/rds_ear</output-path>
+    <root id="root">
+      <element id="artifact" artifact-name="rdsapp" />
+    </root>
+  </artifact>
+</component>

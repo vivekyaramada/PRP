@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JSFDEMON.iml" filepath="$PROJECT_DIR$/JSFDEMON.iml" />
+      <module fileurl="file://$PROJECT_DIR$/UIlayer/UIlayer.iml" filepath="$PROJECT_DIR$/UIlayer/UIlayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/datalayer/datalayer.iml" filepath="$PROJECT_DIR$/datalayer/datalayer.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rds-ear/rds-ear.iml" filepath="$PROJECT_DIR$/rds-ear/rds-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/rdsentity/rdsentity.iml" filepath="$PROJECT_DIR$/rdsentity/rdsentity.iml" />
+    </modules>
+  </component>
+</project>
