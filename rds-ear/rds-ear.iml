@@ -28,11 +28,12 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="rdsentity" />
-    <orderEntry type="module" module-name="datalayer" />
-    <orderEntry type="module" module-name="UIlayer" />
+    <orderEntry type="module" module-name="rds-entity" />
+    <orderEntry type="module" module-name="rds-data" />
+    <orderEntry type="module" module-name="rds-UI" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:5.2" level="project" />
-    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:3.8.1" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: junit:junit:4.11" level="project" />
+    <orderEntry type="library" scope="TEST" name="Maven: org.hamcrest:hamcrest-core:1.3" level="project" />
     <orderEntry type="library" scope="PROVIDED" name="Maven: javax.faces:jsf-api:2.1" level="project" />
     <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.1.11" level="project" />
     <orderEntry type="library" name="Maven: com.sun.faces:jsf-impl:2.1.11" level="project" />

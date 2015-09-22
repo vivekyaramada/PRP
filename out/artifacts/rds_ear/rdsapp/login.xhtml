@@ -38,19 +38,19 @@
                          <h:panelGrid columns="2">
 
                          <h:outputLabel value="Login Name:"    />
-                         <h:inputText value="#{datalogin.username}"  />
+                         <h:inputText value="#{loginBean.username}"  />
 
 
 
                          <h:outputLabel value="Password:"  />
-                         <h:inputText value="#{datalogin.password}" />
+                         <h:inputText value="#{loginBean.password}" />
 
 
                      </h:panelGrid>
                          <p>
                              &nbsp;&nbsp;&nbsp; &nbsp;&nbsp;&nbsp;
                              <h:commandButton id="cbAuthenticate" value="   Login   "  styleClass="btn-primary"
-                                              action="#{datalogin.checkLogin}">
+                                              action="#{loginBean.checkLogin}">
 
                              </h:commandButton>
 

@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_PRPn" default="compile.module.PRP">
+  <dirname property="module.PRP.basedir" file="${ant.file.module_PRPn}"/>
+  
+  <property name="module.jdk.home.PRP" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.PRP" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.PRP" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.PRP" value="-encoding windows-1252 -source 1.5 -target 1.5 ${compiler.args}"/>
+  
+  <property name="PRP.output.dir" value="${module.PRP.basedir}/target/classes"/>
+  <property name="PRP.testoutput.dir" value="${module.PRP.basedir}/target/test-classes"/>
+  
+  <path id="PRP.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="PRP.module.production.classpath">
+    <path refid="${module.jdk.classpath.PRP}"/>
+  </path>
+  
+  <path id="PRP.runtime.production.module.classpath">
+    <pathelement location="${PRP.output.dir}"/>
+  </path>
+  
+  <path id="PRP.module.classpath">
+    <path refid="${module.jdk.classpath.PRP}"/>
+    <pathelement location="${PRP.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+  </path>
+  
+  <path id="PRP.runtime.module.classpath">
+    <pathelement location="${PRP.testoutput.dir}"/>
+    <pathelement location="${PRP.output.dir}"/>
+    <path refid="library.maven:_junit:junit:3.8.1.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.PRP">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.PRP">
+    <patternset refid="excluded.from.module.PRP"/>
+  </patternset>
+  
+  <path id="PRP.module.sourcepath">
+    <dirset dir="${module.PRP.basedir}">
+      <include name="src/main/resources"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.PRP" depends="compile.module.PRP.production,compile.module.PRP.tests" description="Compile module PRP"/>
+  
+  <target name="compile.module.PRP.production" depends="register.custom.compilers" description="Compile module PRP; production classes">
+    <mkdir dir="${PRP.output.dir}"/>
+    <javac2 destdir="${PRP.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.PRP}/javac">
+      <compilerarg line="${compiler.args.PRP}"/>
+      <bootclasspath refid="PRP.module.bootclasspath"/>
+      <classpath refid="PRP.module.production.classpath"/>
+      <src refid="PRP.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.PRP"/>
+    </javac2>
+    
+    <copy todir="${PRP.output.dir}">
+      <fileset dir="${module.PRP.basedir}/src/main/resources">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.PRP.tests" depends="register.custom.compilers,compile.module.PRP.production" description="compile module PRP; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.PRP" description="cleanup module">
+    <delete dir="${PRP.output.dir}"/>
+    <delete dir="${PRP.testoutput.dir}"/>
+  </target>
+</project>

@@ -60,41 +60,41 @@
 
 
                                     <h:outputLabel value="PLAN SPONSOR:"  />
-                                    <h:inputText value="#{datachecks.sponsor}"  />
+                                    <h:inputText value="#{addCheckBean.sponsor}"  />
                                         <br /><br />   <br />
                                          <h:outputLabel value="CHECK NUMBER:"  />
-                                        <h:inputText value="#{datachecks.checkNumber}"/>
+                                        <h:inputText value="#{addCheckBean.checkNumber}"/>
                                         <br /><br />   <br />
 
 
 
                                             <h:outputLabel value="CHECK NAME:"   />
-                                            <h:inputText value="#{datachecks.checkName}"  />
+                                            <h:inputText value="#{addCheckBean.checkName}"  />
                                             <br /><br />   <br />
 
 
 
                                             <h:outputLabel value="CHECK DATE:"  />
-                                            <h:inputText value="#{datachecks.checkDate}"/>
+                                            <h:inputText value="#{addCheckBean.checkDate}"/>
                                             <br /><br />   <br />
                                      </h:panelGrid>
                                 </div>
                                 <div align="right" style="padding-right: 20%;float:right;">
                                     <h:panelGrid columns="3">
                                         <h:outputLabel value="CHECK AMOUNT:"   />
-                                        <h:inputText value="#{datachecks.checkAmount}"  />
+                                        <h:inputText value="#{addCheckBean.checkAmount}"  />
                                         <br /><br />   <br />
                                         <h:outputLabel value="RSN:"  />
-                                        <h:inputText value="#{datachecks.rsn}"/>
+                                        <h:inputText value="#{addCheckBean.rsn}"/>
                                         <br /><br />   <br />
                                         <h:outputLabel value="NOTE:"  />
-                                        <h:inputText value="#{datachecks.note}"/>
+                                        <h:inputText value="#{addCheckBean.note}"/>
                                         <br /><br />   <br />
                                     </h:panelGrid>
 
                                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                 <h:commandButton id="cbAuthenticate2" value="   submit   "  styleClass="btn-primary"
-                                                action="#{datachecks.writeData}" />
+                                                action="#{addCheckBean.writeData}" />
                                 </div>
 
                             </div>
