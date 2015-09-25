@@ -23,6 +23,11 @@
     <link href="resources/css/project.css" rel="stylesheet" type="text/css"/>
 
     <title>Insert title here</title>
+    <script type="text/javascript">
+        function checkPasswords() {
+            alert('vivek');
+        }
+    </script>
 
 </head>
 <h:body styleClass="container">
@@ -30,12 +35,13 @@
     <ui:composition template="/WEB-INF/templates/commonTemplate.xhtml">
 
 
+
         <ui:define name="content">
 
 
             <div id="inner-main" align="justify" class='table-bordered alert-warning'>
                 <div  class="leftContent">
-                    <h1 align="center"> INCOMING CHECK INFORMATION </h1>
+                    <h1 align="center"> INCOMING CHECK INFORMATION12 </h1>
 
                     <div class="text-content">
                         <h:form>
@@ -43,6 +49,7 @@
                                 <div class="SubMenuLinkContainer">
                                         <span id="SubMenu-Input" class="MenuSideMainLink bordersOfMenuSide">
  <a class="SubMenuLink">Add Check</a>
+
 
                                              <br/>
                                         <br/>
@@ -60,29 +67,41 @@
 
 
                                     <h:outputLabel value="PLAN SPONSOR:"  />
-                                    <h:inputText value="#{addCheckBean.sponsor}"  />
+                                    <h:inputText value="#{addCheckBean.sponsor}" id="password" required="true" requiredMessage="Please enter"/>
+                                         <h:message for="password" style="color:red" />
                                         <br /><br />   <br />
                                          <h:outputLabel value="CHECK NUMBER:"  />
-                                        <h:inputText value="#{addCheckBean.checkNumber}"/>
+                                        <h:inputText value="#{addCheckBean.checkNumber}"  id="checkNumber" required="true" requiredMessage="Please enter checkNumber"/>
+                                         <h:message for="checkNumber" style="color:red" />
                                         <br /><br />   <br />
 
 
 
                                             <h:outputLabel value="CHECK NAME:"   />
-                                            <h:inputText value="#{addCheckBean.checkName}"  />
+                                            <h:inputText value="#{addCheckBean.checkName}" id="checkName" required="true" requiredMessage="Please enter checkName"/>
+                                         <h:message for="checkName" style="color:red" />
                                             <br /><br />   <br />
 
 
 
                                             <h:outputLabel value="CHECK DATE:"  />
-                                            <h:inputText value="#{addCheckBean.checkDate}"/>
+                                         <h:inputText value="#{addCheckBean.checkDate}"  id="checkDate" required="true" requiredMessage="Please enter checkDate"/>
+                                         <h:message for="checkDate" style="color:red" />
+
+                                         <!--<p:calendar value="#{addCheckBean.checkDate}" ></p:calendar>-->
                                             <br /><br />   <br />
                                      </h:panelGrid>
                                 </div>
                                 <div align="right" style="padding-right: 20%;float:right;">
                                     <h:panelGrid columns="3">
                                         <h:outputLabel value="CHECK AMOUNT:"   />
-                                        <h:inputText value="#{addCheckBean.checkAmount}"  />
+                                        <h:inputText value="#{addCheckBean.checkAmount}"  id="checkAmount" required="true" requiredMessage="Please enter checkAmount">
+                                        <h:message for="checkAmount" style="color:red" />
+
+                                        <f:convertNumber currencySymbol="$" type="currency"/>
+
+                                        </h:inputText>
+
                                         <br /><br />   <br />
                                         <h:outputLabel value="RSN:"  />
                                         <h:inputText value="#{addCheckBean.rsn}"/>
@@ -90,13 +109,15 @@
                                         <h:outputLabel value="NOTE:"  />
                                         <h:inputText value="#{addCheckBean.note}"/>
                                         <br /><br />   <br />
+
                                     </h:panelGrid>
 
                                     <br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/><br/>
                                 <h:commandButton id="cbAuthenticate2" value="   submit   "  styleClass="btn-primary"
-                                                action="#{addCheckBean.writeData}" />
-                                </div>
+                                                 onclick="checkPasswords();"   />
 
+
+                                </div>
                             </div>
 
 
@@ -207,7 +228,10 @@
                     </div>
                 </div>
             </div>
-        </ui:define>
+
+
+
+                </ui:define>
     </ui:composition>
 
 
