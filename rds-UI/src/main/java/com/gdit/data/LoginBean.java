@@ -45,6 +45,7 @@ public class LoginBean implements Serializable {
 
     public String checkLogin() {
 
+        System.out.println("Entering the method checklogin>>>>>>>>>>>>>>>>>>>>");
         RdsFacade rdsFacade = new RdsFacade();
         LoginEntity loginEntity = new LoginEntity();
         loginEntity.setUsername(this.username);

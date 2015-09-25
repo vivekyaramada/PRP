@@ -22,7 +22,7 @@ import org.primefaces.showcase.service.CarService;*/
 public class AddCheckBean implements Serializable {
 
     private String sponsor;
-    private String checkAmount;
+    private double checkAmount;
     private String checkNumber;
     private String rsn;
     private String checkName;
@@ -74,12 +74,15 @@ public class AddCheckBean implements Serializable {
         this.checkNumber = checkNumber;
     }
 
-    public String getCheckAmount() {
+    public double getCheckAmount() {
+        System.out.println("gdit>>>" + checkAmount);
         return checkAmount;
     }
 
-    public void setCheckAmount(String checkAmount) {
+    public void setCheckAmount(double checkAmount)
+    {
         this.checkAmount = checkAmount;
+        System.out.println("gdit>>>" + checkAmount);
     }
 
     public String getSponsor() {

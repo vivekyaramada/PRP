@@ -18,8 +18,8 @@ public class RdsValidation {
     }
 
     public void writeData(AddCheckEntity datachecks) {
-        System.out.println("sponsor2>>>" + datachecks.getSponsor());
-        System.out.println("checkAmount2>>>>" + datachecks.getCheckAmount());
+        System.out.println("sponsor1>>>" + datachecks.getSponsor());
+        System.out.println("checkAmount1>>>>" + datachecks.getCheckAmount());
         System.out.println("checkNumber2>>>" + datachecks.getCheckNumber());
         System.out.println("rsn2>>>" + datachecks.getRsn());
         System.out.println("checkName>2>>" + datachecks.getCheckName());

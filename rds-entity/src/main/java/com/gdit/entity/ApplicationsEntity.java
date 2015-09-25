@@ -7,7 +7,7 @@ import java.io.Serializable;
 import org.primefaces.showcase.service.CarService;*/
 
 
-public class ApplicationsEntity {
+public class ApplicationsEntity implements Serializable{
 
     private String sponsor;
     private String appid;

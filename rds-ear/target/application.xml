@@ -4,4 +4,10 @@
 	"http://java.sun.com/dtd/application_1_3.dtd">
 <application>
   <display-name>rds-ear</display-name>
+  <module>
+    <web>
+      <web-uri>rds-UI-1.1-SNAPSHOT.war</web-uri>
+      <context-root>/rds-UI</context-root>
+    </web>
+  </module>
 </application>

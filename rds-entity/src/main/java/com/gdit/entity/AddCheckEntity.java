@@ -15,7 +15,7 @@ import org.primefaces.showcase.service.CarService;*/
 public class AddCheckEntity implements Serializable {
 
     private String sponsor;
-    private String checkAmount;
+    private double checkAmount;
     private String checkNumber;
     private String rsn;
     private String checkName;
@@ -25,7 +25,7 @@ public class AddCheckEntity implements Serializable {
 
     private static final Logger logger = LogManager.getLogger("checks");
 
-    public AddCheckEntity(String sponsor, String checkAmount, String checkNumber, String rsn, String checkName, String note, String checkDate) {
+    public AddCheckEntity(String sponsor, double checkAmount, String checkNumber, String rsn, String checkName, String note, String checkDate) {
         this.sponsor = sponsor;
         this.checkAmount = checkAmount;
         this.checkNumber = checkNumber;
@@ -67,11 +67,11 @@ public class AddCheckEntity implements Serializable {
         this.checkNumber = checkNumber;
     }
 
-    public String getCheckAmount() {
+    public double getCheckAmount() {
         return checkAmount;
     }
 
-    public void setCheckAmount(String checkAmount) {
+    public void setCheckAmount(double checkAmount) {
         this.checkAmount = checkAmount;
     }
 

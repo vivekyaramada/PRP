@@ -11,7 +11,7 @@
     <packaging>jar</packaging>
     <groupId>org.gdit.entity</groupId>
     <version>1.3-SNAPSHOT</version>
-    <name>rds-entity Maven Webapp</name>
+    <name>rds-entity</name>
     <url>http://maven.apache.org</url>
     <dependencies>
         <dependency>
