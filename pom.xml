@@ -10,10 +10,10 @@
 
 
 <modules>
-  <module>rds-entity</module>
-  <module>rds-data</module>
-  <module>rds-UI</module>
- <module>rds-ear</module>
+  <module>prp-entity</module>
+  <module>prp-data</module>
+  <module>prp-UI</module>
+ <module>prp-ear</module>
 </modules>
 
 

@@ -42,14 +42,15 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
-    <file type="javaeeApplication" url="file://$PROJECT_DIR$/rds-ear" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-ear" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-ear" />
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="MavenProjectsManager">
     <option name="originalFiles">
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
-        <option value="$PROJECT_DIR$/rds-data/pom.xml" />
+        <option value="$PROJECT_DIR$/prp-data/pom.xml" />
       </list>
     </option>
   </component>

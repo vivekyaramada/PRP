@@ -12,19 +12,19 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
-        <module name="rds-data" />
-        <module name="rds-ear" />
-        <module name="rds-entity" />
-        <module name="rds-UI" />
+        <module name="prp-data" />
+        <module name="prp-ear" />
+        <module name="prp-entity" />
+        <module name="prp-UI" />
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="PRP" target="1.5" />
+      <module name="prp-data" target="1.5" />
+      <module name="prp-ear" target="1.5" />
+      <module name="prp-entity" target="1.5" />
+      <module name="prp-UI" target="1.5" />
       <module name="PRPCONVERSION" target="1.5" />
-      <module name="rds-data" target="1.5" />
-      <module name="rds-ear" target="1.5" />
-      <module name="rds-entity" target="1.5" />
-      <module name="rds-UI" target="1.5" />
     </bytecodeTargetLevel>
   </component>
 </project>

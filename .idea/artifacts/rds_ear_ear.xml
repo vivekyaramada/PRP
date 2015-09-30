@@ -1,8 +1,0 @@
-<component name="ArtifactManager">
-  <artifact type="ear" name="rds-ear:ear">
-    <output-path>$PROJECT_DIR$/rds-ear/target</output-path>
-    <root id="archive" name="rds-ear.ear">
-      <element id="artifact" artifact-name="rds-ear:ear exploded" />
-    </root>
-  </artifact>
-</component>

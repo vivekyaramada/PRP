@@ -3,10 +3,10 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/PRP.iml" filepath="$PROJECT_DIR$/PRP.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rds-UI/rds-UI.iml" filepath="$PROJECT_DIR$/rds-UI/rds-UI.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rds-data/rds-data.iml" filepath="$PROJECT_DIR$/rds-data/rds-data.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rds-ear/rds-ear.iml" filepath="$PROJECT_DIR$/rds-ear/rds-ear.iml" />
-      <module fileurl="file://$PROJECT_DIR$/rds-entity/rds-entity.iml" filepath="$PROJECT_DIR$/rds-entity/rds-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prp-UI/prp-UI.iml" filepath="$PROJECT_DIR$/prp-UI/prp-UI.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prp-data/prp-data.iml" filepath="$PROJECT_DIR$/prp-data/prp-data.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prp-ear/prp-ear.iml" filepath="$PROJECT_DIR$/prp-ear/prp-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prp-entity/prp-entity.iml" filepath="$PROJECT_DIR$/prp-entity/prp-entity.iml" />
     </modules>
   </component>
 </project>
