@@ -5,11 +5,9 @@
              version="2.0">
 
     <persistence-unit name="REPORTINGJPA" transaction-type="RESOURCE_LOCAL">
-
-        <description>
-
-        </description>
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
+       <non-jta-data-source>java:/vivek</non-jta-data-source>
+
         <class>gov.hhs.cms.prp.entity.PrpAplctnEntity</class>
         <class>gov.hhs.cms.prp.entity.RdsEvntTypeCdEntity</class>
 

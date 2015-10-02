@@ -1,0 +1,32 @@
+<component name="ArtifactManager">
+  <artifact type="exploded-war" name="prp-ws:war exploded">
+    <output-path>$PROJECT_DIR$/out/artifacts/prp_ws_war_exploded</output-path>
+    <root id="root">
+      <element id="directory" name="WEB-INF">
+        <element id="directory" name="classes">
+          <element id="module-output" name="prp-ws" />
+          <element id="module-output" name="prp-entity" />
+          <element id="jpa-descriptors" facet="prp-entity/jpa/JPA" />
+        </element>
+        <element id="directory" name="lib">
+          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-server:1.8" />
+          <element id="library" level="project" name="Maven: asm:asm:3.1" />
+          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-core:1.8" />
+          <element id="library" level="project" name="Maven: com.sun.jersey:jersey-bundle:1.8" />
+          <element id="library" level="project" name="Maven: javax.ws.rs:jsr311-api:1.1.1" />
+          <element id="library" level="project" name="Maven: org.apache.openjpa:openjpa-all:2.2.0" />
+          <element id="library" level="project" name="Maven: org.primefaces:primefaces:5.2" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.1.11" />
+          <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.1.11" />
+          <element id="library" level="project" name="Maven: javax.servlet:jstl:1.2" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.3" />
+          <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.3" />
+          <element id="library" level="module" name="JUnit4" module-name="prp-entity" />
+          <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.1" />
+          <element id="library" level="project" name="Maven: javax.servlet:servlet-api:2.5" />
+        </element>
+      </element>
+      <element id="javaee-facet-resources" facet="prp-ws/web/Web" />
+    </root>
+  </artifact>
+</component>

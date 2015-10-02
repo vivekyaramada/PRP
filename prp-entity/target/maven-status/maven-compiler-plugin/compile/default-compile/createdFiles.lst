@@ -1,0 +1,6 @@
+gov\hhs\cms\prp\entity\ApplicationsEntity.class
+gov\hhs\cms\prp\entity\LoginEntity.class
+gov\hhs\cms\prp\entity\RdsEvntTypeCdEntity.class
+gov\hhs\cms\prp\entity\AddCheckEntity.class
+gov\hhs\cms\prp\entity\PrpAplctnEntity.class
+gov\hhs\cms\prp\entity\ApplicationTableEntity.class
