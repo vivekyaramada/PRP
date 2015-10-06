@@ -6,15 +6,15 @@
 
     <persistence-unit name="REPORTINGJPA" transaction-type="RESOURCE_LOCAL">
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
-       <non-jta-data-source>java:/vivek</non-jta-data-source>
+
 
         <class>gov.hhs.cms.prp.entity.PrpAplctnEntity</class>
-        <class>gov.hhs.cms.prp.entity.RdsEvntTypeCdEntity</class>
+         <class>gov.hhs.cms.prp.entity.RdsEvntTypeCdEntity</class>
 
 
         <properties>
             <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
-            <property name="openjpa.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/MySQL" />
+            <property name="openjpa.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/prp" />
             <property name="openjpa.ConnectionUserName" value="root"/>
             <property name="openjpa.ConnectionPassword" value="Vivek123"/>
 

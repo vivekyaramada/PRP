@@ -14,19 +14,29 @@ import javax.ws.rs.PathParam;
 import javax.ws.rs.core.Response;
 import java.util.Collection;
 import java.util.logging.Logger;
+import javax.persistence.PersistenceUnit;
 
 @Path("/hello")
-public class HelloWorldService {
-    private final static Logger LOGGER = Logger.getLogger(HelloWorldService.class.getName());
+public class PrpApplicationService {
+    private final static Logger LOGGER = Logger.getLogger(PrpApplicationService.class.getName());
+
+    @PersistenceUnit
+    private EntityManagerFactory factory;
+
+
+
 
     @GET
     @Path("/{param}")
     public Response getMsg(@PathParam("param") String msg) {
 
+        StringBuffer sb = new StringBuffer();
+
         String output = "Jersey say : " + msg;
+        sb.append(output);
         java.util.Map<Object,Object> map = new java.util.HashMap<Object,Object>();
         LOGGER.info("Before vivek1>>>>>>>>>>>>>>");
-        EntityManagerFactory factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
+        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
         LOGGER.info("Before vivek2>>>>>>>>>>>>>>");
         EntityManager em = factory.createEntityManager();
         LOGGER.info("Before vivek3>>>>>>>>>>>>>>");
@@ -40,12 +50,13 @@ public class HelloWorldService {
         {
             System.out.println("The value of vivek is prpAplctnEntity is " + AplctnEntity.getApplPsCompany());
             LOGGER.info("The value of vivek is prpAplctnEntity is " + AplctnEntity.getApplPsCompany());
+            sb.append("     "+AplctnEntity.getApplPsCompany());
         }
 
         em.close();
         factory.close();
 
-        return Response.status(200).entity(output).build();
+        return  Response.status(200).entity(sb.toString()).build();
 
     }
 
