@@ -1,0 +1,75 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/maven-v4_0_0.xsd">
+    <parent>
+        <artifactId>PRP</artifactId>
+        <groupId>org.gdit</groupId>
+        <version>1.0-SNAPSHOT</version>
+    </parent>
+
+
+    <modelVersion>4.0.0</modelVersion>
+    <artifactId>prp-ear</artifactId>
+    <groupId>org.gdit.ear</groupId>
+    <version>1.4-SNAPSHOT</version>
+    <packaging>ear</packaging>
+    <name>prp-ear</name>
+    <url>http://maven.apache.org</url>
+
+    <dependencies>
+
+    <dependency>
+            <artifactId>prp-UI</artifactId>
+            <groupId>org.gdit.ui</groupId>
+           <version>1.1-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+
+        <dependency>
+            <groupId>org.apache.openjpa</groupId>
+            <artifactId>openjpa-all</artifactId>
+            <version>2.2.0</version>
+        </dependency>
+
+        <dependency>
+            <groupId>org.gdit.ws</groupId>
+            <artifactId>prp-ws</artifactId>
+            <version>1.5-SNAPSHOT</version>
+            <type>war</type>
+        </dependency>
+
+    </dependencies>
+    <build>
+        <finalName>prp-ear</finalName>
+    <plugins>
+            <plugin>
+                <groupId>org.codehaus.mojo</groupId>
+                <artifactId>was6-maven-plugin</artifactId>
+                <version>1.1</version>
+                <executions>
+                </executions>
+                <configuration>
+                    <verbose>true</verbose>
+                    <scaModule/>
+                </configuration>
+            </plugin>
+
+            <plugin>
+                <groupId>org.apache.openejb.maven</groupId>
+                <artifactId>tomee-maven-plugin</artifactId>
+                <version>1.7.1</version>
+
+                <configuration>
+                    <tomeeVersion>1.7.1</tomeeVersion>
+                    <tomeeClassifier>plus</tomeeClassifier>
+                    <debugPort>9091</debugPort>
+                    <tomeeAjpPort>9092</tomeeAjpPort>
+                    <tomeeHttpPort>9093</tomeeHttpPort>
+                    <tomeeHttpsPort>9094</tomeeHttpsPort>
+                    <tomeeShutdownPort>9095</tomeeShutdownPort>
+                </configuration>
+
+            </plugin>
+        </plugins>
+    </build>
+
+</project>
