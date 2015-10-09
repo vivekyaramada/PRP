@@ -16,6 +16,7 @@
             <element id="module-output" name="prp-entity" />
           </element>
           <element id="library" level="project" name="Maven: org.apache.openjpa:openjpa-all:2.2.0" />
+          <element id="library" level="project" name="Maven: com.google.code.gson:gson:2.2.4" />
           <element id="library" level="project" name="Maven: mysql:mysql-connector-java:5.1.36" />
           <element id="library" level="project" name="Maven: org.primefaces:primefaces:5.2" />
           <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.1.11" />
@@ -25,7 +26,6 @@
           <element id="library" level="project" name="Maven: javax.servlet.jsp:jsp-api:2.1" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-api:2.3" />
           <element id="library" level="project" name="Maven: org.apache.logging.log4j:log4j-core:2.3" />
-          <element id="library" level="module" name="JUnit4" module-name="prp-entity" />
         </element>
       </element>
       <element id="directory" name="META-INF">

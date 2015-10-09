@@ -1,27 +1,63 @@
 package gov.hhs.cms.prp.entity;
 
 
+import java.io.IOException;
+import java.net.MalformedURLException;
 import java.util.ArrayList;
+import java.net.URL;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.Arrays;
+import java.util.Collection;
+import java.util.List;
+import java.util.logging.Logger;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
+
+import com.google.gson.*;
+import com.google.gson.reflect.TypeToken;
+
+import java.lang.reflect.Type;
 
 
 public class ApplicationTableEntity {
+
+    private final static Logger LOGGER = Logger.getLogger(ApplicationTableEntity.class.getName());
+
     public ApplicationTableEntity() {
     }
 
-    public ArrayList getApplications() {
+    public ArrayList getApplications(String keyword) {
         ArrayList applications = new ArrayList();
-        applications.add(new ApplicationsEntity("SYSTEM1", "PAYMENT1", "", "1.00", "01/01/2009", "12/12/2009"));
-        applications.add(new ApplicationsEntity("SYSTEM2", "PAYMENT2", "", "2.00", "01/01/2010", "12/12/2010"));
-        applications.add(new ApplicationsEntity("SYSTEM3", "PAYMENT3", "", "3.00", "01/01/2011", "12/12/2011"));
-        applications.add(new ApplicationsEntity("SYSTEM4", "PAYMENT4", "", "4.00", "01/01/2012", "12/12/2012"));
-        applications.add(new ApplicationsEntity("SYSTEM5", "PAYMENT5", "", "5.00", "01/01/2013", "12/12/2013"));
-        applications.add(new ApplicationsEntity("SYSTEM6", "PAYMENT8", "", "6.00", "01/01/2014", "12/12/2014"));
-        applications.add(new ApplicationsEntity("SYSTEM2", "PAYMENT3", "", "1.00", "01/01/2009", "12/12/2009"));
-        applications.add(new ApplicationsEntity("SYSTEM2", "PAYMENT3", "", "2.00", "01/01/2010", "12/12/2010"));
-        applications.add(new ApplicationsEntity("SYSTEM4", "PAYMENT6", "", "2.00", "01/01/2011", "12/12/2011"));
-        applications.add(new ApplicationsEntity("SYSTEM4", "PAYMENT6", "", "4.00", "01/01/2012", "12/12/2012"));
-        applications.add(new ApplicationsEntity("SYSTEM6", "PAYMENT5", "", "2.00", "01/01/2013", "12/12/2013"));
-        applications.add(new ApplicationsEntity("SYSTEM6", "PAYMENT5", "", "6.00", "01/01/2014", "12/12/2014"));
+        Gson gson = new Gson();
+
+        try {
+            String urlString = "http://localhost:9093/prp-ws/hello/" + keyword;
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    (conn.getInputStream())));
+            String response = br.readLine();
+            Type listOfTestObject = new TypeToken<List<PrpAplctnEntity>>() {
+            }.getType();
+            ArrayList<PrpAplctnEntity> list = gson.fromJson(response, listOfTestObject);
+
+            for (int i = 0; i < list.size(); i++) {
+                applications.add(list.get(i));
+            }
+            conn.disconnect();
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
         return applications;
     }
 }

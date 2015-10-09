@@ -15,8 +15,6 @@ import java.util.Date;
 
 import gov.hhs.cms.prp.entity.*;
 
-/*import org.primefaces.showcase.domain.Car;
-import org.primefaces.showcase.service.CarService;*/
 
 @ManagedBean
 @RequestScoped
@@ -76,14 +74,13 @@ public class AddCheckBean implements Serializable {
     }
 
     public double getCheckAmount() {
-        System.out.println("gdit>>>" + checkAmount);
+
         return checkAmount;
     }
 
-    public void setCheckAmount(double checkAmount)
-    {
+    public void setCheckAmount(double checkAmount) {
         this.checkAmount = checkAmount;
-        System.out.println("gdit>>>" + checkAmount);
+
     }
 
     public String getSponsor() {

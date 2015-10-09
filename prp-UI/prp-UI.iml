@@ -50,6 +50,7 @@
     <orderEntry type="module" module-name="prp-data" />
     <orderEntry type="module" module-name="prp-entity" />
     <orderEntry type="library" name="Maven: org.apache.openjpa:openjpa-all:2.2.0" level="project" />
+    <orderEntry type="library" name="Maven: com.google.code.gson:gson:2.2.4" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:5.2" level="project" />
     <orderEntry type="library" name="Maven: org.apache.logging.log4j:log4j-core:2.3" level="project" />
   </component>

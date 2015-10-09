@@ -3,20 +3,18 @@ package gov.hhs.cms.prp.entity; /**
  */
 
 import java.io.Serializable;
-/*import org.primefaces.showcase.domain.Car;
-import org.primefaces.showcase.service.CarService;*/
+import java.util.Date;
 
-
-public class ApplicationsEntity implements Serializable{
+public class ApplicationsEntity implements Serializable {
 
     private String sponsor;
     private String appid;
     private String status;
     private String amount;
-    private String stdate;
-    private String eddate;
+    private Date stdate;
+    private Date eddate;
 
-    public ApplicationsEntity(String sponsor, String appid, String status, String amount, String stdate, String eddate) {
+    public ApplicationsEntity(String sponsor, String appid, String status, String amount, Date stdate, Date eddate) {
         this.sponsor = sponsor;
         this.appid = appid;
         this.status = status;
@@ -57,19 +55,19 @@ public class ApplicationsEntity implements Serializable{
         this.amount = amount;
     }
 
-    public String getStdate() {
+    public Date getStdate() {
         return stdate;
     }
 
-    public void setStdate(String stdate) {
+    public void setStdate(Date stdate) {
         this.stdate = stdate;
     }
 
-    public String getEddate() {
+    public Date getEddate() {
         return eddate;
     }
 
-    public void setEddate(String eddate) {
+    public void setEddate(Date eddate) {
         this.eddate = eddate;
     }
 }

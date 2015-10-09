@@ -35,8 +35,16 @@
 
             <div id="inner-main" align="justify" class='table-bordered alert-warning'>
                 <div  class="leftContent">
+                    <h:form id="ApplicationsForm">
                     <h1 align="center"> APPLICATIONS BY PLAN SPONSOR </h1>
+                    <div align="right">Enter the plan sponsor id
 
+                        <h:inputText id="keyword"  value="#{applicationsTableBean.keyword}"/>
+                    <h:commandButton id="search" value="Search" action="#{applicationsTableBean.searchApplications}">
+
+                    </h:commandButton>
+
+                    </div>
                         <div class="text-content">
                             <h:form>
                                 <div id="MENUSIDE" class="ps-container" style="height: 543px;">
@@ -64,60 +72,61 @@
                                     </f:facet>
 
 
-                                    <p:column   filterBy="#{values.sponsor}" filterMatchMode="contains">
+                                    <p:column   filterBy="#{values.applId}" filterMatchMode="contains">
                                     <f:facet name="header">
                                         <div align="center">
-                                            <h:outputText styleClass="alert-danger text-center" value="PLAN SPONSOR"/>
+                                            <h:outputText styleClass="alert-danger text-center" value="PLAN applId"/>
                                         </div>
                                     </f:facet>
-                                        <div align="center">  #{values.sponsor}</div>
+                                        <div align="center">  #{values.applId}</div>
                                     </p:column>
-                                    <p:column filterBy="#{values.appid}" filterMatchMode="contains">
+                                    <p:column filterBy="#{values.applPsId}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="APPL ID"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="applPsId"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.appid}</div>
+                                        <div align="center"> #{values.applPsId}</div>
                                     </p:column>
-                                    <p:column filterBy="#{values.status}" filterMatchMode="contains">
+                                    <p:column filterBy="#{values.applPsCompany}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="STATUS"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="applPsCompany"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.status}</div>
+                                        <div align="center"> #{values.applPsCompany}</div>
                                     </p:column>
-                                    <p:column filterBy="#{values.amount}" filterMatchMode="contains">
+                                    <p:column filterBy="#{values.applStartDate}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="PAYMENT AMOUNT"/>
+                                                <h:outputText styleClass="alert-danger text-center" value=" applStartDate"/>
                                             </div>
                                         </f:facet>
 
-                                        <div align="center"> #{values.amount}</div>
+                                        <div align="center"> #{values.applStartDate}</div>
                                     </p:column>
-                                    <p:column filterBy="#{values.stdate}" filterMatchMode="contains">
+                                    <p:column filterBy="#{values.applEndDate}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="START DATE"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="applEndDate"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.stdate}</div>
+                                        <div align="center"> #{values.applEndDate}</div>
                                     </p:column>
-                                    <p:column filterBy="#{values.eddate}" filterMatchMode="contains">
+                                    <p:column filterBy="#{values.applTransMethod}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="END DATE"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="applTransMethod"/>
 
                                             </div>
                                         </f:facet>
-                                       <div align="center"> #{values.eddate} </div>
+                                       <div align="center"> #{values.applTransMethod} </div>
                                     </p:column>
                             </p:dataTable>
                       </h:form>
 
                     </div>
+                    </h:form>
                 </div>
             </div>
        </ui:define>

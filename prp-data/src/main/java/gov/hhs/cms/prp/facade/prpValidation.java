@@ -2,6 +2,7 @@ package gov.hhs.cms.prp.facade;
 
 import gov.hhs.cms.prp.entity.AddCheckEntity;
 import gov.hhs.cms.prp.entity.LoginEntity;
+
 import java.util.logging.Logger;
 
 /**
@@ -14,7 +15,6 @@ public class prpValidation {
 
     public String checkLogin(LoginEntity datalogin) {
         if (datalogin.getUsername().equals("vivek") && datalogin.getPassword().equals("password")) {
-            System.out.println("Method reached2 >>>>>>");
             return "success";
         } else
             return "failure";

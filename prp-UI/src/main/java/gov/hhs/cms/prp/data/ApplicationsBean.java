@@ -3,11 +3,13 @@ package gov.hhs.cms.prp.data; /**
  */
 
 import java.io.Serializable;
-/*import org.primefaces.showcase.domain.Car;
-import org.primefaces.showcase.service.CarService;*/
+import java.util.logging.Logger;
 
 
 public class ApplicationsBean implements Serializable {
+
+
+    private final static Logger LOGGER = java.util.logging.Logger.getLogger(ApplicationsBean.class.getName());
 
     private String sponsor;
     private String appid;
@@ -15,6 +17,8 @@ public class ApplicationsBean implements Serializable {
     private String amount;
     private String stdate;
     private String eddate;
+
+    private String keyword;
 
     public ApplicationsBean(String sponsor, String appid, String status, String amount, String stdate, String eddate) {
         this.sponsor = sponsor;

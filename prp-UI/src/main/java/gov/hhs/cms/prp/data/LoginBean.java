@@ -6,10 +6,13 @@ import gov.hhs.cms.prp.facade.prpFacade;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import java.io.Serializable;
+import java.util.logging.Logger;
 
 @ManagedBean
 @RequestScoped
 public class LoginBean implements Serializable {
+
+    private final static Logger LOGGER = java.util.logging.Logger.getLogger(LoginBean.class.getName());
 
     private String username;
     private String password;
@@ -44,15 +47,11 @@ public class LoginBean implements Serializable {
     }
 
     public String checkLogin() {
-
-        System.out.println("Entering the method checklogin>>>>>>>>>>>>>>>>>>>>");
         prpFacade prpFacade = new prpFacade();
         LoginEntity loginEntity = new LoginEntity();
         loginEntity.setUsername(this.username);
         loginEntity.setPassword(this.password);
         return prpFacade.checkLogin(loginEntity);
-
     }
-
 }
 

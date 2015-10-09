@@ -9,8 +9,6 @@ import org.apache.logging.log4j.Logger;
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 import java.util.Date;
-/*import org.primefaces.showcase.domain.Car;
-import org.primefaces.showcase.service.CarService;*/
 
 
 public class AddCheckEntity implements Serializable {

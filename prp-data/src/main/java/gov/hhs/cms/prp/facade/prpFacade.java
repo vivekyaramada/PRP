@@ -3,17 +3,14 @@ package gov.hhs.cms.prp.facade;
 import gov.hhs.cms.prp.entity.*;
 
 import java.util.ArrayList;
+import java.util.logging.Logger;
 
 /**
  * Created by VivekKumar.ReddyYara on 9/11/2015.
  */
 public class prpFacade {
 
-
-  /*  private ApplicationsEntity dataapp;
-    private Dataapplicationsdatatablebean dataappdatabean;
-    private Datachecks datachec;
-    private Datalogin datalogin;*/
+    private final static Logger LOGGER = Logger.getLogger(ApplicationTableEntity.class.getName());
 
     public LoginEntity getLoginEntity() {
         return loginEntity;
@@ -32,18 +29,14 @@ public class prpFacade {
 
 
     public prpFacade() {
-
-     /*   dataappdatabean = new Dataapplicationsdatatablebean();
-        datachec = new Datachecks();
-        datalogin = new Datalogin();*/
         dataappdatabean = new ApplicationTableEntity();
 
         prpValidation = new prpValidation();
     }
 
-    public ArrayList getApplications() {
-        ArrayList applications = dataappdatabean.getApplications();
+    public ArrayList getApplications(String keyword) {
 
+        ArrayList applications = dataappdatabean.getApplications(keyword);
         return applications;
     }
 
