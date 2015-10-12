@@ -35,7 +35,7 @@ public class PrpApplicationService {
     @GET
     @Path("/{param}")
     @Produces("application/json")
-    public String getMsg(@PathParam("param") int applId) {
+    public String getMsg(@PathParam("param") int applPsId) {
 
         java.util.Map<Object, Object> map = new java.util.HashMap<Object, Object>();
 
@@ -43,7 +43,7 @@ public class PrpApplicationService {
 
         EntityManager em = factory.createEntityManager();
 
-        String sql = "SELECT e FROM PrpAplctnEntity e where e.applId =" + applId;
+        String sql = "SELECT e FROM PrpAplctnEntity e where e.applPsId =" + applPsId;
 
         Query query = em.createQuery(sql);
 

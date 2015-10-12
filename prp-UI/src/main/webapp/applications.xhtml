@@ -35,18 +35,20 @@
 
             <div id="inner-main" align="justify" class='table-bordered alert-warning'>
                 <div  class="leftContent">
-                    <h:form id="ApplicationsForm">
+                   <h:form id="ApplicationsForm">
                     <h1 align="center"> APPLICATIONS BY PLAN SPONSOR </h1>
-                    <div align="right">Enter the plan sponsor id
+                    <div align="left" style="padding-left: 5%">Plan Sponsor ID
 
                         <h:inputText id="keyword"  value="#{applicationsTableBean.keyword}"/>
-                    <h:commandButton id="search" value="Search" action="#{applicationsTableBean.searchApplications}">
+                        &nbsp;&nbsp;&nbsp;
+                    <h:commandButton id="search" value="Search" action="#{applicationsTableBean.searchApplications}"
+                           />
 
-                    </h:commandButton>
+
 
                     </div>
                         <div class="text-content">
-                            <h:form>
+                            <!--<h:form>-->
                                 <div id="MENUSIDE" class="ps-container" style="height: 543px;">
                                    <!-- <div class="SubMenuLinkContainer">-->
                                         <span id="SubMenu-Input" class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);">
@@ -54,7 +56,7 @@
                                     <div class="SubMenuLinkContainer">
 
 
-                                            <a class="SubMenuLink" href="/../prpapp/addcheck.xhtml">Add Check</a>
+                                            <a class="SubMenuLink" href="/../prp-UI/addcheck.xhtml">Add Check</a>
                                         <br/>
                                         <br/>
                                         <a class="SubMenuLink">Applications </a>
@@ -75,7 +77,7 @@
                                     <p:column   filterBy="#{values.applId}" filterMatchMode="contains">
                                     <f:facet name="header">
                                         <div align="center">
-                                            <h:outputText styleClass="alert-danger text-center" value="PLAN applId"/>
+                                            <h:outputText styleClass="alert-danger text-center" value="Application ID"/>
                                         </div>
                                     </f:facet>
                                         <div align="center">  #{values.applId}</div>
@@ -83,7 +85,7 @@
                                     <p:column filterBy="#{values.applPsId}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="applPsId"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="PlanSponsorID"/>
                                             </div>
                                         </f:facet>
                                         <div align="center"> #{values.applPsId}</div>
@@ -91,7 +93,7 @@
                                     <p:column filterBy="#{values.applPsCompany}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="applPsCompany"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="PlanSponsorCompany"/>
                                             </div>
                                         </f:facet>
                                         <div align="center"> #{values.applPsCompany}</div>
@@ -99,7 +101,7 @@
                                     <p:column filterBy="#{values.applStartDate}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value=" applStartDate"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="ApplicationStartDate"/>
                                             </div>
                                         </f:facet>
 
@@ -108,12 +110,12 @@
                                     <p:column filterBy="#{values.applEndDate}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="applEndDate"/>
+                                                <h:outputText styleClass="alert-danger text-center" value="ApplicationEndDate"/>
                                             </div>
                                         </f:facet>
                                         <div align="center"> #{values.applEndDate}</div>
                                     </p:column>
-                                    <p:column filterBy="#{values.applTransMethod}" filterMatchMode="contains">
+                                  <!--  <p:column filterBy="#{values.applTransMethod}" filterMatchMode="contains">
                                         <f:facet name="header">
                                             <div align="center">
                                                 <h:outputText styleClass="alert-danger text-center" value="applTransMethod"/>
@@ -121,9 +123,9 @@
                                             </div>
                                         </f:facet>
                                        <div align="center"> #{values.applTransMethod} </div>
-                                    </p:column>
+                                    </p:column>-->
                             </p:dataTable>
-                      </h:form>
+                     <!-- </h:form>-->
 
                     </div>
                     </h:form>
