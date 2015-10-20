@@ -12,7 +12,9 @@
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />
         <processorPath useClasspath="true" />
+        <module name="prp-az-ear" />
         <module name="prp-data" />
+        <module name="prp-dz-ear" />
         <module name="prp-ear" />
         <module name="prp-entity" />
         <module name="prp-UI" />
@@ -21,7 +23,9 @@
     </annotationProcessing>
     <bytecodeTargetLevel target="1.7">
       <module name="PRP" target="1.5" />
+      <module name="prp-az-ear" target="1.5" />
       <module name="prp-data" target="1.5" />
+      <module name="prp-dz-ear" target="1.5" />
       <module name="prp-ear" target="1.5" />
       <module name="prp-entity" target="1.5" />
       <module name="prp-UI" target="1.5" />

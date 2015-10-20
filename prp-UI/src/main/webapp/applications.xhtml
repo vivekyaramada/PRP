@@ -12,21 +12,20 @@
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
 
-    <link rel="stylesheet" href="css/bootstrap.min.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap-theme.css" type="text/css"/>
-    <link rel="stylesheet" href="css/bootstrap-theme.min.css" type="text/css"/>
-    <link href="resources/css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="css/style.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="resources/css/primefaces.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="resources/css/theme.css" rel="stylesheet" type="text/css" media="all"/>
-    <link href="resources/css/project.css" rel="stylesheet" type="text/css"/>
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/bootstrap-theme.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="resources/css/primefaces.css"  type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/theme.css"  type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/project.css" type="text/css" media="all"/>
 
     <title>Insert title here</title>
 
 </head>
 <h:body styleClass="container">
-
+<h:form>
     <ui:composition template="/WEB-INF/templates/commonTemplate.xhtml">
 
 
@@ -39,18 +38,17 @@
                     <h1 align="center"> APPLICATIONS BY PLAN SPONSOR </h1>
                     <div align="left" style="padding-left: 5%">Plan Sponsor ID
 
-                        <h:inputText id="keyword"  value="#{applicationsTableBean.keyword}"/>
+                        <h:inputText id="keyword"  value="#{applicationsTableBean.keyword}" />
                         &nbsp;&nbsp;&nbsp;
-                    <h:commandButton id="search" value="Search" action="#{applicationsTableBean.searchApplications}"
-                           />
+                    <h:commandButton id="search" value="Search" action="#{applicationsTableBean.searchApplications}"/>
 
 
 
                     </div>
                         <div class="text-content">
-                            <!--<h:form>-->
+
                                 <div id="MENUSIDE" class="ps-container" style="height: 543px;">
-                                   <!-- <div class="SubMenuLinkContainer">-->
+
                                         <span id="SubMenu-Input" class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);">
                                                  </span>
                                     <div class="SubMenuLinkContainer">
@@ -62,7 +60,7 @@
                                         <a class="SubMenuLink">Applications </a>
                                         </div>
 
-                                   <!--  </div>-->
+
                                 </div>
                                 <p:dataTable value="#{applicationsTableBean.applications}" var="values" border="1" width="100%" widgetVar="values">
                                     <f:facet name="header">
@@ -115,24 +113,65 @@
                                         </f:facet>
                                         <div align="center"> #{values.applEndDate}</div>
                                     </p:column>
-                                  <!--  <p:column filterBy="#{values.applTransMethod}" filterMatchMode="contains">
-                                        <f:facet name="header">
-                                            <div align="center">
-                                                <h:outputText styleClass="alert-danger text-center" value="applTransMethod"/>
+                                    #(values.applEndDate)
+                                </p:dataTable>
 
-                                            </div>
-                                        </f:facet>
-                                       <div align="center"> #{values.applTransMethod} </div>
-                                    </p:column>-->
-                            </p:dataTable>
-                     <!-- </h:form>-->
+
+
+
 
                     </div>
-                    </h:form>
+
+                                         </h:form>
+
+
+
+
+            <h:form id="AddcheckForm" rendered="#{(applicationsTableBean.applications.size() gt 0)}">
+                <div align="center">
+
+            <h:panelGrid id="pnluserresult" columns="3">
+                <h:outputLabel value="PLAN SPONSOR:"  />
+                <p:inputText value="#{addCheckBean.sponsor}" id="password" required="true" requiredMessage="Please enter sponsor"/>
+                <h:message for="password" style="color:red" />
+
+                <h:outputLabel value="CHECK NUMBER:"  />
+                <p:inputText value="#{addCheckBean.checkNumber}"  id="checkNumber" required="true" requiredMessage="Please enter checkNumber"/>
+                <h:message for="checkNumber" style="color:red" />
+
+                <h:outputLabel value="CHECK NAME:"   />
+                <p:inputText value="#{addCheckBean.checkName}" id="checkName" required="true" requiredMessage="Please enter checkName"/>
+                <h:message for="checkName" style="color:red" />
+
+                <h:outputLabel value="CHECK DATE:"  />
+                <p:calendar value="#{addCheckBean.checkDate}" id="checkDate" required="true" requiredMessage="Please enter checkDate1"></p:calendar>
+                <h:message for="checkDate" style="color:red" />
+
+
+                <h:outputLabel value="CHECK AMOUNT:($)"   />
+                <p:inputText value="#{addCheckBean.checkAmount}"  id="checkAmount" required="true" requiredMessage="Please enter checkAmount"/>
+                <h:message for="checkAmount" style="color:red" />
+
+                <h:outputLabel value="RSN:"  />
+                <p:inputText value="#{addCheckBean.rsn}"/>
+                <br></br>
+
+                <h:outputLabel value="NOTE:"  />
+                <p:inputText value="#{addCheckBean.note}"/>
+
+            </h:panelGrid>
+
+            <br></br><br/><br></br>
+
+                <h:commandButton id="cbAuthenticate2" value="   submit   "  styleClass="btn-primary"  action="#{addCheckBean.writeData}"/>
+                </div>
+            </h:form>
                 </div>
             </div>
+
        </ui:define>
   </ui:composition>
+</h:form>
 </h:body>
 </html>
 

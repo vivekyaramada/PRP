@@ -37,7 +37,7 @@ public class ApplicationTableEntity {
         Gson gson = new Gson();
 
         try {
-            String urlString = "http://localhost:9093/prp-ws/hello/" + keyword;
+            String urlString = "http://localhost:9073/prp-ws/hello/applications/" + keyword;
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");

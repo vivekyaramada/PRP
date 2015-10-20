@@ -80,6 +80,6 @@
 
     </dependencies>
     <build>
-        <finalName>prpapp</finalName>
+        <finalName>prp-UI</finalName>
     </build>
 </project>

@@ -13,8 +13,10 @@
   <module>prp-entity</module>
   <module>prp-data</module>
   <module>prp-UI</module>
- <module>prp-ear</module>
+  <module>prp-ear</module>
   <module>prp-ws</module>
+  <module>prp-az-ear</module>
+  <module>prp-dz-ear</module>
 </modules>
 
 

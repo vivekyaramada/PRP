@@ -8,22 +8,19 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>prp-ear</artifactId>
-    <groupId>org.gdit.ear</groupId>
-    <version>1.4-SNAPSHOT</version>
+    <artifactId>prp-dz-ear</artifactId>
+
+
+    <groupId>org.gdit.dz.ear</groupId>
+    <version>1.6-SNAPSHOT</version>
+
     <packaging>ear</packaging>
-    <name>prp-ear</name>
+    <name>prp-dz-ear </name>
     <url>http://maven.apache.org</url>
 
 
     <dependencies>
 
-    <dependency>
-            <artifactId>prp-UI</artifactId>
-            <groupId>org.gdit.ui</groupId>
-           <version>1.1-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
 
         <dependency>
             <groupId>org.apache.openjpa</groupId>
@@ -39,10 +36,11 @@
         </dependency>
 
     </dependencies>
-    <build>
 
-        <finalName>prp-ear</finalName>
-    <plugins>
+
+    <build>
+        <finalName>prp-dz-ear</finalName>
+        <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>was6-maven-plugin</artifactId>
@@ -64,16 +62,15 @@
                 <configuration>
                     <tomeeVersion>1.7.1</tomeeVersion>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <debugPort>9091</debugPort>
-                    <tomeeAjpPort>9092</tomeeAjpPort>
-                    <tomeeHttpPort>9093</tomeeHttpPort>
-                    <tomeeHttpsPort>9094</tomeeHttpsPort>
-                    <tomeeShutdownPort>9095</tomeeShutdownPort>
+                    <debugPort>9071</debugPort>
+                    <tomeeAjpPort>9072</tomeeAjpPort>
+                    <tomeeHttpPort>9073</tomeeHttpPort>
+                    <tomeeHttpsPort>9074</tomeeHttpsPort>
+                    <tomeeShutdownPort>9075</tomeeShutdownPort>
                 </configuration>
 
 
             </plugin>
         </plugins>
     </build>
-
 </project>

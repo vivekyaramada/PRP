@@ -42,8 +42,12 @@
     <entry_points version="2.0" />
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-az-ear" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-dz-ear" />
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-ear" />
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-ear" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-UI" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-ws" />
     <file type="web" url="file://$PROJECT_DIR$" />
   </component>
   <component name="MavenProjectsManager">

@@ -8,20 +8,21 @@
 
 
     <modelVersion>4.0.0</modelVersion>
-    <artifactId>prp-ear</artifactId>
-    <groupId>org.gdit.ear</groupId>
-    <version>1.4-SNAPSHOT</version>
+    <artifactId>prp-az-ear</artifactId>
+    <groupId>org.gdit.az.ear</groupId>
+    <version>1.5-SNAPSHOT</version>
     <packaging>ear</packaging>
-    <name>prp-ear</name>
+    <name>prp-az-ear</name>
     <url>http://maven.apache.org</url>
+
 
 
     <dependencies>
 
-    <dependency>
+        <dependency>
             <artifactId>prp-UI</artifactId>
             <groupId>org.gdit.ui</groupId>
-           <version>1.1-SNAPSHOT</version>
+            <version>1.1-SNAPSHOT</version>
             <type>war</type>
         </dependency>
 
@@ -31,18 +32,14 @@
             <version>2.2.0</version>
         </dependency>
 
-        <dependency>
-            <groupId>org.gdit.ws</groupId>
-            <artifactId>prp-ws</artifactId>
-            <version>1.5-SNAPSHOT</version>
-            <type>war</type>
-        </dependency>
 
     </dependencies>
-    <build>
 
-        <finalName>prp-ear</finalName>
-    <plugins>
+
+
+    <build>
+        <finalName>prp-az-ear</finalName>
+        <plugins>
             <plugin>
                 <groupId>org.codehaus.mojo</groupId>
                 <artifactId>was6-maven-plugin</artifactId>
@@ -64,16 +61,18 @@
                 <configuration>
                     <tomeeVersion>1.7.1</tomeeVersion>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <debugPort>9091</debugPort>
-                    <tomeeAjpPort>9092</tomeeAjpPort>
-                    <tomeeHttpPort>9093</tomeeHttpPort>
-                    <tomeeHttpsPort>9094</tomeeHttpsPort>
-                    <tomeeShutdownPort>9095</tomeeShutdownPort>
+                    <debugPort>9081</debugPort>
+                    <tomeeAjpPort>9082</tomeeAjpPort>
+                    <tomeeHttpPort>9083</tomeeHttpPort>
+                    <tomeeHttpsPort>9084</tomeeHttpsPort>
+                    <tomeeShutdownPort>9085</tomeeShutdownPort>
                 </configuration>
 
 
             </plugin>
         </plugins>
     </build>
+
+
 
 </project>

@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="prp-az-ear:war">
+    <output-path>$PROJECT_DIR$/prp-az-ear/target</output-path>
+    <root id="archive" name="prp-az-ear.war">
+      <element id="artifact" artifact-name="prp-az-ear:war exploded" />
+    </root>
+  </artifact>
+</component>

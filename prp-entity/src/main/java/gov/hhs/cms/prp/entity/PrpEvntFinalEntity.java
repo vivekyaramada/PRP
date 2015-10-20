@@ -11,8 +11,8 @@ import java.sql.Timestamp;
  * Created by VivekKumar.ReddyYara on 10/20/2015.
  */
 @Entity
-@javax.persistence.Table(name = "prp_evnt_nw", schema = "", catalog = "prp")
-public class PrpEvntNwEntity {
+@javax.persistence.Table(name = "prp_evnt_final", schema = "", catalog = "prp")
+public class PrpEvntFinalEntity {
     private int pkPrpEventId;
 
     @Id
@@ -294,7 +294,7 @@ public class PrpEvntNwEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PrpEvntNwEntity that = (PrpEvntNwEntity) o;
+        PrpEvntFinalEntity that = (PrpEvntFinalEntity) o;
 
         if (pkPrpEventId != that.pkPrpEventId) return false;
         if (evntTypeCd != null ? !evntTypeCd.equals(that.evntTypeCd) : that.evntTypeCd != null) return false;
