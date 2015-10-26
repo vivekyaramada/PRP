@@ -42,8 +42,8 @@ public class prpFacade {
     }
 
     public String checkLogin(LoginEntity datalogin) {
-        HttpSession session = SessionBean.getSession();
-        LOGGER.info("SATHVIK>>>>>>>>>>>>" + session.getAttribute("username"));
+       /* HttpSession session = SessionBean.getSession();
+        LOGGER.info("SATHVIK>>>>>>>>>>>>" + session.getAttribute("username"));*/
         return prpValidation.checkLogin(datalogin);
     }
 
