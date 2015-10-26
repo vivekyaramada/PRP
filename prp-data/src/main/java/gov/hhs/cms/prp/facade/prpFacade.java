@@ -2,15 +2,17 @@ package gov.hhs.cms.prp.facade;
 
 import gov.hhs.cms.prp.entity.*;
 
+import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
 import java.util.logging.Logger;
+
 
 /**
  * Created by VivekKumar.ReddyYara on 9/11/2015.
  */
 public class prpFacade {
 
-    private final static Logger LOGGER = Logger.getLogger(ApplicationTableEntity.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(prpFacade.class.getName());
 
     public LoginEntity getLoginEntity() {
         return loginEntity;
@@ -22,29 +24,30 @@ public class prpFacade {
 
     private LoginEntity loginEntity;
 
-    private ApplicationTableEntity dataappdatabean;
+
 
 
     private prpValidation prpValidation;
 
 
     public prpFacade() {
-        dataappdatabean = new ApplicationTableEntity();
 
         prpValidation = new prpValidation();
     }
 
     public ArrayList getApplications(String keyword) {
 
-        ArrayList applications = dataappdatabean.getApplications(keyword);
+        ArrayList applications = prpValidation.getApplications(keyword);
         return applications;
     }
 
     public String checkLogin(LoginEntity datalogin) {
+        HttpSession session = SessionBean.getSession();
+        LOGGER.info("SATHVIK>>>>>>>>>>>>" + session.getAttribute("username"));
         return prpValidation.checkLogin(datalogin);
     }
 
-    public void writeData(AddCheckEntity datachecks) {
-        prpValidation.writeData(datachecks);
+    public String writeData(AddCheckEntity datachecks) {
+       return prpValidation.writeData(datachecks);
     }
 }

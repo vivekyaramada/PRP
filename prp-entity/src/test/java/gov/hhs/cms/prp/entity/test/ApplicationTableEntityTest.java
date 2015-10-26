@@ -1,9 +1,6 @@
 package gov.hhs.cms.prp.entity.test;
 
 import org.junit.Test;
-import gov.hhs.cms.prp.entity.ApplicationTableEntity;
-
-import static org.junit.Assert.*;
 
 /**
  * Created by VivekKumar.ReddyYara on 9/17/2015.

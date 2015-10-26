@@ -100,9 +100,9 @@ public class AddCheckBean implements Serializable {
     }
 
 
-    public void writeData() {
+    public String writeData() {
         prpFacade prpFacade = new prpFacade();
         AddCheckEntity addCheckEntity = new AddCheckEntity(sponsor, checkAmount, checkNumber, rsn, checkName, note, checkDate);
-        prpFacade.writeData(addCheckEntity);
+        return prpFacade.writeData(addCheckEntity);
     }
 }

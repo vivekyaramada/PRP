@@ -11,7 +11,7 @@ import gov.hhs.cms.prp.entity.LoginEntity;
  */
 public class prpValidationTest {
 
-    @Test
+   /* @Test
     public void testCheckLogin() throws Exception {
 
         LoginEntity loginEntity = new LoginEntity();
@@ -19,7 +19,7 @@ public class prpValidationTest {
         loginEntity.setUsername("vivek");
         loginEntity.setPassword("password");
         assertEquals("success", prpValidation.checkLogin(loginEntity));
-    }
+    }*/
 
     @Test
     public void testWriteData() throws Exception {

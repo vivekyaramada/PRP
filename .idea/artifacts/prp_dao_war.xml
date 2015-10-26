@@ -1,0 +1,8 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="prp-dao:war">
+    <output-path>$PROJECT_DIR$/prp-dao/target</output-path>
+    <root id="archive" name="prp-dao.war">
+      <element id="artifact" artifact-name="prp-dao:war exploded" />
+    </root>
+  </artifact>
+</component>

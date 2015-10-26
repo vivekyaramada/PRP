@@ -62,11 +62,11 @@
                 <configuration>
                     <tomeeVersion>1.7.1</tomeeVersion>
                     <tomeeClassifier>plus</tomeeClassifier>
-                    <debugPort>9071</debugPort>
-                    <tomeeAjpPort>9072</tomeeAjpPort>
-                    <tomeeHttpPort>9073</tomeeHttpPort>
-                    <tomeeHttpsPort>9074</tomeeHttpsPort>
-                    <tomeeShutdownPort>9075</tomeeShutdownPort>
+                    <debugPort>9091</debugPort>
+                    <tomeeAjpPort>9092</tomeeAjpPort>
+                    <tomeeHttpPort>9093</tomeeHttpPort>
+                    <tomeeHttpsPort>9094</tomeeHttpsPort>
+                    <tomeeShutdownPort>9095</tomeeShutdownPort>
                 </configuration>
 
 

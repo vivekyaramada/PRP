@@ -32,7 +32,7 @@ public class prpFacadeTest {
         assertTrue(prpFacade.getApplications().size() == 12);*/
     }
 
-    @Test
+   /* @Test
     public void testCheckLogin() throws Exception {
         LoginEntity loginEntity = new LoginEntity();
         prpFacade prpFacade = new prpFacade();
@@ -40,7 +40,7 @@ public class prpFacadeTest {
         loginEntity.setPassword("password");
         assertEquals("success", prpFacade.checkLogin(loginEntity));
 
-    }
+    }*/
 
 
 }

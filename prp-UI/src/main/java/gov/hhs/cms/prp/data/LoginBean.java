@@ -1,12 +1,13 @@
 package gov.hhs.cms.prp.data;
 
-import gov.hhs.cms.prp.entity.LoginEntity;
+import gov.hhs.cms.prp.entity.*;
 import gov.hhs.cms.prp.facade.prpFacade;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import java.io.Serializable;
 import java.util.logging.Logger;
+import javax.servlet.http.HttpSession;
 
 @ManagedBean
 @RequestScoped
@@ -51,6 +52,13 @@ public class LoginBean implements Serializable {
         LoginEntity loginEntity = new LoginEntity();
         loginEntity.setUsername(this.username);
         loginEntity.setPassword(this.password);
+        // for UserBean
+
+        HttpSession session = SessionBean.getSession();
+
+        LOGGER.info("This is sudhakar>>>>" + this.username);
+        session.setAttribute("username", this.username);
+
         return prpFacade.checkLogin(loginEntity);
     }
 }

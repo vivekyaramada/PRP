@@ -32,7 +32,7 @@ public class prpValidation {
             return "failure";
     }
 
-    public void writeData(AddCheckEntity datachecks) {
+    public String writeData(AddCheckEntity datachecks) {
 
         LOGGER.info("checkNumber2>>>" + datachecks.getCheckNumber());
         LOGGER.info("rsn2>>>" + datachecks.getRsn());
@@ -44,12 +44,10 @@ public class prpValidation {
         LOGGER.info("checkName>2>>" + datachecks.getCheckName());
         LOGGER.info("note2>>>" + datachecks.getNote());
         LOGGER.info("checkDate2>>>" + datachecks.getCheckDate());
-
-
 
        try {
 
-            String urlString = "http://localhost:9073/prp-ws/hello/addcheck/"+ datachecks.getSponsor();
+            String urlString = "http://localhost:9093/prp-ws/hello/addcheck/"+ datachecks.getSponsor();
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();
             conn.setRequestMethod("GET");
@@ -57,21 +55,47 @@ public class prpValidation {
            LOGGER.info("the called urlString is" + urlString);
             BufferedReader br = new BufferedReader(new InputStreamReader(
                     (conn.getInputStream())));
-           /* String response = br.readLine();
+            conn.disconnect();
+           return "success";
+        } catch (MalformedURLException e) {
+            e.printStackTrace();
+           return "failure";
+        } catch (IOException e) {
+            e.printStackTrace();
+           return "failure";
+        }
+
+    }
+
+
+
+    public ArrayList getApplications(String keyword) {
+        ArrayList applications = new ArrayList();
+        Gson gson = new Gson();
+
+        try {
+            String urlString = "http://localhost:9093/prp-ws/hello/applications/" + keyword;
+            URL url = new URL(urlString);
+            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
+            conn.setRequestMethod("GET");
+            conn.setRequestProperty("Accept", "application/json");
+            BufferedReader br = new BufferedReader(new InputStreamReader(
+                    (conn.getInputStream())));
+            String response = br.readLine();
             Type listOfTestObject = new TypeToken<List<PrpAplctnEntity>>() {
             }.getType();
             ArrayList<PrpAplctnEntity> list = gson.fromJson(response, listOfTestObject);
 
             for (int i = 0; i < list.size(); i++) {
                 applications.add(list.get(i));
-            }*/
+            }
             conn.disconnect();
         } catch (MalformedURLException e) {
             e.printStackTrace();
         } catch (IOException e) {
             e.printStackTrace();
         }
-
+        return applications;
     }
 }
 
