@@ -14,10 +14,7 @@ import com.google.gson.Gson;
 import gov.hhs.cms.prp.dao.DAOFactory;
 import gov.hhs.cms.prp.entity.*;
 
-import javax.ws.rs.GET;
-import javax.ws.rs.Path;
-import javax.ws.rs.PathParam;
-import javax.ws.rs.Produces;
+import javax.ws.rs.*;
 import java.util.Collection;
 import java.util.logging.Logger;
 import javax.persistence.PersistenceUnit;
@@ -43,10 +40,12 @@ public class PrpApplicationService {
         return applicationServiceDAO.getMsg(applPsId);
     }
 
-    @GET
+    @POST
     @Path("addcheck/{param}")
-    @Produces("application/json")
+
     public void addchecks(@PathParam("param") String applPsId) {
+
+        LOGGER.info("Inside the webservice >>>>>>>>>>>>>>>>" );
         DAOFactory mysqlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
         ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
         applicationServiceDAO.addchecks(applPsId);

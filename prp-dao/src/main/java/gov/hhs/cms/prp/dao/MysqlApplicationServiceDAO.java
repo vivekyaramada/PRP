@@ -3,6 +3,7 @@ package gov.hhs.cms.prp.dao;
 import com.google.gson.Gson;
 import gov.hhs.cms.prp.entity.PrpAplctnEntity;
 import gov.hhs.cms.prp.entity.PrpEvntNwEntity;
+import gov.hhs.cms.prp.entity.UserDetails;
 
 import javax.persistence.*;
 import java.sql.Timestamp;

@@ -12,6 +12,7 @@ import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import java.io.Serializable;
 import java.util.Date;
+import javax.servlet.http.HttpSession;
 
 import gov.hhs.cms.prp.entity.*;
 
@@ -103,6 +104,9 @@ public class AddCheckBean implements Serializable {
     public String writeData() {
         prpFacade prpFacade = new prpFacade();
         AddCheckEntity addCheckEntity = new AddCheckEntity(sponsor, checkAmount, checkNumber, rsn, checkName, note, checkDate);
-        return prpFacade.writeData(addCheckEntity);
+        HttpSession session = SessionBean.getSession();
+        UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
+userDetails.setCheckName(this.checkName);
+        return prpFacade.writeData(addCheckEntity,userDetails);
     }
 }

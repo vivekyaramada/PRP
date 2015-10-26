@@ -5,6 +5,7 @@ import com.google.gson.reflect.TypeToken;
 import gov.hhs.cms.prp.entity.AddCheckEntity;
 import gov.hhs.cms.prp.entity.LoginEntity;
 import gov.hhs.cms.prp.entity.PrpAplctnEntity;
+import gov.hhs.cms.prp.entity.UserDetails;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -25,14 +26,14 @@ public class prpValidation {
     private final static Logger LOGGER = Logger.getLogger(prpValidation.class.getName());
 
 
-    public String checkLogin(LoginEntity datalogin) {
+    public String checkLogin(LoginEntity datalogin,UserDetails userDetails) {
         if (datalogin.getUsername().equals("vivek") && datalogin.getPassword().equals("password")) {
             return "success";
         } else
             return "failure";
     }
 
-    public String writeData(AddCheckEntity datachecks) {
+    public String writeData(AddCheckEntity datachecks,UserDetails userDetails) {
 
         LOGGER.info("checkNumber2>>>" + datachecks.getCheckNumber());
         LOGGER.info("rsn2>>>" + datachecks.getRsn());
@@ -46,7 +47,6 @@ public class prpValidation {
         LOGGER.info("checkDate2>>>" + datachecks.getCheckDate());
 
        try {
-
             String urlString = "http://localhost:9093/prp-ws/hello/addcheck/"+ datachecks.getSponsor();
             URL url = new URL(urlString);
             HttpURLConnection conn = (HttpURLConnection) url.openConnection();

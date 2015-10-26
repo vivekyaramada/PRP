@@ -10,7 +10,7 @@ import javax.servlet.http.HttpSession;
 public class SessionBean {
     public static HttpSession getSession() {
         return (HttpSession) FacesContext.getCurrentInstance()
-                .getExternalContext().getSession(false);
+                .getExternalContext().getSession(true);
     }
 
     public static HttpServletRequest getRequest() {
@@ -21,7 +21,7 @@ public class SessionBean {
     public static String getUserName() {
         HttpSession session = (HttpSession) FacesContext.getCurrentInstance()
                 .getExternalContext().getSession(false);
-        return session.getAttribute("username").toString();
+        return session.getAttribute("username1").toString();
     }
 
     public static String getUserId() {

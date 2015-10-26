@@ -41,13 +41,14 @@ public class prpFacade {
         return applications;
     }
 
-    public String checkLogin(LoginEntity datalogin) {
-       /* HttpSession session = SessionBean.getSession();
+    public String checkLogin(LoginEntity datalogin,UserDetails userDetails) {
+        /*HttpSession session = SessionBean.getSession();
         LOGGER.info("SATHVIK>>>>>>>>>>>>" + session.getAttribute("username"));*/
-        return prpValidation.checkLogin(datalogin);
+        return prpValidation.checkLogin(datalogin,userDetails);
     }
 
-    public String writeData(AddCheckEntity datachecks) {
-       return prpValidation.writeData(datachecks);
+    public String writeData(AddCheckEntity datachecks,UserDetails userDetails) {
+        LOGGER.info("SATHVIK>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+ userDetails.getCheckName() + userDetails.getPassword() + userDetails.getUsername());
+       return prpValidation.writeData(datachecks,userDetails);
     }
 }
