@@ -8,7 +8,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * Created by VivekKumar.ReddyYara on 10/20/2015.
+ * Created by VivekKumar.ReddyYara on 10/28/2015.
  */
 @Entity
 @javax.persistence.Table(name = "prp_evnt_nw", schema = "", catalog = "prp")

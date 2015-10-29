@@ -1,5 +1,7 @@
-package gov.hhs.cms.prp.dao;
+package gov.hhs.coms.prp.dao.factory;
 
+
+import gov.hhs.cms.prp.dao.ApplicationServiceDAO;
 
 // Abstract class DAO Factory
 public abstract class DAOFactory {

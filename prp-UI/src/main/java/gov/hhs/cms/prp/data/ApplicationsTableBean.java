@@ -2,10 +2,13 @@ package gov.hhs.cms.prp.data;
 
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
+import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
 import java.util.logging.Logger;
 
+import gov.hhs.cms.prp.entity.SessionBean;
+import gov.hhs.cms.prp.entity.UserDetails;
 import gov.hhs.cms.prp.facade.prpFacade;
 import sun.rmi.runtime.Log;
 
@@ -30,6 +33,8 @@ public class ApplicationsTableBean implements Serializable {
     }
 
     public ArrayList getApplications() {
+        HttpSession session = SessionBean.getSession();
+        UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
 
         ArrayList applications = new ArrayList();
 
@@ -39,7 +44,7 @@ public class ApplicationsTableBean implements Serializable {
         } else {
             prpFacade prpFacade = new prpFacade();
 
-            return prpFacade.getApplications(keyword);
+            return prpFacade.getApplications(keyword,userDetails);
         }
     }
 

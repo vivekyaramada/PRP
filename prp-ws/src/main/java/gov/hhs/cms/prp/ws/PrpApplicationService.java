@@ -6,20 +6,14 @@ package gov.hhs.cms.prp.ws;
 
 
 import javax.persistence.EntityManagerFactory;
-import javax.persistence.EntityManager;
-import javax.persistence.Persistence;
-import javax.persistence.Query;
 
-import com.google.gson.Gson;
-import gov.hhs.cms.prp.dao.DAOFactory;
-import gov.hhs.cms.prp.entity.*;
+import gov.hhs.coms.prp.dao.factory.DAOFactory;
 
 import javax.ws.rs.*;
-import java.util.Collection;
 import java.util.logging.Logger;
 import javax.persistence.PersistenceUnit;
-import java.sql.Timestamp;
-import java.util.Date;
+import gov.hhs.cms.prp.entity.UserDetails;
+
 import gov.hhs.cms.prp.dao.ApplicationServiceDAO;
 
 @Path("/hello")
@@ -30,9 +24,10 @@ public class PrpApplicationService {
     private EntityManagerFactory factory;
 
     @GET
-    @Path("applications/{param}")
-    @Produces("application/json")
-    public String getMsg(@PathParam("param") int applPsId) {
+       @Path("applications/{param}/{name}")
+       @Produces("application/json")
+       public String getMsg(@PathParam("param") int applPsId , @PathParam("name") String name) {
+
         DAOFactory mysqlDAOFactory =
                 DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
@@ -40,12 +35,24 @@ public class PrpApplicationService {
         return applicationServiceDAO.getMsg(applPsId);
     }
 
-    @POST
-    @Path("addcheck/{param}")
+    @GET
+    @Path("checklogin/{param}/{name}")
+    @Produces("application/json")
+    public String checkLogin(@PathParam("param") String username, @PathParam("name") String name) {
 
-    public void addchecks(@PathParam("param") String applPsId) {
+    DAOFactory mysqlDAOFactory =
+                DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
-        LOGGER.info("Inside the webservice >>>>>>>>>>>>>>>>" );
+        ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
+        return applicationServiceDAO.checkLogin(username);
+    }
+
+
+
+    @GET
+    @Path("addcheck/{param}/{name}")
+    @Produces("application/json")
+    public void addchecks(@PathParam("param") String applPsId, @PathParam("name") String name) {
         DAOFactory mysqlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
         ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
         applicationServiceDAO.addchecks(applPsId);

@@ -3,7 +3,7 @@ package gov.hhs.cms.prp.dao;
 import com.google.gson.Gson;
 import gov.hhs.cms.prp.entity.PrpAplctnEntity;
 import gov.hhs.cms.prp.entity.PrpEvntNwEntity;
-import gov.hhs.cms.prp.entity.UserDetails;
+import gov.hhs.cms.prp.entity.PrpUsersEntity;
 
 import javax.persistence.*;
 import java.sql.Timestamp;
@@ -30,6 +30,22 @@ public class MysqlApplicationServiceDAO implements ApplicationServiceDAO{
         factory.close();
         return new Gson().toJson(list);
     }
+
+    public String checkLogin(String usrname)
+    {
+        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
+        EntityManager em = factory.createEntityManager();
+        String sql = "SELECT e FROM PrpUsersEntity e where e.usrNm =" +" '"+ usrname+"' ";
+        LOGGER.info("The SQL query is >>>>>>" + sql);
+        Query query = em.createQuery(sql);
+        Collection<PrpUsersEntity> list = (Collection<PrpUsersEntity>) query.getResultList();
+        em.close();
+        factory.close();
+        return new Gson().toJson(list);
+
+    }
+
+
 
     public void addchecks(String applPsId) {
         factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
