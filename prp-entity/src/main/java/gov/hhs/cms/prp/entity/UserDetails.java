@@ -9,16 +9,6 @@ public class UserDetails {
 
     private String password;
 
-    public String getCheckName() {
-        return checkName;
-    }
-
-    public void setCheckName(String checkName) {
-        this.checkName = checkName;
-    }
-
-    private String checkName;
-
 
     public String getUsername() {
         return username;
