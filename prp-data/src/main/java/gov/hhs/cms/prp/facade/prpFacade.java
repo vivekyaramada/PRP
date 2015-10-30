@@ -41,6 +41,11 @@ public class prpFacade {
         return applications;
     }
 
+    public ArrayList getEvents(String keyword) {
+        ArrayList events = prpValidation.getEvents(keyword);
+        return events;
+    }
+
     public String checkLogin(LoginEntity datalogin,UserDetails userDetails) {
         /*HttpSession session = SessionBean.getSession();
         LOGGER.info("SATHVIK>>>>>>>>>>>>" + session.getAttribute("username"));*/

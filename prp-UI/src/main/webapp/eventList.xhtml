@@ -1,0 +1,186 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN"
+        "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://java.sun.com/jsf/facelets"
+      xmlns:h="http://java.sun.com/jsf/html"
+      xmlns:f="http://java.sun.com/jsf/core"
+      xmlns:fn="http://java.sun.com/jsp/jstl/functions"
+      xmlns:c="http://java.sun.com/jsp/jstl/core"
+      xmlns:p="http://primefaces.org/ui">
+
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1"/>
+
+    <link rel="stylesheet" href="resources/css/bootstrap.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/bootstrap.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/bootstrap-theme.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/bootstrap-theme.min.css" type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/style.css" type="text/css" media="all" />
+    <link rel="stylesheet" href="resources/css/primefaces.css"  type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/theme.css"  type="text/css" media="all"/>
+    <link rel="stylesheet" href="resources/css/project.css" type="text/css" media="all"/>
+
+    <title>Insert title here</title>
+
+</head>
+<h:body styleClass="container">
+    <h:form>
+        <ui:composition template="/WEB-INF/templates/commonTemplate.xhtml">
+            <ui:define name="content">
+                <div id="inner-main" align="justify" class='table-bordered alert-warning'>
+                    <div  class="leftContent">
+                        <h:form id="ApplicationsForm">
+                            <h1 align="center"> EVENTS BY APPLICATION ID </h1>
+                            <div align="left" style="padding-left: 5%">Application ID
+
+                                <h:inputText id="keyword"  value="#{eventListBean.keyword}" />
+                                &nbsp;&nbsp;&nbsp;
+                                <h:commandButton id="search" value="Search" action="#{eventListBean.searchEvents}"/>
+
+                            </div>
+                            <div class="text-content">
+
+                                <div id="MENUSIDE" class="ps-container" style="height: 543px;">
+
+                                        <span id="SubMenu-Input" class="MenuSideMainLink bordersOfMenuSide" onclick="Showcase.openSubMenu(this);">
+                                                 </span>
+                                    <div class="SubMenuLinkContainer">
+
+                                        <a class="SubMenuLink" href="/../prp-UI/addcheck.xhtml">Add Check</a>
+                                        <br/>
+                                        <br/>
+                                        <a class="SubMenuLink" href="/../prp-UI/applications.xhtml">Applications</a>
+                                        <br/>
+                                        <br/>
+                                        <a class="SubMenuLink">Event List</a>
+                                    </div>
+
+
+                                </div>
+                                <p:dataTable value="#{eventListBean.events}" var="values" border="1" width="100%" widgetVar="values">
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="Number"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center">  #{values.evntNum}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="Event"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.evntTypeCd}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="Origin"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.evntOrgnCd}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="Reason"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.rsnCd}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="Processed"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.procTs}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="User"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.userName}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="Cycle Date"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.cycDt}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-center" value="Cycle Number"/>
+                                            </div>
+                                        </f:facet>
+
+                                        <div align="center"> #{values.cycNum}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-right" value="Transaction"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.transAmt}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-right" value="Payable"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.pyblAmt}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-right" value="Int Adj"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.intrmAdjstmtAmt}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-right" value="Unapplied"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.unapldCashAmt}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-right" value="Principal"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.rcvblPrncpalAmt}</div>
+                                    </p:column>
+                                    <p:column>
+                                        <f:facet name="header">
+                                            <div align="center">
+                                                <h:outputText styleClass="alert-danger text-right" value="Interest"/>
+                                            </div>
+                                        </f:facet>
+                                        <div align="center"> #{values.rcvblIntrstAmt}</div>
+                                    </p:column>
+                                </p:dataTable>
+                            </div>
+
+                        </h:form>
+                    </div>
+                </div>
+
+            </ui:define>
+        </ui:composition>
+    </h:form>
+</h:body>
+</html>

@@ -3,6 +3,7 @@ package gov.hhs.cms.prp.dao;
 import com.google.gson.Gson;
 import gov.hhs.cms.prp.entity.PrpAplctnEntity;
 import gov.hhs.cms.prp.entity.PrpEvntNwEntity;
+import gov.hhs.cms.prp.entity.PrpEvntFinalEntity;
 import gov.hhs.cms.prp.entity.UserDetails;
 
 import javax.persistence.*;
@@ -37,7 +38,8 @@ public class MysqlApplicationServiceDAO implements ApplicationServiceDAO{
         em.getTransaction().begin();
         LOGGER.info("Calling the query statement in addcheck method from DAO.>>>>>>>>>>>>>");
         PrpEvntNwEntity insertPrpEvntNwEntity = new PrpEvntNwEntity();
-        insertPrpEvntNwEntity.setPlanSpnsrIdent(applPsId);
+        //insertPrpEvntNwEntity.setPlanSpnsrIdent(applPsId);
+        insertPrpEvntNwEntity.setPlanSpnsrIdent(Integer.getInteger(applPsId));
         insertPrpEvntNwEntity.setEvntTypeCd("CR");
         insertPrpEvntNwEntity.setEvntOrgnCd("C");
         insertPrpEvntNwEntity.setProcTs(new Timestamp(new java.util.Date().getTime()));
@@ -45,5 +47,18 @@ public class MysqlApplicationServiceDAO implements ApplicationServiceDAO{
         insertPrpEvntNwEntity.setEvntCtgry("CR");
         em.persist(insertPrpEvntNwEntity);
         em.getTransaction().commit();
+    }
+
+    public String getEvents(int applId)
+    {
+        //LOGGER.info("MysqlApplicationServiceDAO.getEvents, applid=" + applId);
+        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
+        EntityManager em = factory.createEntityManager();
+        String sql = "SELECT e FROM PrpEvntFinalEntity e where e.aplctnIdent = " + applId;
+        Query query = em.createQuery(sql);
+        Collection<PrpEvntFinalEntity> list = (Collection<PrpEvntFinalEntity>) query.getResultList();
+        em.close();
+        factory.close();
+        return new Gson().toJson(list);
     }
 }

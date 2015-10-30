@@ -2,15 +2,16 @@
 <persistence xmlns="http://java.sun.com/xml/ns/persistence" version="2.0">
 
     <persistence-unit name="PRPpersistenceUnit">
+        <class>gov.hhs.cms.prp.entity.PrpAplctnEntity</class>
         <class>gov.hhs.cms.prp.entity.PrpEvntFinalEntity</class>
         <class>gov.hhs.cms.prp.entity.PrpEvntNwEntity</class>
         <class>gov.hhs.cms.prp.entity.PrpEvntStagEntity</class>
         <class>gov.hhs.cms.prp.entity.RdsEvntTypeCdEntity</class>
         <properties>
-            <property name="openjpa.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/MySQL"/>
+            <property name="openjpa.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/prp"/>
             <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
-            <property name="openjpa.ConnectionUserName"/>
-            <property name="openjpa.ConnectionPassword"/>
+            <property name="openjpa.ConnectionUserName" value="root"/>
+            <property name="openjpa.ConnectionPassword" value="root"/>
         </properties>
     </persistence-unit>
 </persistence>

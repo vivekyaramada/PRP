@@ -9,5 +9,6 @@ import gov.hhs.cms.prp.entity.UserDetails;
 public interface ApplicationServiceDAO {
 
     public String getMsg(int applPsId);
+    public String getEvents(int applId);
     public void addchecks(String applPsId);
 }
