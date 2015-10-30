@@ -3028,6 +3028,12 @@
       <column name="EVNT_CTGRY_DATA" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="PK_PRP_EVENT_ID"/>
     </table>
+    <table name="prp_users" schema="" catalog="prp" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="usr_nm" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="passwd" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
     <table name="rds_evnt_type_cd" schema="" catalog="prp" type="TABLE">
       <column name="EVNT_TYPE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
       <column name="EVNT_TYPE_CD" sqlType="CHAR" precision="2" scale="0" nullable="true" jdbcType="1"/>
@@ -3137,6 +3143,12 @@
       <column name="EVNT_CTGRY" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
       <column name="EVNT_CTGRY_DATA" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
       <primary-key name="PRIMARY" columns="PK_PRP_EVENT_ID"/>
+    </table>
+    <table name="prp_users" schema="" catalog="prp" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="usr_nm" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="passwd" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
     </table>
     <table name="rds_evnt_type_cd" schema="" catalog="prp" type="TABLE">
       <column name="EVNT_TYPE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
