@@ -3,13 +3,13 @@ package gov.hhs.cms.prp.data; /**
  */
 
 import java.io.Serializable;
-import java.util.logging.Logger;
+import org.apache.log4j.Logger;
 
 
 public class ApplicationsBean implements Serializable {
 
 
-    private final static Logger LOGGER = java.util.logging.Logger.getLogger(ApplicationsBean.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(ApplicationsBean.class.getName());
 
     private String sponsor;
     private String appid;

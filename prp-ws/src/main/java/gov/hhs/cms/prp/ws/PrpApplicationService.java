@@ -7,14 +7,19 @@ package gov.hhs.cms.prp.ws;
 
 import javax.persistence.EntityManagerFactory;
 
-import gov.hhs.coms.prp.dao.factory.DAOFactory;
+
 
 import javax.ws.rs.*;
-import java.util.logging.Logger;
-import javax.persistence.PersistenceUnit;
-import gov.hhs.cms.prp.entity.UserDetails;
 
-import gov.hhs.cms.prp.dao.ApplicationServiceDAO;
+import gov.hhs.cms.prp.dao.bean.AddChecksDAOBean;
+import gov.hhs.cms.prp.dao.bean.CheckLoginDAOBean;
+import gov.hhs.cms.prp.dao.bean.GetMsgDAOBean;
+import gov.hhs.coms.prp.dao.factory.MySQLDAOFactory;
+import  org.apache.log4j.Logger;
+import javax.persistence.PersistenceUnit;
+
+
+
 
 @Path("/hello")
 public class PrpApplicationService {
@@ -22,17 +27,22 @@ public class PrpApplicationService {
 
     @PersistenceUnit
     private EntityManagerFactory factory;
+    MySQLDAOFactory mySQLDAOFactory;
+
+
+    public PrpApplicationService() {
+
+        mySQLDAOFactory = new MySQLDAOFactory();
+    }
+
 
     @GET
        @Path("applications/{param}/{name}")
        @Produces("application/json")
        public String getMsg(@PathParam("param") int applPsId , @PathParam("name") String name) {
 
-        DAOFactory mysqlDAOFactory =
-                DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-
-        ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
-        return applicationServiceDAO.getMsg(applPsId);
+        GetMsgDAOBean getMsgDAOBean = (GetMsgDAOBean) mySQLDAOFactory.getBean("getmsgdaobean");
+        return getMsgDAOBean.getMsg(applPsId);
     }
 
     @GET
@@ -40,21 +50,16 @@ public class PrpApplicationService {
     @Produces("application/json")
     public String checkLogin(@PathParam("param") String username, @PathParam("name") String name) {
 
-    DAOFactory mysqlDAOFactory =
-                DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
-        ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
-        return applicationServiceDAO.checkLogin(username);
+        CheckLoginDAOBean checkLoginDAOBean = (CheckLoginDAOBean) mySQLDAOFactory.getBean("checklogindaobean");
+        return checkLoginDAOBean.checkLogin(username);
     }
-
-
 
     @GET
     @Path("addcheck/{param}/{name}")
     @Produces("application/json")
     public void addchecks(@PathParam("param") String applPsId, @PathParam("name") String name) {
-        DAOFactory mysqlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-        ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
-        applicationServiceDAO.addchecks(applPsId);
+        AddChecksDAOBean addChecksDAOBean = (AddChecksDAOBean) mySQLDAOFactory.getBean("addchecksdaobean");
+        addChecksDAOBean.addchecks(applPsId);
     }
 }

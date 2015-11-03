@@ -2,9 +2,14 @@ package gov.hhs.cms.prp.facade;
 
 import gov.hhs.cms.prp.entity.*;
 
-import javax.servlet.http.HttpSession;
 import java.util.ArrayList;
-import java.util.logging.Logger;
+
+import gov.hhs.cms.prp.facadebeans.CheckLoginBean;
+import gov.hhs.cms.prp.facadebeans.GetApplicationsBean;
+import gov.hhs.cms.prp.facadebeans.WriteDataBean;
+import  org.apache.log4j.Logger;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
+import org.springframework.context.ApplicationContext;
 
 
 /**
@@ -24,29 +29,33 @@ public class prpFacade {
 
     private LoginEntity loginEntity;
 
+    ApplicationContext context;
 
-
-
-    private prpValidation prpValidation;
 
 
     public prpFacade() {
 
-        prpValidation = new prpValidation();
+       context = new ClassPathXmlApplicationContext("beans.xml");
     }
 
     public ArrayList getApplications(String keyword,UserDetails userDetails) {
+        GetApplicationsBean getApplicationsBean = (GetApplicationsBean) context.getBean("getapplicationsbean");
 
-        ArrayList applications = prpValidation.getApplications(keyword,userDetails);
-        return applications;
+        return getApplicationsBean.getApplications(keyword,userDetails);
     }
 
     public String checkLogin(LoginEntity datalogin,UserDetails userDetails) {
 
-        return prpValidation.checkLogin(datalogin,userDetails);
+
+        CheckLoginBean checkLoginBean = (CheckLoginBean) context.getBean("checkloginbean");
+        return checkLoginBean.checkLogin(datalogin,userDetails);
+
     }
 
     public String writeData(AddCheckEntity datachecks,UserDetails userDetails) {
-       return prpValidation.writeData(datachecks,userDetails);
+
+        WriteDataBean writeDataBean =  (WriteDataBean) context.getBean("writedatabean");
+
+       return writeDataBean.writeData(datachecks,userDetails);
     }
 }

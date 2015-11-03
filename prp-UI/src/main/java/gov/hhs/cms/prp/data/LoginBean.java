@@ -6,14 +6,14 @@ import gov.hhs.cms.prp.facade.prpFacade;
 import javax.faces.bean.ManagedBean;
 import javax.faces.bean.RequestScoped;
 import java.io.Serializable;
-import java.util.logging.Logger;
+import  org.apache.log4j.Logger;
 import javax.servlet.http.HttpSession;
 
 @ManagedBean
 @RequestScoped
 public class LoginBean implements Serializable {
 
-    private final static Logger LOGGER = java.util.logging.Logger.getLogger(LoginBean.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(LoginBean.class.getName());
 
     private String username;
     private String password;

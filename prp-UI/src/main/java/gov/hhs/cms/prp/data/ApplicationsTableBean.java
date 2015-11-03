@@ -5,8 +5,7 @@ import javax.faces.bean.RequestScoped;
 import javax.servlet.http.HttpSession;
 import java.io.Serializable;
 import java.util.ArrayList;
-import java.util.logging.Logger;
-
+import  org.apache.log4j.Logger;
 import gov.hhs.cms.prp.entity.SessionBean;
 import gov.hhs.cms.prp.entity.UserDetails;
 import gov.hhs.cms.prp.facade.prpFacade;
@@ -16,7 +15,7 @@ import sun.rmi.runtime.Log;
 @RequestScoped
 public class ApplicationsTableBean implements Serializable {
 
-    private final static Logger LOGGER = java.util.logging.Logger.getLogger(ApplicationsTableBean.class.getName());
+    private final static Logger LOGGER = Logger.getLogger(ApplicationsTableBean.class.getName());
 
     public ApplicationsTableBean() {
     }

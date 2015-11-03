@@ -1,7 +1,7 @@
 package gov.hhs.coms.prp.dao.factory;
 
 
-import gov.hhs.cms.prp.dao.ApplicationServiceDAO;
+
 
 // Abstract class DAO Factory
 public abstract class DAOFactory {
@@ -16,7 +16,7 @@ public abstract class DAOFactory {
     // There will be a method for each DAO that can be
     // created. The concrete factories will have to
     // implement these methods.
-    public abstract ApplicationServiceDAO getApplicationServiceDAO();
+
 
     public static DAOFactory getDAOFactory(
             int whichFactory) {

@@ -1,3 +1,4 @@
+/*
 package gov.hhs.cms.prp.dao;
 
 import com.google.gson.Gson;
@@ -8,11 +9,13 @@ import gov.hhs.cms.prp.entity.PrpUsersEntity;
 import javax.persistence.*;
 import java.sql.Timestamp;
 import java.util.Collection;
-import java.util.logging.Logger;
+import  org.apache.log4j.Logger;
 
+*/
 /**
  * Created by VivekKumar.ReddyYara on 10/23/2015.
- */
+ *//*
+
 public class MysqlApplicationServiceDAO implements ApplicationServiceDAO{
     private final static Logger LOGGER = Logger.getLogger(MysqlApplicationServiceDAO.class.getName());
 
@@ -51,6 +54,7 @@ public class MysqlApplicationServiceDAO implements ApplicationServiceDAO{
         factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
+
         LOGGER.info("Calling the query statement in addcheck method from DAO.>>>>>>>>>>>>>");
         PrpEvntNwEntity insertPrpEvntNwEntity = new PrpEvntNwEntity();
         insertPrpEvntNwEntity.setPlanSpnsrIdent(applPsId);
@@ -63,3 +67,4 @@ public class MysqlApplicationServiceDAO implements ApplicationServiceDAO{
         em.getTransaction().commit();
     }
 }
+*/
