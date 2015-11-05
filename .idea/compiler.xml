@@ -18,6 +18,7 @@
         <module name="prp-dz-ear" />
         <module name="prp-ear" />
         <module name="prp-entity" />
+        <module name="prp-mq" />
         <module name="prp-UI" />
         <module name="prp-ws" />
       </profile>
@@ -30,6 +31,7 @@
       <module name="prp-dz-ear" target="1.5" />
       <module name="prp-ear" target="1.5" />
       <module name="prp-entity" target="1.5" />
+      <module name="prp-mq" target="1.5" />
       <module name="prp-UI" target="1.5" />
       <module name="prp-ws" target="1.5" />
       <module name="PRPCONVERSION" target="1.5" />

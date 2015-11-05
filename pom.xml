@@ -16,6 +16,7 @@
   <module>prp-ear</module>
   <module>prp-dao</module>
   <module>prp-ws</module>
+  <module>prp-mq</module>
   <module>prp-az-ear</module>
   <module>prp-dz-ear</module>
 </modules>

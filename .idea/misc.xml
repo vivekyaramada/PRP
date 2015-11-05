@@ -55,6 +55,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/prp-data/pom.xml" />
+        <option value="$PROJECT_DIR$/prp-mq/pom.xml" />
       </list>
     </option>
   </component>

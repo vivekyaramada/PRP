@@ -9,8 +9,8 @@
       <module fileurl="file://$PROJECT_DIR$/prp-data/prp-data.iml" filepath="$PROJECT_DIR$/prp-data/prp-data.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-dz-ear/prp-dz-ear.iml" filepath="$PROJECT_DIR$/prp-dz-ear/prp-dz-ear.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-ear/prp-ear.iml" filepath="$PROJECT_DIR$/prp-ear/prp-ear.iml" />
-      <module fileurl="file://$PROJECT_DIR$/prp-ear/prp-ear.iml" filepath="$PROJECT_DIR$/prp-ear/prp-ear.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-entity/prp-entity.iml" filepath="$PROJECT_DIR$/prp-entity/prp-entity.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prp-mq/prp-mq.iml" filepath="$PROJECT_DIR$/prp-mq/prp-mq.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-ws/prp-ws.iml" filepath="$PROJECT_DIR$/prp-ws/prp-ws.iml" />
     </modules>
   </component>
