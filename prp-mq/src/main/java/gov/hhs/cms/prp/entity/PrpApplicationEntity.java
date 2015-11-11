@@ -6,7 +6,7 @@ import java.sql.Timestamp;
 /**
  * Created by jarsen on 10/28/15.
  */
-public class PrpAplctnEntity {
+public class PrpApplicationEntity {
     private int applId;
     private int applPsId;
     private String applPsCompany;
@@ -139,7 +139,7 @@ public class PrpAplctnEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PrpAplctnEntity that = (PrpAplctnEntity) o;
+        PrpApplicationEntity that = (PrpApplicationEntity) o;
 
         if (applId != that.applId) return false;
         if (applPsId != that.applPsId) return false;
@@ -187,7 +187,7 @@ public class PrpAplctnEntity {
 
     @Override
     public String toString() {
-        return "PrpAplctnEntity{" +
+        return "PrpApplicationEntity{" +
                 "applId=" + applId +
                 ", applPsId=" + applPsId +
                 ", applPsCompany='" + applPsCompany + '\'' +
