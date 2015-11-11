@@ -106,7 +106,7 @@ public class AddCheckBean implements Serializable {
         AddCheckEntity addCheckEntity = new AddCheckEntity(sponsor, checkAmount, checkNumber, rsn, checkName, note, checkDate);
         HttpSession session = SessionBean.getSession();
         UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
-userDetails.setCheckName(this.checkName);
+
         return prpFacade.writeData(addCheckEntity,userDetails);
     }
 }

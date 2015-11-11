@@ -2,7 +2,10 @@ package gov.hhs.cms.prp.facade;
 
 import com.google.gson.Gson;
 import com.google.gson.reflect.TypeToken;
-import gov.hhs.cms.prp.entity.*;
+import gov.hhs.cms.prp.entity.AddCheckEntity;
+import gov.hhs.cms.prp.entity.LoginEntity;
+import gov.hhs.cms.prp.entity.PrpAplctnEntity;
+import gov.hhs.cms.prp.entity.UserDetails;
 
 import java.io.BufferedReader;
 import java.io.IOException;
@@ -64,6 +67,8 @@ public class prpValidation {
 
     }
 
+
+
     public ArrayList getApplications(String keyword) {
         ArrayList applications = new ArrayList();
         Gson gson = new Gson();
@@ -91,34 +96,6 @@ public class prpValidation {
             e.printStackTrace();
         }
         return applications;
-    }
-
-    public ArrayList getEvents(String keyword) {
-        ArrayList events = new ArrayList();
-        Gson gson = new Gson();
-
-        try {
-            String urlString = "http://localhost:9093/prp-ws/hello/events/" + keyword;
-            URL url = new URL(urlString);
-            HttpURLConnection conn = (HttpURLConnection) url.openConnection();
-            conn.setRequestMethod("GET");
-            conn.setRequestProperty("Accept", "application/json");
-            BufferedReader br = new BufferedReader(new InputStreamReader(
-                    (conn.getInputStream())));
-            String response = br.readLine();
-            Type listOfTestObject = new TypeToken<List<PrpEvntFinalEntity>>() { }.getType();
-            ArrayList<PrpEvntFinalEntity> list = gson.fromJson(response, listOfTestObject);
-
-            for (int i = 0; i < list.size(); i++) {
-                events.add(list.get(i));
-            }
-            conn.disconnect();
-        } catch (MalformedURLException e) {
-            e.printStackTrace();
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        return events;
     }
 }
 

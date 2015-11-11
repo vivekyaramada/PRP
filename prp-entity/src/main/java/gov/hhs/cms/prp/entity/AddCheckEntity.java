@@ -2,10 +2,6 @@ package gov.hhs.cms.prp.entity; /**
  * Created by VivekKumar.ReddyYara on 9/2/2015.
  */
 
-
-import org.apache.logging.log4j.LogManager;
-import org.apache.logging.log4j.Logger;
-
 import javax.faces.bean.ManagedBean;
 import java.io.Serializable;
 import java.util.Date;
@@ -22,7 +18,7 @@ public class AddCheckEntity implements Serializable {
     private Date checkDate;
 
 
-    private static final Logger logger = LogManager.getLogger("checks");
+
 
     public AddCheckEntity(String sponsor, double checkAmount, String checkNumber, String rsn, String checkName, String note, Date checkDate) {
         this.sponsor = sponsor;

@@ -54,14 +54,12 @@ public class LoginBean implements Serializable {
         loginEntity.setPassword(this.password);
         // for UserBean
         HttpSession session = SessionBean.getSession();
-        LOGGER.info("This is sudhakar>>>>" + this.username);
-
-
 
         UserDetails userDetails = new UserDetails();
         userDetails.setUsername(this.username);
         userDetails.setPassword(this.password);
         session.setAttribute("userDetails", userDetails);
+
         return prpFacade.checkLogin(loginEntity,userDetails);
     }
 }

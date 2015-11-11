@@ -11,4 +11,5 @@ public interface ApplicationServiceDAO {
     public String getMsg(int applPsId);
     public String getEvents(int applId);
     public void addchecks(String applPsId);
+    public String checkLogin(String username);
 }

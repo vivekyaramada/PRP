@@ -30,26 +30,14 @@ public class PrpApplicationService {
     private EntityManagerFactory factory;
 
     @GET
-     @Path("applications/{param}")
-     @Produces("application/json")
-     public String getMsg(@PathParam("param") int applPsId) {
+    @Path("applications/{param}")
+    @Produces("application/json")
+    public String getMsg(@PathParam("param") int applPsId) {
         DAOFactory mysqlDAOFactory =
                 DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
         ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
         return applicationServiceDAO.getMsg(applPsId);
-    }
-
-    @GET
-    @Path("events/{param}")
-    @Produces("application/json")
-    public String getEvents(@PathParam("param") int applId) {
-        LOGGER.info("PrpApplicationService.getEvents, applid=" + applId);
-        DAOFactory mysqlDAOFactory =
-                DAOFactory.getDAOFactory(DAOFactory.MYSQL);
-
-        ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
-        return applicationServiceDAO.getEvents(applId);
     }
 
     @POST

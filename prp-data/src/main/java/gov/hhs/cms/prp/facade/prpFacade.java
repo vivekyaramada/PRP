@@ -35,9 +35,9 @@ public class prpFacade {
         prpValidation = new prpValidation();
     }
 
-    public ArrayList getApplications(String keyword) {
+    public ArrayList getApplications(String keyword,UserDetails userDetails) {
 
-        ArrayList applications = prpValidation.getApplications(keyword);
+        ArrayList applications = prpValidation.getApplications(keyword,userDetails);
         return applications;
     }
 
@@ -47,13 +47,11 @@ public class prpFacade {
     }
 
     public String checkLogin(LoginEntity datalogin,UserDetails userDetails) {
-        /*HttpSession session = SessionBean.getSession();
-        LOGGER.info("SATHVIK>>>>>>>>>>>>" + session.getAttribute("username"));*/
+
         return prpValidation.checkLogin(datalogin,userDetails);
     }
 
     public String writeData(AddCheckEntity datachecks,UserDetails userDetails) {
-        LOGGER.info("SATHVIK>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>>"+ userDetails.getCheckName() + userDetails.getPassword() + userDetails.getUsername());
        return prpValidation.writeData(datachecks,userDetails);
     }
 }
