@@ -19,13 +19,17 @@ public class ApplicationMessageReceiver extends MQMessageReceiver {
         LOGGER.log(Level.INFO, "\nMessage Received: " + message);
 
         ApplicationMessageHandler handler = new ApplicationMessageHandler();
-        // String configPath = "configuration/application-flatworm-config.xml";
-        Object newObject = handler.createObjectFromString(CONFIG_PATH, message);
-        if (null != newObject) {
-            LOGGER.log(Level.INFO, newObject.toString());
-        } else {
-            LOGGER.log(Level.WARNING, "newObject is null");
+        try {
+            handler.handleMessage(CONFIG_PATH, message);
+        } catch (Exception e) {
+            LOGGER.log(Level.SEVERE, "Error occurred: " + e.getMessage());
         }
+//        // String configPath = "configuration/application-flatworm-config.xml";
+//        Object newObject = handler.createObjectFromString(CONFIG_PATH, message);
+//        if (null != newObject) {
+//            LOGGER.log(Level.INFO, newObject.toString());
+//        } else {
+//            LOGGER.log(Level.WARNING, "newObject is null");
+//        }
     }
-
 }

@@ -9,6 +9,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Level;
 import java.util.logging.Logger;
 
@@ -21,43 +23,58 @@ public class ApplicationMessageHandler extends MQMessageHandler {
 
     public Object handleMessage(String configFilePath, String messageString) throws Exception {
 
+        String messageId = messageString.substring(0, 8).trim();
+        LOGGER.log(Level.INFO, "messageId: " + messageId);
         String messageHeader = messageString.substring(0, 49);
+        LOGGER.log(Level.INFO, "messageHeader: " + messageHeader);
         String messageBody = messageString.substring(50);
-        String segmentType = messageBody.substring(0, 3);
+        LOGGER.log(Level.INFO, "messageBody: " + messageBody);
+        String segmentType = messageBody.substring(0, 4);
+        LOGGER.log(Level.INFO, "segmentType: " + segmentType);
 
-        if (messageHeader.equals("APPLICAT")) {
+        if (!messageId.equals("APPLICAT")) {
             throw new Exception("Wrong message type.");
         }
 
-        if (segmentType.equals("OPT2") && (messageBody.length() > 70)) {
-            messageBody = insertNewlineBetweenSegments(messageBody, 70);
+        Object newObject;
+        if (segmentType.equals("OPT2")) {
+            if (messageBody.length() > 70) {
+                messageBody = insertNewlineBetweenSegments(messageBody, 70);
+            }
+            newObject = createObjectFromString(configFilePath, messageBody, "planOption", "planOption");
+        } else {
+            newObject = createObjectFromString(configFilePath, messageBody, "application", "application");
         }
 
-        Object newObject = createObjectFromString(configFilePath, messageString);
+        LOGGER.log(Level.INFO, newObject.toString());
 
         return newObject;
     }
 
-    public Object createObjectFromString(String configFilePath, String messageString) {
+    public Object createObjectFromString(String configFilePath, String messageString, String recordName, String beanName) throws Exception {
+        LOGGER.log(Level.INFO, "Entering createObjectFromString");
         Object newObject = null;
+        List<Object> objects = new ArrayList<Object>();
 
         ConfigurationReader parser = new ConfigurationReader();
-        try {
-            // TODO Load the configuration file at startup and store the FileFormat object in a Map with the ones for the other message types.
-            FileFormat ff = parser.loadConfigurationFile(configFilePath);
-            InputStream stream = new ByteArrayInputStream(messageString.getBytes(StandardCharsets.UTF_8));
-            BufferedReader bufIn = new BufferedReader(new InputStreamReader(stream));
-            MatchedRecord results;
-            while ((results = ff.getNextRecord(bufIn)) != null) {
-                if (results.getRecordName().equals("application")) {
-                    newObject = results.getBean("application");
-                }
+
+        // TODO Load the configuration file at startup and store the FileFormat object in a Map with the ones for the other message types.
+        FileFormat ff = parser.loadConfigurationFile(configFilePath);
+        InputStream stream = new ByteArrayInputStream(messageString.getBytes(StandardCharsets.UTF_8));
+        BufferedReader bufIn = new BufferedReader(new InputStreamReader(stream));
+        MatchedRecord results;
+        while ((results = ff.getNextRecord(bufIn)) != null) {
+            LOGGER.log(Level.INFO, results.toString());
+            if (results.getRecordName().equals(recordName)) {
+                newObject = results.getBean(beanName);
+                LOGGER.log(Level.INFO, newObject.toString());
+                objects.add(newObject);
             }
-        } catch (Exception e) {
-            LOGGER.log(Level.INFO, e.getMessage());
         }
 
-        return newObject;
+        LOGGER.log(Level.INFO, objects.toString());
+        LOGGER.log(Level.INFO, "Exiting createObjectFromString");
+        return objects;
 
     }
 

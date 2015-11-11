@@ -16,7 +16,7 @@ import java.nio.charset.StandardCharsets;
  */
 public class SimpleMessageHandler extends MQMessageHandler {
 
-    public Object createObjectFromString(String configFilePath, String messageString) {
+    public Object createObjectFromString(String configFilePath, String messageString, String recordName, String beanName) {
         Object newObject = null;
 
         ConfigurationReader parser = new ConfigurationReader();
@@ -26,8 +26,8 @@ public class SimpleMessageHandler extends MQMessageHandler {
             BufferedReader bufIn = new BufferedReader(new InputStreamReader(stream));
             MatchedRecord results;
             while ((results = ff.getNextRecord(bufIn)) != null) {
-                if (results.getRecordName().equals("newhire")) {
-                    newObject = results.getBean("employee");
+                if (results.getRecordName().equals(recordName)) {
+                    newObject = results.getBean(beanName);
                 }
             }
         } catch (FlatwormUnsetFieldValueException e) {

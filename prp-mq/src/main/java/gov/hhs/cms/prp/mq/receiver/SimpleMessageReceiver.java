@@ -18,7 +18,7 @@ public class SimpleMessageReceiver extends MQMessageReceiver {
 
         SimpleMessageHandler simpleHandler = new SimpleMessageHandler();
         String configPath = "configuration/simple-example.xml";
-        Object newObject = simpleHandler.createObjectFromString(configPath, message);
+        Object newObject = simpleHandler.createObjectFromString(configPath, message, "newhire", "employee");
         if (null != newObject) {
             LOGGER.log(Level.INFO, newObject.toString());
             System.out.println(newObject.toString());

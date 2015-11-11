@@ -5,7 +5,7 @@ package gov.hhs.cms.prp.mq.handler;
  */
 public abstract class MQMessageHandler {
 
-    public abstract Object createObjectFromString(String configFilePath, String messageString);
+    public abstract Object createObjectFromString(String configFilePath, String messageString, String recordName, String beanName) throws Exception;
 
 
 
