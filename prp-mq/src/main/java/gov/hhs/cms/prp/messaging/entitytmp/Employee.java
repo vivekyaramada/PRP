@@ -1,5 +1,7 @@
 package gov.hhs.cms.prp.messaging.entitytmp;
 
+import java.util.Date;
+
 /**
  * Created by jarsen on 10/15/15.
  */
@@ -9,6 +11,7 @@ public class Employee {
     private String gender;
     private String ssn;
     private Double salary;
+    private Date hireDate;
 
     public String getFirstName() {
         return firstName;
@@ -50,6 +53,14 @@ public class Employee {
         this.salary = salary;
     }
 
+    public Date getHireDate() {
+        return hireDate;
+    }
+
+    public void setHireDate(Date hireDate) {
+        this.hireDate = hireDate;
+    }
+
     public String toString() {
         StringBuilder sb = new StringBuilder();
         sb.append("\nClass name: Employee\n");
@@ -59,6 +70,7 @@ public class Employee {
         sb.append("Gender: " + this.gender + "\n");
         sb.append("SSN: " + this.ssn + "\n");
         sb.append("Salary: " + this.salary + "\n");
+        sb.append("Hire date: " + this.hireDate + "\n");
         return sb.toString();
     }
 }

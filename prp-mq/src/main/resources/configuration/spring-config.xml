@@ -32,6 +32,7 @@
 
   <bean id="payment_consumer" class="gov.hhs.cms.prp.mq.PaymentMessageConsumer" />
   <bean id="simple_message_receiver" class="gov.hhs.cms.prp.mq.receiver.SimpleMessageReceiver" />
+  <bean id="application_message_receiver" class="gov.hhs.cms.prp.mq.receiver.ApplicationMessageReceiver" />
 
   
   <bean id="paymentMessageAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
@@ -40,6 +41,10 @@
   </bean>
   <bean id="simpleMessageAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
     <property name="delegate" ref="simple_message_receiver" />
+    <property name="defaultListenerMethod" value="processMessage" />
+  </bean>
+  <bean id="applicationMessageAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+    <property name="delegate" ref="application_message_receiver" />
     <property name="defaultListenerMethod" value="processMessage" />
   </bean>
 
@@ -60,6 +65,14 @@
     <property name="concurrentConsumers" value="5" />
     <property name="maxConcurrentConsumers" value="10" />
     <property name="messageListener" ref="simpleMessageAdapter" />
+  </bean>
+  <bean id="applicatonMessageListenerContainer"
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="cachingFactory" />
+    <property name="destinationName" value="prp_application_message_queue" />
+    <property name="concurrentConsumers" value="5" />
+    <property name="maxConcurrentConsumers" value="10" />
+    <property name="messageListener" ref="applicationMessageAdapter" />
   </bean>
 
 </beans>

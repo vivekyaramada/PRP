@@ -1,6 +1,6 @@
 package gov.hhs.cms.prp.entity;
 
-import java.util.Date;
+import java.sql.Date;
 import java.sql.Timestamp;
 
 /**

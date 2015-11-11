@@ -18,7 +18,7 @@
             </field-ident>
         </record-ident>
         <record-definition>
-            <bean name="application" class="gov.hhs.cms.prp.entity.PrpAplctnEntity"/>
+            <bean name="application" class="gov.hhs.cms.prp.entity.PrpApplicationEntity"/>
             <line>
                 <record-element length="4"/> <!-- Segment ID -->
                 <record-element length="10" beanref="application.applPsId" type="integer"/>

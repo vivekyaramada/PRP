@@ -21,8 +21,10 @@ public class SimpleMessageReceiver extends MQMessageReceiver {
         Object newObject = simpleHandler.createObjectFromString(configPath, message);
         if (null != newObject) {
             LOGGER.log(Level.INFO, newObject.toString());
+            System.out.println(newObject.toString());
         } else {
             LOGGER.log(Level.WARNING, "newObject is null");
+            System.out.println("newObject is null");
         }
     }
 

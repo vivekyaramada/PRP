@@ -15,10 +15,16 @@ public class Converters {
 
     public Date convertSqlDate(String str, Map<String, ConversionOption> options) throws FlatwormConversionException {
 
-        java.util.Date utilDate = flatwormConverters.convertDate(str, options);
-        java.sql.Date sqlDate = new java.sql.Date(utilDate.getTime());
+        java.sql.Date sqlDate = null;
 
-        return sqlDate;
+        java.util.Date utilDate = flatwormConverters.convertDate(str, options);
+
+        if (null == utilDate) {
+            return null;
+        } else {
+            return new java.sql.Date(utilDate.getTime());
+        }
+
     }
 
 }

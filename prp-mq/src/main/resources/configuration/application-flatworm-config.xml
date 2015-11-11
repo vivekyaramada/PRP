@@ -8,7 +8,11 @@
                return-type="java.lang.Double"/>
     <converter name="integer" class="com.blackbear.flatworm.converters.CoreConverters" method="convertInteger"
                return-type="java.lang.Integer"/>
+<!-- This code works!
     <converter name="date" class="com.blackbear.flatworm.converters.CoreConverters" method="convertDate"
+               return-type="java.util.Date"/>
+-->
+    <converter name="date" class="gov.hhs.cms.prp.flatworm.converters.Converters" method="convertSqlDate"
                return-type="java.sql.Date"/>
 
     <record name="application">
@@ -18,7 +22,7 @@
             </field-ident>
         </record-ident>
         <record-definition>
-            <bean name="application" class="gov.hhs.cms.prp.entity.PrpAplctnEntity"/>
+            <bean name="application" class="gov.hhs.cms.prp.entity.PrpApplicationEntity"/>
             <line>
                 <record-element length="4"/> <!-- Segment ID -->
                 <record-element length="10" beanref="application.applPsId" type="integer"/>
@@ -42,8 +46,12 @@
                 </record-element>
                 <record-element length="1"/> <!-- Reconciliation date update indicator -->
                 <record-element length="8" beanref="application.applStp4Dt" type="date">
+                    <conversion-option name="pad-character" value=" "/>
+                    <conversion-option name="justify" value="left"/>
                     <conversion-option name="format" value="yyyyMMdd"/>
+                    <conversion-option name="default-value" value=""/>
                 </record-element>
+
                 <record-element length="1"/> <!-- Step 4 date update indicator -->
                 <record-element length="27"/> <!-- Filler -->
             </line>

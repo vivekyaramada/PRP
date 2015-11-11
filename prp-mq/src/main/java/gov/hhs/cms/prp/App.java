@@ -3,6 +3,7 @@ package gov.hhs.cms.prp;
 import com.blackbear.flatworm.ConfigurationReader;
 import com.blackbear.flatworm.FileFormat;
 import com.blackbear.flatworm.MatchedRecord;
+import com.blackbear.flatworm.converters.CoreConverters;
 import com.blackbear.flatworm.errors.*;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 
@@ -11,6 +12,8 @@ import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.Date;
+import java.util.HashMap;
 
 /**
  * Created by jarsen on 10/15/15.
@@ -49,6 +52,18 @@ public class App {
             } else {
                 System.out.println("Returned object is null.");
             }
+        }
+
+        String step4date = "        ";
+        CoreConverters converters = new CoreConverters();
+        System.out.println("Converting empty string.\n");
+
+        try {
+            step4date = step4date.trim();
+            Date step4dateobject = converters.convertDate(step4date, new HashMap());
+            System.out.println(step4dateobject.toString());
+        } catch (Exception ex) {
+            System.out.println(ex.getMessage());
         }
 
         System.exit(0);

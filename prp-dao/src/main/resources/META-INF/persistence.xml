@@ -8,7 +8,7 @@
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 
 
-        <class>gov.hhs.cms.prp.entity.PrpAplctnEntity</class>
+        <class>gov.hhs.cms.prp.entity.PrpApplicationEntity</class>
          <class>gov.hhs.cms.prp.entity.RdsEvntTypeCdEntity</class>
         <class>gov.hhs.cms.prp.entity.PrpEvntNwEntity</class>
         <class>gov.hhs.cms.prp.entity.PrpUsersEntity</class>

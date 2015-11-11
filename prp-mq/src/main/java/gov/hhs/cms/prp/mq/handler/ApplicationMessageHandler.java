@@ -3,18 +3,21 @@ package gov.hhs.cms.prp.mq.handler;
 import com.blackbear.flatworm.ConfigurationReader;
 import com.blackbear.flatworm.FileFormat;
 import com.blackbear.flatworm.MatchedRecord;
-import com.blackbear.flatworm.errors.*;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
 import java.io.InputStream;
 import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 
 /**
  * Created by jarsen on 11/5/15.
  */
 public class ApplicationMessageHandler extends MQMessageHandler {
+
+    private final static Logger LOGGER = Logger.getLogger(ApplicationMessageHandler.class.getName());
 
     public Object createObjectFromString(String configFilePath, String messageString) {
         Object newObject = null;
@@ -26,22 +29,12 @@ public class ApplicationMessageHandler extends MQMessageHandler {
             BufferedReader bufIn = new BufferedReader(new InputStreamReader(stream));
             MatchedRecord results;
             while ((results = ff.getNextRecord(bufIn)) != null) {
-                if (results.getRecordName().equals("newhire")) {
-                    newObject = results.getBean("employee");
+                if (results.getRecordName().equals("application")) {
+                    newObject = results.getBean("application");
                 }
             }
-        } catch (FlatwormUnsetFieldValueException e) {
-            e.printStackTrace();
-        } catch (FlatwormConfigurationValueException e) {
-            e.printStackTrace();
-        } catch (FlatwormInvalidRecordException e) {
-            e.printStackTrace();
-        } catch (FlatwormInputLineLengthException e) {
-            e.printStackTrace();
-        } catch (FlatwormCreatorException e) {
-            e.printStackTrace();
-        } catch (FlatwormConversionException e) {
-            e.printStackTrace();
+        } catch (Exception e) {
+            LOGGER.log(Level.INFO, e.getMessage());
         }
 
         return newObject;

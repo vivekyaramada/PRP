@@ -1,6 +1,6 @@
 package gov.hhs.cms.prp.mq.receiver;
 
-import gov.hhs.cms.prp.mq.handler.SimpleMessageHandler;
+import gov.hhs.cms.prp.mq.handler.ApplicationMessageHandler;
 
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -16,9 +16,9 @@ public class ApplicationMessageReceiver extends MQMessageReceiver {
 
         LOGGER.log(Level.INFO, "\nMessage Received: " + message);
 
-        SimpleMessageHandler simpleHandler = new SimpleMessageHandler();
-        String configPath = "configuration/simple-example.xml";
-        Object newObject = simpleHandler.createObjectFromString(configPath, message);
+        ApplicationMessageHandler handler = new ApplicationMessageHandler();
+        String configPath = "configuration/application-flatworm-config.xml";
+        Object newObject = handler.createObjectFromString(configPath, message);
         if (null != newObject) {
             LOGGER.log(Level.INFO, newObject.toString());
         } else {
