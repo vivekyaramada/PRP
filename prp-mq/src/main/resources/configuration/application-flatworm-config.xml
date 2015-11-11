@@ -8,10 +8,6 @@
                return-type="java.lang.Double"/>
     <converter name="integer" class="com.blackbear.flatworm.converters.CoreConverters" method="convertInteger"
                return-type="java.lang.Integer"/>
-<!-- This code works!
-    <converter name="date" class="com.blackbear.flatworm.converters.CoreConverters" method="convertDate"
-               return-type="java.util.Date"/>
--->
     <converter name="date" class="gov.hhs.cms.prp.flatworm.converters.Converters" method="convertSqlDate"
                return-type="java.sql.Date"/>
 

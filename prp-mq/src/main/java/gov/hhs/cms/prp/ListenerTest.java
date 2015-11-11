@@ -25,18 +25,23 @@ public class ListenerTest {
 
         // send50TestMessages();
 
-        try {
-            System.out.println("Press ENTER to end program...");
-            keyScan = new Scanner(System.in);
-            while (!keyScan.nextLine().equals("")) ;
-        } catch (Exception ex) {
-            ex.printStackTrace();
-        } finally {
-            keyScan.close();
-        }
+        String messageBody = "OPT200001036400000025100POS Gold 1500       1BBA101123456789          OPT200001036400000025100POS Gold 1500       1BBA101123456789          OPT200001036400000025100POS Gold 1500       1BBA101123456789          OPT200001036400000025100POS Gold 1500       1BBA101123456789          OPT200001036400000025100POS Gold 1500       1BBA101123456789          ";
+        int segmentLength = 70;
 
-        CONTEXT.close();
-        System.out.println("Message POC finished...");
+        createMultiline(messageBody, segmentLength);
+
+//        try {
+//            System.out.println("Press ENTER to end program...");
+//            keyScan = new Scanner(System.in);
+//            while (!keyScan.nextLine().equals("")) ;
+//        } catch (Exception ex) {
+//            ex.printStackTrace();
+//        } finally {
+//            keyScan.close();
+//        }
+//
+//        CONTEXT.close();
+//        System.out.println("Message POC finished...");
         System.exit(0);
     }
 
@@ -51,5 +56,26 @@ public class ListenerTest {
             message.put("message", text);
             paymentProducer.send(message);
         }
+    }
+
+    public static String createMultiline(String messageBody, int segmentLength) {
+
+        int nbrOfSegments = messageBody.length() / segmentLength;
+        int position = 0;
+        String lineFeed = "\n";
+        StringBuilder builder = new StringBuilder(messageBody);
+
+        for (int i = 1; i < nbrOfSegments; i++) {
+
+            position = segmentLength * i;
+            builder.insert(position + (i-1), lineFeed);
+
+            System.out.println("i = " + i + lineFeed);
+            System.out.println("messageBody = " + lineFeed + builder.toString() + lineFeed + lineFeed);
+
+        }
+
+        return builder.toString();
+
     }
 }

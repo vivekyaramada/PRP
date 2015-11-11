@@ -19,11 +19,31 @@ public class ApplicationMessageHandler extends MQMessageHandler {
 
     private final static Logger LOGGER = Logger.getLogger(ApplicationMessageHandler.class.getName());
 
+    public Object handleMessage(String configFilePath, String messageString) throws Exception {
+
+        String messageHeader = messageString.substring(0, 49);
+        String messageBody = messageString.substring(50);
+        String segmentType = messageBody.substring(0, 3);
+
+        if (messageHeader.equals("APPLICAT")) {
+            throw new Exception("Wrong message type.");
+        }
+
+        if (segmentType.equals("OPT2") && (messageBody.length() > 70)) {
+            messageBody = insertNewlineBetweenSegments(messageBody, 70);
+        }
+
+        Object newObject = createObjectFromString(configFilePath, messageString);
+
+        return newObject;
+    }
+
     public Object createObjectFromString(String configFilePath, String messageString) {
         Object newObject = null;
 
         ConfigurationReader parser = new ConfigurationReader();
         try {
+            // TODO Load the configuration file at startup and store the FileFormat object in a Map with the ones for the other message types.
             FileFormat ff = parser.loadConfigurationFile(configFilePath);
             InputStream stream = new ByteArrayInputStream(messageString.getBytes(StandardCharsets.UTF_8));
             BufferedReader bufIn = new BufferedReader(new InputStreamReader(stream));

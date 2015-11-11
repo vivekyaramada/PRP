@@ -12,13 +12,15 @@ public class ApplicationMessageReceiver extends MQMessageReceiver {
 
     private final static Logger LOGGER = Logger.getLogger(ApplicationMessageReceiver.class.getName());
 
+    private final static String CONFIG_PATH = "configuration/application-flatworm-config.xml";
+
     public void processMessage(String message) {
 
         LOGGER.log(Level.INFO, "\nMessage Received: " + message);
 
         ApplicationMessageHandler handler = new ApplicationMessageHandler();
-        String configPath = "configuration/application-flatworm-config.xml";
-        Object newObject = handler.createObjectFromString(configPath, message);
+        // String configPath = "configuration/application-flatworm-config.xml";
+        Object newObject = handler.createObjectFromString(CONFIG_PATH, message);
         if (null != newObject) {
             LOGGER.log(Level.INFO, newObject.toString());
         } else {
