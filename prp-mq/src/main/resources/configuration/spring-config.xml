@@ -21,6 +21,7 @@
     <property name="targetConnectionFactory" ref="connectionFactory" />
   </bean>
     
+<!--
   <bean id="paymentJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
     <property name="connectionFactory" ref="connectionFactory" />
     <property name="defaultDestinationName" value="prp_payment_queue" />
@@ -29,43 +30,15 @@
   <bean id="payment_producer" class="gov.hhs.cms.prp.mq.PaymentMessageProducer">
     <property name="jmsTemplate" ref="paymentJmsTemplate" />
   </bean>
+-->
 
-  <bean id="payment_consumer" class="gov.hhs.cms.prp.mq.PaymentMessageConsumer" />
-  <bean id="simple_message_receiver" class="gov.hhs.cms.prp.mq.receiver.SimpleMessageReceiver" />
   <bean id="application_message_receiver" class="gov.hhs.cms.prp.mq.receiver.ApplicationMessageReceiver" />
 
-  
-  <bean id="paymentMessageAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
-    <property name="delegate" ref="payment_consumer" />
-    <property name="defaultListenerMethod" value="processMessage" />
-  </bean>
-  <bean id="simpleMessageAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
-    <property name="delegate" ref="simple_message_receiver" />
-    <property name="defaultListenerMethod" value="processMessage" />
-  </bean>
   <bean id="applicationMessageAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
     <property name="delegate" ref="application_message_receiver" />
     <property name="defaultListenerMethod" value="processMessage" />
   </bean>
 
-
-  <bean id="paymentMessageListenerContainer"
-        class="org.springframework.jms.listener.DefaultMessageListenerContainer">
-    <property name="connectionFactory" ref="cachingFactory" />
-    <property name="destinationName" value="prp_payment_queue" />
-    <property name="concurrentConsumers" value="5" />
-    <property name="maxConcurrentConsumers" value="10" />
-    <property name="messageListener" ref="paymentMessageAdapter" />
-  </bean>
-
-  <bean id="simpleMessageListenerContainer"
-        class="org.springframework.jms.listener.DefaultMessageListenerContainer">
-    <property name="connectionFactory" ref="cachingFactory" />
-    <property name="destinationName" value="prp_simple_message_queue" />
-    <property name="concurrentConsumers" value="5" />
-    <property name="maxConcurrentConsumers" value="10" />
-    <property name="messageListener" ref="simpleMessageAdapter" />
-  </bean>
   <bean id="applicatonMessageListenerContainer"
         class="org.springframework.jms.listener.DefaultMessageListenerContainer">
     <property name="connectionFactory" ref="cachingFactory" />
