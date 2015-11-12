@@ -146,31 +146,30 @@ public class prpValidation {
                 PrpEvntFinalEntity eventCat;
 
                 if      (cat.equalsIgnoreCase("ach")) {
-                    eventCat = new PrpEvntFinalEntityAch();
+                    eventCat = new PrpEvntFinalEntityAch(event);
                 }
                 else if (cat.equalsIgnoreCase("bnk")) {
-                    eventCat = new PrpEvntFinalEntityBnk();
+                    eventCat = new PrpEvntFinalEntityBnk(event);
                 }
                 else if (cat.equalsIgnoreCase("chk")) {
-                    eventCat = new PrpEvntFinalEntityChk();
+                    eventCat = new PrpEvntFinalEntityChk(event);
                 }
                 else if (cat.equalsIgnoreCase("cmt")) {
-                    eventCat = new PrpEvntFinalEntityCmt();
+                    eventCat = new PrpEvntFinalEntityCmt(event);
                 }
                 else if (cat.equalsIgnoreCase("cyc")) {
-                    eventCat = new PrpEvntFinalEntityCyc();
+                    eventCat = new PrpEvntFinalEntityCyc(event);
                 }
                 else if (cat.equalsIgnoreCase("det")) {
-                    eventCat = new PrpEvntFinalEntityDet();
+                    eventCat = new PrpEvntFinalEntityDet(event);
                 }
                 else if (cat.equalsIgnoreCase("req")) {
-                    eventCat = new PrpEvntFinalEntityReq();
+                    eventCat = new PrpEvntFinalEntityReq(event);
                 }
                 else {
                     events.add(event);
                     continue;
                 }
-                eventCat.copyFrom(event);
                 eventCat.setEvntCtgryData(event.getEvntCtgryData());
                 events.add(eventCat);
             }

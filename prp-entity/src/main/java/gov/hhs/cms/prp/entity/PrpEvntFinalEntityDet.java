@@ -8,9 +8,13 @@ import java.util.ArrayList;
 /**
  * Created by grussell99 on 11/11/2015.
  */
-public class PrpEvntFinalEntityDet extends PrpEvntFinalEntity {
+public class PrpEvntFinalEntityDet extends PrpEvntFinalEntityCatData {
     private String detPaymentAmt;
     private String detReduceAmt;
+
+    public   PrpEvntFinalEntityDet (PrpEvntFinalEntity source) {
+        super (source);
+    }
 
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
@@ -22,7 +26,7 @@ public class PrpEvntFinalEntityDet extends PrpEvntFinalEntity {
     }
 
     public void setEvntCtgryData(String evntCtgryData) {
-        this.evntCtgryData = evntCtgryData;
+        super.setEvntCtgryData(evntCtgryData);
         CsvUtility csvUtility = new CsvUtility();
         ArrayList<String> csv = csvUtility.parseCsvString(evntCtgryData, 2);
         detPaymentAmt     = csv.get(0);

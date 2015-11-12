@@ -8,7 +8,7 @@ import java.util.ArrayList;
 /**
  * Created by grussell99 on 11/11/2015.
  */
-public class PrpEvntFinalEntityChk extends PrpEvntFinalEntity {
+public class PrpEvntFinalEntityChk extends PrpEvntFinalEntityCatData {
 
     private String chkCheckType;
     private String chkCheckDate;
@@ -17,6 +17,10 @@ public class PrpEvntFinalEntityChk extends PrpEvntFinalEntity {
     private String chkReason;
     private String chkDepositDate;
     private String chkNote;
+
+    public   PrpEvntFinalEntityChk (PrpEvntFinalEntity source) {
+        super (source);
+    }
 
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
@@ -30,7 +34,7 @@ public class PrpEvntFinalEntityChk extends PrpEvntFinalEntity {
     }
 
     public void setEvntCtgryData(String evntCtgryData) {
-        this.evntCtgryData = evntCtgryData;
+        super.setEvntCtgryData(evntCtgryData);
         CsvUtility csvUtility = new CsvUtility();
         ArrayList<String> csv = csvUtility.parseCsvString(evntCtgryData, 8);
         chkCheckType      = csv.get(0);
@@ -47,7 +51,7 @@ public class PrpEvntFinalEntityChk extends PrpEvntFinalEntity {
     public void   setChkCheckType    (String chkCheckType)     { this.chkCheckType    = chkCheckType; }
 
     @Transient
-    public Date getChkCheckDate    ()                        { return getDate(chkCheckDate); }
+    public Date   getChkCheckDate    ()                        { return getDate(chkCheckDate); }
     public void   setChkCheckDate    (Date   chkCheckDate)     { this.chkCheckDate    = setDate(chkCheckDate); }
 
     @Transient

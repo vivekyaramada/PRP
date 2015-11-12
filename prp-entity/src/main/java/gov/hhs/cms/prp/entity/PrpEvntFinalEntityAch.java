@@ -8,13 +8,17 @@ import java.util.ArrayList;
 /**
  * Created by grussell99 on 11/11/2015.
  */
-public class PrpEvntFinalEntityAch extends PrpEvntFinalEntity {
+public class PrpEvntFinalEntityAch extends PrpEvntFinalEntityCatData {
 
     private String achPaymentAmount;
     private String achRoutingNumber;
     private String achAccountNumber;
     private String achAccountType;
     private String achTracerNumber;
+
+    public   PrpEvntFinalEntityAch (PrpEvntFinalEntity source) {
+        super (source);
+    }
 
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
@@ -27,7 +31,7 @@ public class PrpEvntFinalEntityAch extends PrpEvntFinalEntity {
     }
 
     public void setEvntCtgryData(String evntCtgryData) {
-        this.evntCtgryData = evntCtgryData;
+        super.setEvntCtgryData(evntCtgryData);
         CsvUtility csvUtility = new CsvUtility();
         ArrayList<String> csv = csvUtility.parseCsvString(evntCtgryData, 5);
         achPaymentAmount  = csv.get(0);

@@ -15,11 +15,14 @@ import java.util.ArrayList;
 /**
  * Created by grussell99 on 11/10/2015.
  */
-@Entity
-@javax.persistence.Table(name = "prp_evnt_final", schema = "", catalog = "prp")
-public class PrpEvntFinalEntityCmt extends PrpEvntFinalEntity {
+
+public class PrpEvntFinalEntityCmt extends PrpEvntFinalEntityCatData {
 
     private String cmtComment;
+
+    public   PrpEvntFinalEntityCmt (PrpEvntFinalEntity source) {
+        super (source);
+    }
 
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
@@ -31,7 +34,7 @@ public class PrpEvntFinalEntityCmt extends PrpEvntFinalEntity {
     }
 
     public void setEvntCtgryData(String evntCtgryData) {
-        this.evntCtgryData = evntCtgryData;
+        super.setEvntCtgryData(evntCtgryData);
         CsvUtility csvUtility = new CsvUtility();
         ArrayList<String> csv = csvUtility.parseCsvString(evntCtgryData,1);
         cmtComment        = csv.get(0);

@@ -8,10 +8,14 @@ import java.util.ArrayList;
 /**
  * Created by grussell99 on 11/11/2015.
  */
-public class PrpEvntFinalEntityReq extends PrpEvntFinalEntity {
+public class PrpEvntFinalEntityReq extends PrpEvntFinalEntityCatData {
     private String reqRequester;
     private String reqRefNumber;
     private String reqRequestDate;
+
+    public   PrpEvntFinalEntityReq (PrpEvntFinalEntity source) {
+        super (source);
+    }
 
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
@@ -23,7 +27,7 @@ public class PrpEvntFinalEntityReq extends PrpEvntFinalEntity {
     }
 
     public void setEvntCtgryData(String evntCtgryData) {
-        this.evntCtgryData = evntCtgryData;
+        super.setEvntCtgryData(evntCtgryData);
         CsvUtility csvUtility = new CsvUtility();
         ArrayList<String> csv = csvUtility.parseCsvString(evntCtgryData, 3);
         reqRequester      = csv.get(0);
@@ -40,6 +44,6 @@ public class PrpEvntFinalEntityReq extends PrpEvntFinalEntity {
     public void   setReqRefNumber    (String reqRefNumber)     { this.reqRefNumber   = reqRefNumber; }
 
     @Transient
-    public Date getReqRequestDate  ()                        { return getDate(reqRequestDate); }
+    public Date   getReqRequestDate  ()                        { return getDate(reqRequestDate); }
     public void   setReqRequestDate  (Date   reqRequestDate)   { this.reqRequestDate = setDate(reqRequestDate); }
 }

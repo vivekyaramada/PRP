@@ -3,14 +3,9 @@ package gov.hhs.cms.prp.entity;
 import javax.persistence.Basic;
 import javax.persistence.Entity;
 import javax.persistence.Id;
-import javax.persistence.Transient;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
-import java.text.ParseException;
-import java.text.SimpleDateFormat;
-import java.util.ArrayList;
-//import java.util.logging.Logger;
 
 /**
  * Created by grussell99 on 10/23/2015.
@@ -19,7 +14,6 @@ import java.util.ArrayList;
 @javax.persistence.Table(name = "prp_evnt_final", schema = "", catalog = "prp")
 public class PrpEvntFinalEntity {
 
-    // private final static Logger LOGGER                = Logger.getLogger(PrpEvntFinalEntity.class.getName());
     private int pkPrpEventId;
 
     @Id
@@ -284,7 +278,7 @@ public class PrpEvntFinalEntity {
         this.evntCtgry = evntCtgry;
     }
 
-    protected String evntCtgryData;
+    private String evntCtgryData;
 
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
@@ -297,76 +291,6 @@ public class PrpEvntFinalEntity {
         this.evntCtgryData = evntCtgryData;
      }
 
-    public void copyFrom (PrpEvntFinalEntity source) {  // protected did not allow use in MysqlApplicationServiceDAO
-        pkPrpEventId      = source.getPkPrpEventId();
-        evntTypeCd        = source.getEvntTypeCd();
-        evntOrgnCd        = source.getEvntOrgnCd();
-        procTs            = source.getProcTs();
-        userName          = source.getUserName();
-        planSpnsrIdent    = source.getPlanSpnsrIdent();
-        aplctnIdent       = source.getAplctnIdent();
-        evntNum           = source.getEvntNum();
-        cycDt             = source.getCycDt();
-        cycNum            = source.getCycNum();
-        evntRfrncNum      = source.getEvntRfrncNum();
-        procRfrncNum      = source.getProcRfrncNum();
-        extrnlRfrncAplctn = source.getExtrnlRfrncAplctn();
-        extrnlRfrncNum    = source.getExtrnlRfrncNum();
-        rsnCd             = source.getRsnCd();
-        transAmt          = source.getTransAmt();
-        pyblAmt           = source.getPyblAmt();
-        intrmAdjstmtAmt   = source.getIntrmAdjstmtAmt();
-        unapldCashAmt     = source.getUnapldCashAmt();
-        rcvblPrncpalAmt   = source.getRcvblPrncpalAmt();
-        rcvblIntrstAmt    = source.getRcvblIntrstAmt();
-        evntCtgry         = source.getEvntCtgry();
-    }
-
-    // -----------------------------------------------------------------------------------
-
-
-    protected int           getInteger    (String data) {
-        return Integer.getInteger(data, 0);
-    }
-
-    protected String        setInteger    (int    data) {
-        return Integer.toString(data);
-    }
-
-    protected Date          getDate       (String data) {
-        if (data == null || data.equals("") || data.length() != 8) return null;
-        SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
-        try {
-            java.util.Date temp = format.parse(data);
-            java.sql.Date  date = new Date(temp.getTime());
-            return date;
-        }
-        catch (ParseException e) {
-            return null;
-        }
-    }
-
-    protected String        setDate       (Date data) {
-        if (data == null) return "";
-        return "";
-    }
-
-    protected BigDecimal    getBigDecimal (String data) {
-        if (data == null || data.equals("")) return BigDecimal.ZERO;;
-        try {
-            return new BigDecimal(data);
-        }
-        catch (NumberFormatException e) {
-            return BigDecimal.ZERO;
-        }
-    }
-
-    protected String        setBigDecimal (BigDecimal data) {
-        if (data == null) return "";
-        return "";
-    }
-
-    // -----------------------------------------------------------------------------------
 
     @Override
     public boolean equals(Object o) {
