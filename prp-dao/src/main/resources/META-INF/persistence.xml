@@ -7,17 +7,19 @@
     <persistence-unit name="REPORTINGJPA" transaction-type="RESOURCE_LOCAL">
         <provider>org.apache.openjpa.persistence.PersistenceProviderImpl</provider>
 
-
+        <class>gov.hhs.cms.prp.entity.PrpUsersEntity</class>
         <class>gov.hhs.cms.prp.entity.PrpAplctnEntity</class>
-         <class>gov.hhs.cms.prp.entity.RdsEvntTypeCdEntity</class>
+        <class>gov.hhs.cms.prp.entity.RdsEvntTypeCdEntity</class>
+        <class>gov.hhs.cms.prp.entity.PrpEvntFinalEntity</class>
         <class>gov.hhs.cms.prp.entity.PrpEvntNwEntity</class>
+        <class>gov.hhs.cms.prp.entity.PrpEvntStagEntity</class>
 
 
         <properties>
             <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver" />
             <property name="openjpa.ConnectionURL" value="jdbc:mysql://127.0.0.1:3306/prp" />
             <property name="openjpa.ConnectionUserName" value="root"/>
-            <property name="openjpa.ConnectionPassword" value="Vivek123"/>
+            <property name="openjpa.ConnectionPassword" value="root"/>
 
             <property name="openjpa.DynamicEnhancementAgent" value="true"/>
             <property name="openjpa.RuntimeUnenhancedClasses" value="supported"/>

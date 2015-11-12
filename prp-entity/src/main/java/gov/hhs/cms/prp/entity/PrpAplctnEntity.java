@@ -3,6 +3,7 @@ package gov.hhs.cms.prp.entity;
 import javax.persistence.*;
 import java.sql.Date;
 import java.sql.Timestamp;
+import java.util.logging.Logger;
 
 /**
  * Created by VivekKumar.ReddyYara on 9/30/2015.
@@ -10,6 +11,7 @@ import java.sql.Timestamp;
 @Entity
 @Table(name = "prp_aplctn", schema = "", catalog = "prp")
 public class PrpAplctnEntity {
+    private final static Logger LOGGER                = Logger.getLogger(PrpEvntFinalEntity.class.getName());
     private int applId;
     private int applPsId;
     private String applPsCompany;
@@ -88,10 +90,12 @@ public class PrpAplctnEntity {
     @Basic
     @Column(name = "APPL_STATUS")
     public String getApplStatus() {
+        LOGGER.info("==== PrpAplctnEntity.getApplStatus    (invoked) ===== " + applStatus);
         return applStatus;
     }
 
     public void setApplStatus(String applStatus) {
+        LOGGER.info("==== PrpAplctnEntity.setApplStatus    (invoked) ===== " + applStatus);
         this.applStatus = applStatus;
     }
 

@@ -25,16 +25,18 @@
 
 </head>
 <h:body styleClass="container">
-    <h:form>
+    <!-- <h:form> -->
         <ui:composition template="/WEB-INF/templates/commonTemplate.xhtml">
             <ui:define name="content">
+              <h:form id="EventsForm">
                 <div id="inner-main" align="justify" class='table-bordered alert-warning'>
                     <div  class="leftContent">
-                        <h:form id="ApplicationsForm">
+                        <!-- <h:form id="EventsForm"> -->
                             <h1 align="center"> EVENTS BY APPLICATION ID </h1>
-                            <div align="left" style="padding-left: 5%">Application ID
-
-                                <h:inputText id="keyword"  value="#{eventListBean.keyword}" />
+                            <div align="left" style="padding-left: 5%">Psid:&nbsp;
+                                <h:inputText id="keyPsid"  value="#{eventListBean.keyPsid}" />
+                                &nbsp;&nbsp;&nbsp;Applid:&nbsp;
+                                <h:inputText id="keyApplid"  value="#{eventListBean.keyApplid}" />
                                 &nbsp;&nbsp;&nbsp;
                                 <h:commandButton id="search" value="Search" action="#{eventListBean.searchEvents}"/>
 
@@ -58,14 +60,15 @@
 
 
                                 </div>
-                                <p:dataTable value="#{eventListBean.events}" var="values" border="1" width="100%" widgetVar="values">
+                                <div>
+                                <p:dataTable value="#{eventListBean.events}" var="row" border="1" width="100%" widgetVar="row">
                                     <p:column>
                                         <f:facet name="header">
                                             <div align="center">
                                                 <h:outputText styleClass="alert-danger text-center" value="Number"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center">  #{values.evntNum}</div>
+                                        <div align="center">  #{row.evntNum}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -73,7 +76,9 @@
                                                 <h:outputText styleClass="alert-danger text-center" value="Event"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.evntTypeCd}</div>
+                                        <h:commandButton id="select" value="#{row.evntTypeCd}"
+                                                         action="#{eventListBean.eventToSelectIs(row.evntNum)}">
+                                        </h:commandButton>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -81,7 +86,7 @@
                                                 <h:outputText styleClass="alert-danger text-center" value="Origin"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.evntOrgnCd}</div>
+                                        <div align="center"> #{row.evntOrgnCd}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -89,7 +94,7 @@
                                                 <h:outputText styleClass="alert-danger text-center" value="Reason"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.rsnCd}</div>
+                                        <div align="center"> #{row.rsnCd}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -97,7 +102,7 @@
                                                 <h:outputText styleClass="alert-danger text-center" value="Processed"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.procTs}</div>
+                                        <div align="center"> #{row.procTs}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -105,7 +110,7 @@
                                                 <h:outputText styleClass="alert-danger text-center" value="User"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.userName}</div>
+                                        <div align="center"> #{row.userName}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -113,7 +118,7 @@
                                                 <h:outputText styleClass="alert-danger text-center" value="Cycle Date"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.cycDt}</div>
+                                        <div align="center"> #{row.cycDt}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -122,7 +127,7 @@
                                             </div>
                                         </f:facet>
 
-                                        <div align="center"> #{values.cycNum}</div>
+                                        <div align="center"> #{row.cycNum}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -130,7 +135,7 @@
                                                 <h:outputText styleClass="alert-danger text-right" value="Transaction"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.transAmt}</div>
+                                        <div align="center"> #{row.transAmt}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -138,7 +143,7 @@
                                                 <h:outputText styleClass="alert-danger text-right" value="Payable"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.pyblAmt}</div>
+                                        <div align="center"> #{row.pyblAmt}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -146,7 +151,7 @@
                                                 <h:outputText styleClass="alert-danger text-right" value="Int Adj"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.intrmAdjstmtAmt}</div>
+                                        <div align="center"> #{row.intrmAdjstmtAmt}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -154,7 +159,7 @@
                                                 <h:outputText styleClass="alert-danger text-right" value="Unapplied"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.unapldCashAmt}</div>
+                                        <div align="center"> #{row.unapldCashAmt}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -162,7 +167,7 @@
                                                 <h:outputText styleClass="alert-danger text-right" value="Principal"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.rcvblPrncpalAmt}</div>
+                                        <div align="center"> #{row.rcvblPrncpalAmt}</div>
                                     </p:column>
                                     <p:column>
                                         <f:facet name="header">
@@ -170,17 +175,118 @@
                                                 <h:outputText styleClass="alert-danger text-right" value="Interest"/>
                                             </div>
                                         </f:facet>
-                                        <div align="center"> #{values.rcvblIntrstAmt}</div>
+                                        <div align="center"> #{row.rcvblIntrstAmt}</div>
                                     </p:column>
                                 </p:dataTable>
+                                </div>
                             </div>
-
-                        </h:form>
+                        <!-- </h:form> -->
                     </div>
                 </div>
+                <div id="divDialogCategory">
+                    <p:dialog id="dlgAction" header="Event Category Detail" widgetVar="dlgAction" modal="true" width = "700" height="400"
+                              rendered="#{eventListBean.detailSelected}" visible="true" onHide="#{eventListBean.eventToSelectIs(0)}">
+                        <div id= "divEventAction">
+                            <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('BNK')}">
+                                <h:outputText value="Routing number " />
+                                <h:outputText value="#{eventListBean.event.bnkRoutingNumber}" />
+                                <h:outputText value="Account number " />
+                                <h:outputText value="#{eventListBean.event.bnkAccountNumber}" />
+                                <h:outputText value="Account type " />
+                                <h:outputText value="#{eventListBean.event.bnkAccountType}" />
+                                <h:outputText value="Business name " />
+                                <h:outputText value="#{eventListBean.event.bnkBusinessName}" />
+                                <h:outputText value="Bank name " />
+                                <h:outputText value="#{eventListBean.event.bnkBankName}" />
+                                <h:outputText value="Address1 " />
+                                <h:outputText value="#{eventListBean.event.bnkAddress1}" />
+                                <h:outputText value="Address2 " />
+                                <h:outputText value="#{eventListBean.event.bnkAddress2}" />
+                                <h:outputText value="City " />
+                                <h:outputText value="#{eventListBean.event.bnkCity}" />
+                                <h:outputText value="State " />
+                                <h:outputText value="#{eventListBean.event.bnkState}" />
+                                <h:outputText value="Zip " />
+                                <h:outputText value="#{eventListBean.event.bnkZip}" />
+                                <h:outputText value="Phone " />
+                                <h:outputText value="#{eventListBean.event.bnkPhone}" />
+                                <h:outputText value="Contact " />
+                                <h:outputText value="#{eventListBean.event.bnkContact}" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2"  rendered="#{eventListBean.isCategory('REQ')}">
+                                <h:outputText value="Requester " />
+                                <h:outputText value="#{eventListBean.event.reqRequester}" />
+                                <h:outputText value="Reference number " />
+                                <h:outputText value="#{eventListBean.event.reqRefNumber}" />
+                                <h:outputText value="Request date " />
+                                <h:outputText value="#{eventListBean.event.reqRequestDate}" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('DET')}">
+                                <h:outputText value="Payment amount " />
+                                <h:outputText value="#{eventListBean.event.detPaymentAmt}"><f:convertNumber type="currency" /></h:outputText>
+                                <h:outputText value="Reduction amount " />
+                                <h:outputText value="#{eventListBean.event.detReduceAmt}"><f:convertNumber type="currency" /> </h:outputText>
+                                <h:outputText value="Offset application " />
+                                <h:outputText value="#{eventListBean.event.extrnlRfrncAplctn}" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('CHK')}">
+                                <h:outputText value="Check type " />
+                                <h:outputText value="#{eventListBean.event.chkCheckType}" />
+                                <h:outputText value="Check date " />
+                                <h:outputText value="#{eventListBean.event.chkCheckDate}" />
+                                <h:outputText value="Check number " />
+                                <h:outputText value="#{eventListBean.event.chkCheckNumber}" />
+                                <h:outputText value="Payer name " />
+                                <h:outputText value="#{eventListBean.event.chkPayerName}" />
+                                <h:outputText value="Reason " />
+                                <h:outputText value="#{eventListBean.event.chkReason}" />
+                                <h:outputText value="Deposit date " />
+                                <h:outputText value="#{eventListBean.event.chkDepositDate}" />
+                                <h:outputText value="Note " />
+                                <h:outputText value="#{eventListBean.event.chkNote}" />
+                                <h:outputText value="Apply application " />
+                                <h:outputText value="#{eventListBean.event.extrnlRfrncAplctn}" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('ACH')}">
+                                <h:outputText value="Payment amount " />
+                                <h:outputText value="#{eventListBean.event.achPaymentAmount}"><f:convertNumber type="currency" /></h:outputText>
+                                <h:outputText value="Routing number " />
+                                <h:outputText value="#{eventListBean.event.achRoutingNumber}" />
+                                <h:outputText value="Account number " />
+                                <h:outputText value="#{eventListBean.event.achAccountNumber}" />
+                                <h:outputText value="Account type " />
+                                <h:outputText value="#{eventListBean.event.achAccountType}" />
+                                <h:outputText value="Tracer number " />
+                                <h:outputText value="#{eventListBean.event.achTracerNumber}" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('CMT')}">
+                                <h:outputText value="Comment " />
+                                <h:outputText value="#{eventListBean.event.cmtComment}" />
+                            </h:panelGrid>
+                            <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('CYC')}">
+                                <h:outputText value="Cycle number " />
+                                <h:outputText value="#{eventListBean.event.cycCycleNumber}" />
+                            </h:panelGrid>
+                            <p/><p/><p/><p/>
+                            <h:commandButton id="cbProcessEvent" value="  Close  " cellspacing="10" action="#{eventListBean.eventToSelectIs(0)}" />
+                            <p/><p/>
 
+                            <!--
+                            <h:dataTable id="tableProcessErrors" value="#{backEvents.actErrors}"
+                                         var="row" rowClasses="oddError, evenError"
+                                         styleClass="property_table">
+                                <h:column id="error01">
+                                    <h:outputText value="#{row}"></h:outputText>
+                                </h:column>
+                            </h:dataTable>
+                            -->
+
+                        </div>
+                    </p:dialog>
+                </div>
+              </h:form>
             </ui:define>
         </ui:composition>
-    </h:form>
+    <!-- </h:form> -->
 </h:body>
 </html>

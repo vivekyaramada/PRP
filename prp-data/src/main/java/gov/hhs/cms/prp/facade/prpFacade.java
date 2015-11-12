@@ -35,14 +35,14 @@ public class prpFacade {
         prpValidation = new prpValidation();
     }
 
-    public ArrayList getApplications(String keyword,UserDetails userDetails) {
+    public ArrayList getApplications(String keyword, UserDetails userDetails) {
 
         ArrayList applications = prpValidation.getApplications(keyword,userDetails);
         return applications;
     }
 
-    public ArrayList getEvents(String keyword) {
-        ArrayList events = prpValidation.getEvents(keyword);
+    public ArrayList getEvents(Integer keyPsid, Integer keyApplid, UserDetails userDetails) {
+        ArrayList events = prpValidation.getEvents(keyPsid, keyApplid, userDetails);
         return events;
     }
 
