@@ -1384,7 +1384,7 @@
       <workItem from="1447791372964" duration="4478000" />
       <workItem from="1447795876006" duration="265000" />
       <workItem from="1447796491057" duration="915000" />
-      <workItem from="1447797441744" duration="29888000" />
+      <workItem from="1447797441744" duration="29952000" />
     </task>
     <task id="LOCAL-00001" summary="test">
       <created>1442861662333</created>
@@ -1518,11 +1518,17 @@
       <option name="project" value="LOCAL" />
       <updated>1447948221115</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="Spring Bean">
+      <created>1447948247925</created>
+      <option name="number" value="00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1447948247925</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="1035972000" />
+    <option name="totallyTimeSpent" value="1036036000" />
   </component>
   <component name="TodoView" selected-index="2">
     <todo-panel id="selected-file">
