@@ -6,6 +6,7 @@ import gov.hhs.cms.prp.dao.bean.CheckLoginDAOBean;
 import gov.hhs.cms.prp.dao.bean.GetMsgDAOBean;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.context.ApplicationContext;
+import gov.hhs.cms.prp.dao.bean.ConstantsDAOBean;
 import gov.hhs.coms.prp.dao.factory.DAOFactory;
 
 /**
@@ -37,6 +38,9 @@ public class MySQLDAOFactory extends DAOFactory {
         } else if (beanname!=null &&  beanname.equals("addchecksdaobean")) {
             return (AddChecksDAOBean) context.getBean("addchecksdaobean");
 
+        }
+        else if (beanname!=null &&  beanname.equals("constantsdaobean")){
+            return (ConstantsDAOBean) context.getBean("constantsdaobean");
         }
             return null;
     }

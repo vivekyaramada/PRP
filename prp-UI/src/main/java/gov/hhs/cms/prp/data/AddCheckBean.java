@@ -32,16 +32,6 @@ public class AddCheckBean implements Serializable {
 
     private static final Logger logger = LogManager.getLogger("checks");
 
- /*   public checks(String sponsor, String checkAmount, String checkNumber,String rsn, String checkName, String note,String checkDate) {
-        this.sponsor = sponsor;
-        this.checkAmount = checkAmount;
-        this.checkNumber = checkNumber;
-        this.rsn = rsn;
-        this.checkName = checkName;
-        this.note = note;
-        this.checkDate = checkDate;
-    }*/
-
     public String getRsn() {
         return rsn;
     }

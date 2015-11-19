@@ -2,10 +2,11 @@ package gov.hhs.cms.prp.dao.bean;
 
 import com.google.gson.Gson;
 import gov.hhs.cms.prp.entity.PrpUsersEntity;
-import org.apache.log4j.Logger;
+
 
 import javax.persistence.*;
 import java.util.Collection;
+import java.util.logging.Logger;
 
 /**
  * Created by VivekKumar.ReddyYara on 11/2/2015.
@@ -29,7 +30,6 @@ public class CheckLoginDAOBean {
         return new Gson().toJson(list);
 
     }
-
 }
 
 

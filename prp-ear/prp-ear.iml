@@ -18,29 +18,6 @@
     </content>
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module-library">
-      <library>
-        <ANNOTATIONS>
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </ANNOTATIONS>
-        <CLASSES>
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </CLASSES>
-        <JAVADOC>
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </JAVADOC>
-        <NATIVE>
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </NATIVE>
-        <SOURCES>
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-          <root url="file://$MODULE_DIR$/src/main/resources" />
-        </SOURCES>
-        <jarDirectory url="file://$MODULE_DIR$/src/main/resources" recursive="false" />
-        <jarDirectory url="file://$MODULE_DIR$/src/main/resources" recursive="false" type="SOURCES" />
-      </library>
-    </orderEntry>
     <orderEntry type="module" module-name="prp-UI" />
     <orderEntry type="library" name="Maven: log4j:log4j:1.2.17" level="project" />
     <orderEntry type="library" name="Maven: org.apache.openjpa:openjpa-all:2.2.0" level="project" />

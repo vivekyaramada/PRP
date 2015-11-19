@@ -45,17 +45,21 @@ public class prpFacade {
     }
 
     public String checkLogin(LoginEntity datalogin,UserDetails userDetails) {
-
-
         CheckLoginBean checkLoginBean = (CheckLoginBean) context.getBean("checkloginbean");
-        return checkLoginBean.checkLogin(datalogin,userDetails);
-
+        return checkLoginBean.checkLogin(datalogin, userDetails);
     }
 
     public String writeData(AddCheckEntity datachecks,UserDetails userDetails) {
 
         WriteDataBean writeDataBean =  (WriteDataBean) context.getBean("writedatabean");
 
-       return writeDataBean.writeData(datachecks,userDetails);
+       return writeDataBean.writeData(datachecks, userDetails);
     }
+
+    public String getConstants()
+    {
+        CheckLoginBean checkLoginBean = (CheckLoginBean) context.getBean("checkloginbean");
+        return checkLoginBean.getConstants();
+    }
+
 }

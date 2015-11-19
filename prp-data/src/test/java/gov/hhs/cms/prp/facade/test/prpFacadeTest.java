@@ -1,5 +1,6 @@
 package gov.hhs.cms.prp.facade.test;
 
+import gov.hhs.cms.prp.entity.UserDetails;
 import org.junit.Test;
 
 import static org.junit.Assert.*;
@@ -14,23 +15,15 @@ import gov.hhs.cms.prp.entity.LoginEntity;
 public class prpFacadeTest {
 
 
-    @Test
-    public void testGetDataloginEntity() throws Exception {
 
-    }
 
-    @Test
-    public void testSetDataloginEntity() throws Exception {
-
-    }
-
-    @Test
+/*    @Test
     public void testGetApplications() throws Exception {
-       /* prpFacade prpFacade = new prpFacade();
-        LoginEntity loginEntity = new LoginEntity();
-
-        assertTrue(prpFacade.getApplications().size() == 12);*/
-    }
+        prpFacade prpFacade = new prpFacade();
+        UserDetails userDetails = new UserDetails();
+        userDetails.setUsername("vivek");
+        assertTrue(prpFacade.getApplications("100", userDetails).size() == 12);
+    }*/
 
    /* @Test
     public void testCheckLogin() throws Exception {
@@ -38,7 +31,9 @@ public class prpFacadeTest {
         prpFacade prpFacade = new prpFacade();
         loginEntity.setUsername("vivek");
         loginEntity.setPassword("password");
-        assertEquals("success", prpFacade.checkLogin(loginEntity));
+        UserDetails userDetails = new UserDetails();
+        userDetails.setUsername("vivek");
+        assertEquals("success", prpFacade.checkLogin(loginEntity,userDetails));
 
     }*/
 

@@ -2,8 +2,10 @@ package gov.hhs.cms.prp.facadebeans;
 
 import gov.hhs.cms.prp.entity.AddCheckEntity;
 import gov.hhs.cms.prp.entity.UserDetails;
-import org.apache.log4j.Logger;
+//import org.apache.log4j.Logger;
 import org.springframework.web.client.RestTemplate;
+
+import java.util.logging.Logger;
 
 /**
  * Created by VivekKumar.ReddyYara on 11/2/2015.

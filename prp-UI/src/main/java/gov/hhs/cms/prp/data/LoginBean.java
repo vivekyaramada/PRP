@@ -62,5 +62,11 @@ public class LoginBean implements Serializable {
 
         return prpFacade.checkLogin(loginEntity,userDetails);
     }
+
+    public String getConstants()
+    {
+        prpFacade prpFacade = new prpFacade();
+        return prpFacade.getConstants();
+    }
 }
 

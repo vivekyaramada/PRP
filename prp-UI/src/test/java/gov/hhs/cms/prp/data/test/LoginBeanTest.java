@@ -27,11 +27,12 @@ public class LoginBeanTest {
         assertEquals("password", loginBean.getPassword());
     }
 
-  /*  @Test
+  /* @Test
     public void testCheckLogin() throws Exception {
-        LoginBean loginBean = new LoginBean();
-        loginBean.setUsername("vivek");
-        loginBean.setPassword("password");
-        assertEquals("success", loginBean.checkLogin());
-    }*/
+
+       LoginBean loginBean = new LoginBean();
+
+       assertEquals("success", loginBean.checkLogin());
+
+   }*/
 }

@@ -4,6 +4,9 @@
 
 <web-app>
     <display-name>Restful Web Application</display-name>
+    <listener>
+        <listener-class>gov.hhs.cms.prp.ws.AppContextListener</listener-class>
+    </listener>
 
  <!-- <servlet>
         <servlet-name>jersey-serlvet</servlet-name>
@@ -21,6 +24,4 @@
         <servlet-name>jersey-serlvet</servlet-name>
         <url-pattern>/rest/*</url-pattern>
     </servlet-mapping>-->
-
-
 </web-app>

@@ -3,6 +3,8 @@ package gov.hhs.cms.prp.entity.test;
 import org.junit.Test;
 import gov.hhs.cms.prp.entity.*;
 
+import java.util.Date;
+
 import static org.junit.Assert.*;
 
 /**
@@ -10,18 +12,17 @@ import static org.junit.Assert.*;
  */
 public class AddCheckEntityTest {
 
-/*
+
     @Test
     public void testGetSponsor() throws Exception {
-        AddCheckEntity addCheckEntity = new AddCheckEntity("SYSTEM1", 0.10,"" ,"1.00",01/01/2009,12/12/2009,01/01/2009 );
+        AddCheckEntity addCheckEntity = new AddCheckEntity("SYSTEM1", 0.10,"" ,"1.00","01/01/2009","12/12/2009",new Date());
         assertEquals("SYSTEM1", addCheckEntity.getSponsor() );
     }
-*/
 
-   /* @Test
-    public void testGetCheckAmount() throws Exception {
-        AddCheckEntity addCheckEntity = new AddCheckEntity("SYSTEM1", 0.10,"" ,"1.00","01/01/2009","12/12/2009","vivek" );
-        assertEquals(0.10, addCheckEntity.getCheckAmount() );
 
-    }*/
+    @Test
+    public void testGetNote() throws Exception {
+        AddCheckEntity addCheckEntity = new AddCheckEntity("SYSTEM1", 0.10,"" ,"1.00","01/01/2009","12/12/2009",new Date());
+        assertEquals("12/12/2009", addCheckEntity.getNote() );
+    }
 }
