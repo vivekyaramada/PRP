@@ -53,36 +53,6 @@
             </line>
         </record-definition>
     </record>
-    <record name="planOption">
-        <record-ident>
-            <field-ident field-start="0" field-length="4">
-                <match-string>OPT2</match-string>
-            </field-ident>
-        </record-ident>
-        <record-definition>
-            <bean name="planOption" class="gov.hhs.cms.prp.entity.PrpPlanOptionsEntity"/>
-            <line>
-                <record-element length="4"/> <!-- Segment ID -->
-                <record-element length="10" beanref="planOption.planNdmVendor" type="char">
-                    <conversion-option name="pad-character" value="0"/>
-                    <conversion-option name="justify" value="right"/>
-                </record-element>
-                <record-element length="10" beanref="planOption.planApplId" type="integer"/>
-                <record-element length="20" beanref="planOption.planGroupNumber" type="char">
-                    <conversion-option name="pad-character" value=" "/>
-                    <conversion-option name="justify" value="left"/>
-                </record-element>
-                <record-element length="1" beanref="planOption.planSubmMethod" type="char"/>
-                <record-element length="1" beanref="planOption.planRespMethod" type="char"/>
-                <record-element length="1" beanref="planOption.planNotifMethod" type="char"/>
-                <record-element length="4" beanref="planOption.planVdsaPlanNum" type="char" />
-                <record-element length="9" beanref="planOption.planVdsaMirId" type="char">
-                    <conversion-option name="pad-character" value="0"/>
-                    <conversion-option name="justify" value="right"/>
-                </record-element>
-                <record-element length="10"/> <!-- Filler -->
-            </line>
-        </record-definition>
-    </record>
+
 
 </file-format>

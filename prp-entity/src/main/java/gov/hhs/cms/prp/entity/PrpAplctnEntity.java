@@ -116,7 +116,7 @@ public class PrpAplctnEntity {
     }
 
     @Basic
-    @Column(name = "APPL_TIMESTAMP")
+    @Column(name = "APPL_TIMESTAMP", insertable=false)
     public Timestamp getApplTimestamp() {
         return applTimestamp;
     }

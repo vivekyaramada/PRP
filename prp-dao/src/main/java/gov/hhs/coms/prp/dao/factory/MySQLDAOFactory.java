@@ -4,9 +4,9 @@ package gov.hhs.coms.prp.dao.factory;
 import gov.hhs.cms.prp.dao.bean.AddChecksDAOBean;
 import gov.hhs.cms.prp.dao.bean.CheckLoginDAOBean;
 import gov.hhs.cms.prp.dao.bean.GetMsgDAOBean;
-import org.springframework.context.support.ClassPathXmlApplicationContext;
+import gov.hhs.cms.prp.dao.bean.PrpAplctnDAOBean;
 import org.springframework.context.ApplicationContext;
-import gov.hhs.coms.prp.dao.factory.DAOFactory;
+import org.springframework.context.support.ClassPathXmlApplicationContext;
 
 /**
  * Created by VivekKumar.ReddyYara on 10/23/2015.
@@ -37,6 +37,8 @@ public class MySQLDAOFactory extends DAOFactory {
         } else if (beanname!=null &&  beanname.equals("addchecksdaobean")) {
             return (AddChecksDAOBean) context.getBean("addchecksdaobean");
 
+        } else if (beanname != null && beanname.equals("saveaplctndaobean")) {
+            return (PrpAplctnDAOBean) context.getBean("saveaplctndaobean");
         }
             return null;
     }

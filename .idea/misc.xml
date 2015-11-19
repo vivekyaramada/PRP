@@ -43,6 +43,7 @@
   </component>
   <component name="FrameworkDetectionExcludesConfiguration">
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-az-ear" />
+    <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-batch-ear" />
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-dz-ear" />
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-ear" />
     <file type="javaeeApplication" url="file://$PROJECT_DIR$/prp-ear" />
@@ -56,6 +57,7 @@
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/prp-data/pom.xml" />
         <option value="$PROJECT_DIR$/prp-mq/pom.xml" />
+        <option value="$PROJECT_DIR$/prp-batch-ear/pom.xml" />
       </list>
     </option>
   </component>

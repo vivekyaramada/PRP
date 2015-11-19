@@ -1,13 +1,21 @@
 package gov.hhs.cms.prp.mq.handler;
 
+import gov.hhs.coms.prp.dao.factory.MySQLDAOFactory;
 /**
  * Created by jarsen on 11/5/15.
  */
 public abstract class MQMessageHandler {
 
+    protected static MySQLDAOFactory mySQLDAOFactory;
+
+    protected static MySQLDAOFactory getMySQLDAOFactory() {
+        if (mySQLDAOFactory == null) {
+            mySQLDAOFactory = new MySQLDAOFactory();
+        }
+        return mySQLDAOFactory;
+    }
+
     public abstract Object createObjectFromString(String configFilePath, String messageString, String recordName, String beanName) throws Exception;
-
-
 
     public static String insertNewlineBetweenSegments(String messageBody, int segmentLength) {
         int nbrOfSegments = messageBody.length() / segmentLength;

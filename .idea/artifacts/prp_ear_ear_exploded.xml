@@ -14,9 +14,6 @@
       <element id="archive" name="prp-ws-1.5-SNAPSHOT.war">
         <element id="artifact" artifact-name="prp-ws:war exploded" />
       </element>
-      <element id="archive" name="prp-mq-1.2-SNAPSHOT.war">
-        <element id="artifact" artifact-name="prp-mq:war exploded" />
-      </element>
       <element id="library" level="project" name="Maven: org.primefaces:primefaces:5.2" />
       <element id="library" level="project" name="Maven: com.sun.faces:jsf-api:2.1.11" />
       <element id="library" level="project" name="Maven: com.sun.faces:jsf-impl:2.1.11" />

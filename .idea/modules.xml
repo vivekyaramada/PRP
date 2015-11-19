@@ -5,6 +5,7 @@
       <module fileurl="file://$PROJECT_DIR$/PRP.iml" filepath="$PROJECT_DIR$/PRP.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-UI/prp-UI.iml" filepath="$PROJECT_DIR$/prp-UI/prp-UI.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-az-ear/prp-az-ear.iml" filepath="$PROJECT_DIR$/prp-az-ear/prp-az-ear.iml" />
+      <module fileurl="file://$PROJECT_DIR$/prp-batch-ear/prp-batch-ear.iml" filepath="$PROJECT_DIR$/prp-batch-ear/prp-batch-ear.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-dao/prp-dao.iml" filepath="$PROJECT_DIR$/prp-dao/prp-dao.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-data/prp-data.iml" filepath="$PROJECT_DIR$/prp-data/prp-data.iml" />
       <module fileurl="file://$PROJECT_DIR$/prp-dz-ear/prp-dz-ear.iml" filepath="$PROJECT_DIR$/prp-dz-ear/prp-dz-ear.iml" />

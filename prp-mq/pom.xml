@@ -84,10 +84,16 @@
             <scope>test</scope>
         </dependency>
 
+        <!--<dependency>-->
+            <!--<artifactId>prp-entity</artifactId>-->
+            <!--<groupId>org.gdit.entity</groupId>-->
+            <!--<version>1.3-SNAPSHOT</version>-->
+        <!--</dependency>-->
+
         <dependency>
-            <artifactId>prp-entity</artifactId>
-            <groupId>org.gdit.entity</groupId>
-            <version>1.3-SNAPSHOT</version>
+            <artifactId>prp-dao</artifactId>
+            <groupId>org.gdit.dao</groupId>
+            <version>1.7-SNAPSHOT</version>
         </dependency>
 
         <dependency>

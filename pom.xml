@@ -19,6 +19,7 @@
   <module>prp-mq</module>
   <module>prp-az-ear</module>
   <module>prp-dz-ear</module>
+  <module>prp-batch-ear</module>
 </modules>
 
 
