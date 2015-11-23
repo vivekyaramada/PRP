@@ -10,6 +10,7 @@ import java.sql.Timestamp;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.ArrayList;
+import java.util.logging.Logger;
 //import java.util.logging.Logger;
 
 /**
@@ -17,12 +18,8 @@ import java.util.ArrayList;
  */
 
 public class PrpEvntFinalEntityCmt extends PrpEvntFinalEntityCatData {
-
+    private final static Logger LOGGER = java.util.logging.Logger.getLogger(PrpEvntFinalEntityCmt.class.getName());
     private String cmtComment;
-
-    public   PrpEvntFinalEntityCmt (PrpEvntFinalEntity source) {
-        super (source);
-    }
 
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
@@ -30,6 +27,7 @@ public class PrpEvntFinalEntityCmt extends PrpEvntFinalEntityCatData {
     public String getEvntCtgryData() {
         CsvUtility csvUtility = new CsvUtility();
         String evntCtgryData = csvUtility.buildCsvString(cmtComment);
+        super.setEvntCtgryData(evntCtgryData);
         return evntCtgryData;
     }
 
@@ -42,5 +40,7 @@ public class PrpEvntFinalEntityCmt extends PrpEvntFinalEntityCatData {
 
     @Transient
     public String getCmtComment      ()                        { return cmtComment; }
-    public void   setCmtComment      (String cmtComment)       { this.cmtComment    = cmtComment; }
+    public void   setCmtComment      (String cmtComment)       {
+        LOGGER.info("PrpEvntFinalEntityCmt.setCmtComment() " + cmtComment);
+        this.cmtComment    = cmtComment; }
 }

@@ -289,7 +289,7 @@ public class PrpEvntFinalEntity {
 
     public void setEvntCtgryData(String evntCtgryData) {
         this.evntCtgryData = evntCtgryData;
-     }
+    }
 
 
     @Override

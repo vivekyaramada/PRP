@@ -8,9 +8,7 @@ import java.io.BufferedReader;
 import java.io.IOException;
 import java.io.InputStreamReader;
 import java.lang.reflect.Type;
-import java.net.HttpURLConnection;
-import java.net.MalformedURLException;
-import java.net.URL;
+import java.net.*;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.logging.Logger;
@@ -21,7 +19,7 @@ import org.springframework.web.client.RestTemplate;
  */
 public class prpValidation {
 
-    final static Logger logger = Logger.getLogger(prpValidation.class.getName());
+    final static Logger LOGGER = Logger.getLogger(prpValidation.class.getName());
 
     public String checkLogin(LoginEntity datalogin, UserDetails userDetails) {
 
@@ -56,16 +54,17 @@ public class prpValidation {
 
     public String writeData(AddCheckEntity datachecks,UserDetails userDetails) {
 
-        logger.info("checkNumber2>>>" + datachecks.getCheckNumber());
-        logger.info("rsn2>>>" + datachecks.getRsn());
-        logger.info("checkName>2>>" + datachecks.getCheckName());
-        logger.info("note2>>>" + datachecks.getNote());
-        logger.info("checkDate2>>>" + datachecks.getCheckDate());
-        logger.info("checkNumber2>>>" + datachecks.getCheckNumber());
-        logger.info("rsn2>>>" + datachecks.getRsn());
-        logger.info("checkName>2>>" + datachecks.getCheckName());
-        logger.info("note2>>>" + datachecks.getNote());
-        logger.info("checkDate2>>>" + datachecks.getCheckDate());
+        LOGGER.info("checkNumber2>>>" + datachecks.getCheckNumber());
+        LOGGER.info("rsn2>>>" + datachecks.getRsn());
+        LOGGER.info("checkName>2>>" + datachecks.getCheckName());
+        LOGGER.info("note2>>>" + datachecks.getNote());
+        LOGGER.info("note2>>>" + datachecks.getNote());
+        LOGGER.info("checkDate2>>>" + datachecks.getCheckDate());
+        LOGGER.info("checkNumber2>>>" + datachecks.getCheckNumber());
+        LOGGER.info("rsn2>>>" + datachecks.getRsn());
+        LOGGER.info("checkName>2>>" + datachecks.getCheckName());
+        LOGGER.info("note2>>>" + datachecks.getNote());
+        LOGGER.info("checkDate2>>>" + datachecks.getCheckDate());
 
         try {
             String urlString = "http://localhost:9093/prp-ws/hello/addcheck/"+ datachecks.getSponsor()+ "/" + userDetails.getUsername();
@@ -122,60 +121,52 @@ public class prpValidation {
             RestTemplate restTemplate = new RestTemplate();
             String response = restTemplate.getForObject(urlString, String.class);
 
-            Type listOfTestObject = new TypeToken<List<PrpEvntFinalEntity>>() { }.getType();
-            ArrayList<PrpEvntFinalEntity> list = gson.fromJson(response, listOfTestObject);
+            Type listOfTestObject = new TypeToken<List<PrpEvntFinalEntityCatData>>() { }.getType();
+            ArrayList<PrpEvntFinalEntityCatData> list = gson.fromJson(response, listOfTestObject);
 
-            //for (int i = 0; i < list.size(); i++) {
-            //    events.add(list.get(i));
-            //}
-
-            for (PrpEvntFinalEntity event : list) {
-                String cat = event.getEvntCtgry();
-                if      (cat.equalsIgnoreCase("nxd")) {
-                    events.add(event);
-                    continue;
-                }
-                /*
-                if (cat.equalsIgnoreCase("cmt")) {
-                    PrpEvntFinalEntityCmt eventCmt = new PrpEvntFinalEntityCmt();
-                    eventCmt.copyFrom(event);
-                    eventCmt.setEvntCtgryData(event.getEvntCtgryData());
-                    events.add(eventCmt);
-                }
-                */
-                PrpEvntFinalEntity eventCat;
-
-                if      (cat.equalsIgnoreCase("ach")) {
-                    eventCat = new PrpEvntFinalEntityAch(event);
-                }
-                else if (cat.equalsIgnoreCase("bnk")) {
-                    eventCat = new PrpEvntFinalEntityBnk(event);
-                }
-                else if (cat.equalsIgnoreCase("chk")) {
-                    eventCat = new PrpEvntFinalEntityChk(event);
-                }
-                else if (cat.equalsIgnoreCase("cmt")) {
-                    eventCat = new PrpEvntFinalEntityCmt(event);
-                }
-                else if (cat.equalsIgnoreCase("cyc")) {
-                    eventCat = new PrpEvntFinalEntityCyc(event);
-                }
-                else if (cat.equalsIgnoreCase("det")) {
-                    eventCat = new PrpEvntFinalEntityDet(event);
-                }
-                else if (cat.equalsIgnoreCase("req")) {
-                    eventCat = new PrpEvntFinalEntityReq(event);
-                }
-                else {
-                    events.add(event);
-                    continue;
-                }
-                eventCat.setEvntCtgryData(event.getEvntCtgryData());
+            for (PrpEvntFinalEntityCatData event : list) {
+                PrpEvntFinalEntity eventCat = event.getFinalEntityByCategory();
                 events.add(eventCat);
             }
         }  catch (Exception e) {
+            LOGGER.info("prpValidation.getEvents exception: " + e.getMessage());
             e.printStackTrace();
         }
         return events;
+    }
+
+    public int    updateEvent (PrpEvntFinalEntity event, UserDetails userDetails) {
+        displayTest(event);
+        String eventString  = new Gson().toJson(event);
+        String eventEscape  = escapeString(eventString);
+        try {
+            String urlString    = "http://localhost:9093/prp-ws/hello/updateevent/"
+                                + eventEscape
+                                + "/"
+                                + userDetails.getUsername();
+            RestTemplate restTemplate = new RestTemplate();
+            return restTemplate.getForObject(urlString, Integer.class);
+        }
+        catch (Exception e) {
+            LOGGER.info("exception: " + e.getClass().getName() + " " + e.getMessage());
+            e.printStackTrace();
+        }
+        return 0;
+    }
+
+    private String  escapeString (String inString) {
+        StringBuffer sb   = new StringBuffer ();
+        int          lgth = inString.length();
+        for (int a=0; a<lgth; a++) {
+            char x = inString.charAt(a);
+            if      (x == '{') sb.append("%7B");
+            else if (x == '}') sb.append("%7D");
+            else               sb.append(x);
+        }
+        return sb.toString();
+    }
+
+    private void    displayTest (PrpEvntFinalEntity event) {
+        LOGGER.info("category data: " + event.getEvntCtgry() + " " + event.getEvntCtgryData());
     }
 }

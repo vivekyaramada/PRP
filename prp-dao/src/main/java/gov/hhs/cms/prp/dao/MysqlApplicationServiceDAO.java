@@ -53,6 +53,16 @@ public class MysqlApplicationServiceDAO implements ApplicationServiceDAO{
         return new Gson().toJson(list);
     }
 
+    public int    updateEvent (PrpEvntFinalEntity event) {
+        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
+        EntityManager em = factory.createEntityManager();
+        em.getTransaction().begin();
+        LOGGER.info("MysqlApplicationServiceDAO.addEvent: " + event.getEvntCtgryData());
+        em.merge(event);
+        em.getTransaction().commit();
+        return 0;
+    }
+
     public String checkLogin(String usrname)
     {
         factory = Persistence.createEntityManagerFactory("REPORTINGJPA");

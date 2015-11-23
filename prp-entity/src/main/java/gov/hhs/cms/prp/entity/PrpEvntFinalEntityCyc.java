@@ -11,16 +11,13 @@ public class PrpEvntFinalEntityCyc extends PrpEvntFinalEntityCatData {
 
     private String cycCycleNumber;
 
-    public   PrpEvntFinalEntityCyc (PrpEvntFinalEntity source) {
-        super (source);
-    }
-
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
 
     public String getEvntCtgryData() {
         CsvUtility csvUtility = new CsvUtility();
         String evntCtgryData = csvUtility.buildCsvString(cycCycleNumber);
+        super.setEvntCtgryData(evntCtgryData);
         return evntCtgryData;
     }
 

@@ -2,7 +2,8 @@ package gov.hhs.cms.prp.entity;
 
 import javax.persistence.Basic;
 import javax.persistence.Transient;
-import java.sql.Date;
+import java.util.Date;
+// import java.sql.Date;
 import java.util.ArrayList;
 
 /**
@@ -18,10 +19,6 @@ public class PrpEvntFinalEntityChk extends PrpEvntFinalEntityCatData {
     private String chkDepositDate;
     private String chkNote;
 
-    public   PrpEvntFinalEntityChk (PrpEvntFinalEntity source) {
-        super (source);
-    }
-
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
 
@@ -30,6 +27,7 @@ public class PrpEvntFinalEntityChk extends PrpEvntFinalEntityCatData {
         String evntCtgryData = csvUtility.buildCsvString(chkCheckType,   chkCheckDate, chkCheckNumber,
                                                          chkPayerName,   chkReason,    chkDepositDate,
                                                          chkNote);
+        super.setEvntCtgryData(evntCtgryData);
         return evntCtgryData;
     }
 

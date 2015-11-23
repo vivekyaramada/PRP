@@ -21,10 +21,6 @@ public class PrpEvntFinalEntityBnk extends PrpEvntFinalEntityCatData {
     private String bnkPhone;
     private String bnkContact;
 
-    public   PrpEvntFinalEntityBnk (PrpEvntFinalEntity source) {
-        super (source);
-    }
-
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
 
@@ -34,6 +30,7 @@ public class PrpEvntFinalEntityBnk extends PrpEvntFinalEntityCatData {
                                                          bnkBusinessName,  bnkBankName,      bnkAddress1,
                                                          bnkAddress2,      bnkCity,          bnkState,
                                                          bnkZip,           bnkPhone,         bnkContact);
+        super.setEvntCtgryData(evntCtgryData);
         return evntCtgryData;
     }
 

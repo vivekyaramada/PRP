@@ -1,20 +1,49 @@
 package gov.hhs.cms.prp.entity;
 
 import java.math.BigDecimal;
-import java.sql.Date;
+import java.util.Date;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.util.logging.Logger;
 
 /**
  * Created by grussell99 on 11/12/2015.
  */
 public class PrpEvntFinalEntityCatData extends PrpEvntFinalEntity {
+    final static Logger lOGGER = Logger.getLogger(PrpEvntFinalEntityCatData.class.getName());
+    public   PrpEvntFinalEntityCatData () { }
 
-    public   PrpEvntFinalEntityCatData (PrpEvntFinalEntity source) {
-        copyFrom(source);
+    public PrpEvntFinalEntity getFinalEntityByCategory() {
+        String             category = getEvntCtgry();
+        PrpEvntFinalEntityCatData eventCat;
+        if      (category.equalsIgnoreCase("ach")) {
+            eventCat = new PrpEvntFinalEntityAch();
+        }
+        else if (category.equalsIgnoreCase("bnk")) {
+            eventCat = new PrpEvntFinalEntityBnk();
+        }
+        else if (category.equalsIgnoreCase("chk")) {
+            eventCat = new PrpEvntFinalEntityChk();
+        }
+        else if (category.equalsIgnoreCase("cmt")) {
+            eventCat = new PrpEvntFinalEntityCmt();
+        }
+        else if (category.equalsIgnoreCase("cyc")) {
+            eventCat = new PrpEvntFinalEntityCyc();
+        }
+        else if (category.equalsIgnoreCase("det")) {
+            eventCat = new PrpEvntFinalEntityDet();
+        }
+        else if (category.equalsIgnoreCase("req")) {
+            eventCat = new PrpEvntFinalEntityReq();
+        }
+        else return this;
+        eventCat.copyFrom(this);
+        eventCat.setEvntCtgryData(this.getEvntCtgryData());
+        return eventCat;
     }
 
-    private void copyFrom (PrpEvntFinalEntity source) {
+    protected void copyFrom (PrpEvntFinalEntity source) {
         setPkPrpEventId      (source.getPkPrpEventId());
         setEvntTypeCd        (source.getEvntTypeCd());
         setEvntOrgnCd        (source.getEvntOrgnCd());
@@ -39,9 +68,6 @@ public class PrpEvntFinalEntityCatData extends PrpEvntFinalEntity {
         setEvntCtgry         (source.getEvntCtgry());
     }
 
-    // -----------------------------------------------------------------------------------
-
-
     protected int           getInteger    (String data) {
         return Integer.getInteger(data, 0);
     }
@@ -54,8 +80,7 @@ public class PrpEvntFinalEntityCatData extends PrpEvntFinalEntity {
         if (data == null || data.equals("") || data.length() != 8) return null;
         SimpleDateFormat format = new SimpleDateFormat("yyyyMMdd");
         try {
-            java.util.Date temp = format.parse(data);
-            java.sql.Date  date = new Date(temp.getTime());
+            java.util.Date date = format.parse(data);
             return date;
         }
         catch (ParseException e) {
@@ -65,11 +90,14 @@ public class PrpEvntFinalEntityCatData extends PrpEvntFinalEntity {
 
     protected String        setDate       (Date data) {
         if (data == null) return "";
-        return "";
+        SimpleDateFormat sdf = new SimpleDateFormat("yyyyMMdd");
+        String dateString = sdf.format(data);
+        lOGGER.info("PrpEvntFinalEntityCatData.setDate(): " + dateString);
+        return dateString;
     }
 
     protected BigDecimal getBigDecimal (String data) {
-        if (data == null || data.equals("")) return BigDecimal.ZERO;;
+        if (data == null || data.equals("")) return BigDecimal.ZERO;
         try {
             return new BigDecimal(data);
         }
@@ -79,8 +107,9 @@ public class PrpEvntFinalEntityCatData extends PrpEvntFinalEntity {
     }
 
     protected String        setBigDecimal (BigDecimal data) {
-        if (data == null) return "";
-        return "";
+        if (data == null) return "0.00";
+        String amountString = data.toString();
+        return amountString;
     }
 
     // -----------------------------------------------------------------------------------

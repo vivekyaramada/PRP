@@ -185,90 +185,91 @@
                 </div>
                 <div id="divDialogCategory">
                     <p:dialog id="dlgAction" header="Event Category Detail" widgetVar="dlgAction" modal="true" width = "700" height="400"
-                              rendered="#{eventListBean.detailSelected}" visible="true" onHide="#{eventListBean.eventToSelectIs(0)}">
+                              rendered="#{eventListBean.detailSelected}" visible="true">
                         <div id= "divEventAction">
                             <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('BNK')}">
                                 <h:outputText value="Routing number " />
-                                <h:outputText value="#{eventListBean.event.bnkRoutingNumber}" />
+                                <h:inputText  value="#{eventListBean.event.bnkRoutingNumber}" maxlength="40" onchange="eventListBean.event.setBnkRoutingNumber" />
                                 <h:outputText value="Account number " />
-                                <h:outputText value="#{eventListBean.event.bnkAccountNumber}" />
+                                <h:inputText  value="#{eventListBean.event.bnkAccountNumber}" maxlength="40" onchange="eventListBean.event.setBnkAccountNumber" />
                                 <h:outputText value="Account type " />
-                                <h:outputText value="#{eventListBean.event.bnkAccountType}" />
+                                <h:inputText  value="#{eventListBean.event.bnkAccountType}" maxlength="40" onchange="eventListBean.event.setBnkAccountType" />
                                 <h:outputText value="Business name " />
-                                <h:outputText value="#{eventListBean.event.bnkBusinessName}" />
+                                <h:inputText  value="#{eventListBean.event.bnkBusinessName}" maxlength="40" onchange="eventListBean.event.setBnkBusinessName" />
                                 <h:outputText value="Bank name " />
-                                <h:outputText value="#{eventListBean.event.bnkBankName}" />
+                                <h:inputText  value="#{eventListBean.event.bnkBankName}" maxlength="40" onchange="eventListBean.event.setBnkBankName" />
                                 <h:outputText value="Address1 " />
-                                <h:outputText value="#{eventListBean.event.bnkAddress1}" />
+                                <h:inputText  value="#{eventListBean.event.bnkAddress1}" maxlength="40" onchange="eventListBean.event.setBnkAddress1" />
                                 <h:outputText value="Address2 " />
-                                <h:outputText value="#{eventListBean.event.bnkAddress2}" />
+                                <h:inputText  value="#{eventListBean.event.bnkAddress2}" maxlength="40" onchange="eventListBean.event.setBnkAddress2" />
                                 <h:outputText value="City " />
-                                <h:outputText value="#{eventListBean.event.bnkCity}" />
+                                <h:inputText  value="#{eventListBean.event.bnkCity}" maxlength="40" onchange="eventListBean.event.setBnkCity" />
                                 <h:outputText value="State " />
-                                <h:outputText value="#{eventListBean.event.bnkState}" />
+                                <h:inputText  value="#{eventListBean.event.bnkState}" maxlength="40" onchange="eventListBean.event.setBnkState" />
                                 <h:outputText value="Zip " />
-                                <h:outputText value="#{eventListBean.event.bnkZip}" />
+                                <h:inputText  value="#{eventListBean.event.bnkZip}" maxlength="40" onchange="eventListBean.event.setBnkZip" />
                                 <h:outputText value="Phone " />
-                                <h:outputText value="#{eventListBean.event.bnkPhone}" />
+                                <h:inputText  value="#{eventListBean.event.bnkPhone}" maxlength="40" onchange="eventListBean.event.setBnkPhone" />
                                 <h:outputText value="Contact " />
-                                <h:outputText value="#{eventListBean.event.bnkContact}" />
+                                <h:inputText  value="#{eventListBean.event.bnkContact}" maxlength="40" onchange="eventListBean.event.setBnkContact" />
                             </h:panelGrid>
                             <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2"  rendered="#{eventListBean.isCategory('REQ')}">
                                 <h:outputText value="Requester " />
-                                <h:outputText value="#{eventListBean.event.reqRequester}" />
+                                <h:inputText  value="#{eventListBean.event.reqRequester}" maxlength="40" onchange="eventListBean.event.setReqRequester" />
                                 <h:outputText value="Reference number " />
-                                <h:outputText value="#{eventListBean.event.reqRefNumber}" />
+                                <h:inputText  value="#{eventListBean.event.reqRefNumber}" maxlength="40" onchange="eventListBean.event.setReqRefNumber" />
                                 <h:outputText value="Request date " />
-                                <h:outputText value="#{eventListBean.event.reqRequestDate}" />
+                                <p:calendar   value="#{eventListBean.event.reqRequestDate}" />
                             </h:panelGrid>
                             <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('DET')}">
                                 <h:outputText value="Payment amount " />
-                                <h:outputText value="#{eventListBean.event.detPaymentAmt}"><f:convertNumber type="currency" /></h:outputText>
+                                <p:inputText  value="#{eventListBean.event.detPaymentAmt}" maxlength="40" onchange="eventListBean.event.setDetPaymentAmt"><f:convertNumber type="currency" /></p:inputText>
                                 <h:outputText value="Reduction amount " />
-                                <h:outputText value="#{eventListBean.event.detReduceAmt}"><f:convertNumber type="currency" /> </h:outputText>
+                                <p:inputText  value="#{eventListBean.event.detReduceAmt}" maxlength="40" onchange="eventListBean.event.setDetReduceAmt"><f:convertNumber type="currency" /></p:inputText>
                                 <h:outputText value="Offset application " />
-                                <h:outputText value="#{eventListBean.event.extrnlRfrncAplctn}" />
+                                <h:outputText  value="#{eventListBean.event.extrnlRfrncAplctn}" />
                             </h:panelGrid>
                             <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('CHK')}">
                                 <h:outputText value="Check type " />
-                                <h:outputText value="#{eventListBean.event.chkCheckType}" />
+                                <h:inputText  value="#{eventListBean.event.chkCheckType}" maxlength="40" onchange="eventListBean.event.setChkCheckType" />
                                 <h:outputText value="Check date " />
-                                <h:outputText value="#{eventListBean.event.chkCheckDate}" />
+                                <p:calendar value="#{eventListBean.event.chkCheckDate}" />
                                 <h:outputText value="Check number " />
-                                <h:outputText value="#{eventListBean.event.chkCheckNumber}" />
+                                <h:inputText  value="#{eventListBean.event.chkCheckNumber}" maxlength="40" onchange="eventListBean.event.setChkCheckNumber" />
                                 <h:outputText value="Payer name " />
-                                <h:outputText value="#{eventListBean.event.chkPayerName}" />
+                                <h:inputText  value="#{eventListBean.event.chkPayerName}" maxlength="40" onchange="eventListBean.event.setChkPayerName" />
                                 <h:outputText value="Reason " />
-                                <h:outputText value="#{eventListBean.event.chkReason}" />
+                                <h:inputText  value="#{eventListBean.event.chkReason}" maxlength="40" onchange="eventListBean.event.setChkReason" />
                                 <h:outputText value="Deposit date " />
-                                <h:outputText value="#{eventListBean.event.chkDepositDate}" />
+                                <p:calendar value="#{eventListBean.event.chkDepositDate}" />
                                 <h:outputText value="Note " />
-                                <h:outputText value="#{eventListBean.event.chkNote}" />
+                                <h:inputText  value="#{eventListBean.event.chkNote}" maxlength="40" onchange="eventListBean.event.setChkNote" />
                                 <h:outputText value="Apply application " />
                                 <h:outputText value="#{eventListBean.event.extrnlRfrncAplctn}" />
                             </h:panelGrid>
                             <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('ACH')}">
                                 <h:outputText value="Payment amount " />
-                                <h:outputText value="#{eventListBean.event.achPaymentAmount}"><f:convertNumber type="currency" /></h:outputText>
+                                <p:inputText  value="#{eventListBean.event.achPaymentAmount}" maxlength="40" onchange="eventListBean.event.setAchPaymentAmount"><f:convertNumber type="currency" /></p:inputText>
                                 <h:outputText value="Routing number " />
-                                <h:outputText value="#{eventListBean.event.achRoutingNumber}" />
+                                <h:inputText  value="#{eventListBean.event.achRoutingNumber}" maxlength="40" onchange="eventListBean.event.setAchRoutingNumber" />
                                 <h:outputText value="Account number " />
-                                <h:outputText value="#{eventListBean.event.achAccountNumber}" />
+                                <h:inputText  value="#{eventListBean.event.achAccountNumber}" maxlength="40" onchange="eventListBean.event.setAchAcountNumber" />
                                 <h:outputText value="Account type " />
-                                <h:outputText value="#{eventListBean.event.achAccountType}" />
+                                <h:inputText  value="#{eventListBean.event.achAccountType}" maxlength="40" onchange="eventListBean.event.setAchAccountType" />
                                 <h:outputText value="Tracer number " />
-                                <h:outputText value="#{eventListBean.event.achTracerNumber}" />
+                                <h:inputText  value="#{eventListBean.event.achTracerNumber}" maxlength="40" onchange="eventListBean.event.setAchTracerNumber"  />
                             </h:panelGrid>
                             <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('CMT')}">
                                 <h:outputText value="Comment " />
-                                <h:outputText value="#{eventListBean.event.cmtComment}" />
+                                <h:inputText  value="#{eventListBean.event.cmtComment}" maxlength="40" onchange="eventListBean.event.setCmtComment" />
                             </h:panelGrid>
                             <h:panelGrid columns="2" border = "1" cellspacing="2" cellpadding="2" rendered="#{eventListBean.isCategory('CYC')}">
                                 <h:outputText value="Cycle number " />
-                                <h:outputText value="#{eventListBean.event.cycCycleNumber}" />
+                                <h:outputText value="#{eventListBean.event.cycCycleNumber}" maxlength="40" onchange="eventListBean.event.setCycCycleNumber" />
                             </h:panelGrid>
                             <p/><p/><p/><p/>
-                            <h:commandButton id="cbProcessEvent" value="  Close  " cellspacing="10" action="#{eventListBean.eventToSelectIs(0)}" />
+                            <h:commandButton id="cbUpdateEvent" value="  Update  " cellspacing="10" action="#{eventListBean.updateEvent}" />
+                            <h:commandButton id="cbUpdateCancel" value="  Close  " cellspacing="10" action="#{eventListBean.eventToSelectIs(0)}" />
                             <p/><p/>
 
                             <!--

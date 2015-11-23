@@ -24,14 +24,10 @@ public class prpFacade {
 
     private LoginEntity loginEntity;
 
-
-
-
     private prpValidation prpValidation;
 
 
     public prpFacade() {
-
         prpValidation = new prpValidation();
     }
 
@@ -44,6 +40,10 @@ public class prpFacade {
     public ArrayList getEvents(Integer keyPsid, Integer keyApplid, UserDetails userDetails) {
         ArrayList events = prpValidation.getEvents(keyPsid, keyApplid, userDetails);
         return events;
+    }
+
+    public int    updateEvent (PrpEvntFinalEntity event, UserDetails userDetails) {
+        return prpValidation.updateEvent(event, userDetails);
     }
 
     public String checkLogin(LoginEntity datalogin,UserDetails userDetails) {

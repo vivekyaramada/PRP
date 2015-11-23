@@ -12,16 +12,13 @@ public class PrpEvntFinalEntityDet extends PrpEvntFinalEntityCatData {
     private String detPaymentAmt;
     private String detReduceAmt;
 
-    public   PrpEvntFinalEntityDet (PrpEvntFinalEntity source) {
-        super (source);
-    }
-
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
 
     public String getEvntCtgryData() {
         CsvUtility csvUtility = new CsvUtility();
         String evntCtgryData = csvUtility.buildCsvString(detPaymentAmt, detReduceAmt);
+        super.setEvntCtgryData(evntCtgryData);
         return evntCtgryData;
     }
 

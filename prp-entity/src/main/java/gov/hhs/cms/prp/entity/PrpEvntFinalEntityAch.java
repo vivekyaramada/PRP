@@ -16,10 +16,6 @@ public class PrpEvntFinalEntityAch extends PrpEvntFinalEntityCatData {
     private String achAccountType;
     private String achTracerNumber;
 
-    public   PrpEvntFinalEntityAch (PrpEvntFinalEntity source) {
-        super (source);
-    }
-
     @Basic
     @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
 
@@ -27,6 +23,7 @@ public class PrpEvntFinalEntityAch extends PrpEvntFinalEntityCatData {
         CsvUtility csvUtility = new CsvUtility();
         String evntCtgryData = csvUtility.buildCsvString(achPaymentAmount, achRoutingNumber, achAccountNumber,
                                                          achAccountType,   achTracerNumber);
+        super.setEvntCtgryData(evntCtgryData);
         return evntCtgryData;
     }
 

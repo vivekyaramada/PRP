@@ -64,12 +64,29 @@ public class EventListBean implements Serializable {
                 keyApplid = event.getAplctnIdent();
             }
         }
-
         return events;
     }
 
     public void searchEvents() {
         getEvents();
+    }
+
+    public PrpEvntFinalEntity getEvent() {
+        if (events == null)                 return null;
+        if (selectEventNbr < 1)             return null;
+        if (selectEventNbr > events.size()) return null;
+        return events.get(selectEventNbr-1);
+    }
+
+    public void    updateEvent () {
+        PrpEvntFinalEntity event = (PrpEvntFinalEntity) getEvent();
+        event.getEvntCtgryData();  // to force update of category data in parent class
+        HttpSession session = SessionBean.getSession();
+        UserDetails userDetails = (UserDetails) session.getAttribute("userDetails");
+        prpFacade prpFacade = new prpFacade();
+        int rtncode = prpFacade.updateEvent(event, userDetails);
+        LOGGER.info("Response from updateEvent: " + rtncode);
+        selectEventNbr = 0;
     }
 
     private  boolean  isInteger (String inString) {
@@ -78,13 +95,6 @@ public class EventListBean implements Serializable {
             return true;
         }
         catch (NumberFormatException e) { return false; }
-    }
-
-    public PrpEvntFinalEntity getEvent() {
-        if (events == null)                 return null;
-        if (selectEventNbr < 1)             return null;
-        if (selectEventNbr > events.size()) return null;
-        return events.get(selectEventNbr-1);
     }
 
     public void    eventToSelectIs (int selectEventInt) {
@@ -98,31 +108,31 @@ public class EventListBean implements Serializable {
 
     public boolean isDetailSelected () {
         if (selectEventNbr > 0) {
-            LOGGER.info("isDetailSelected = true ");
+            //LOGGER.info("isDetailSelected = true ");
             return true;
         }
-        LOGGER.info("isDetailSelected = false ");
+        //LOGGER.info("isDetailSelected = false ");
         return false;
     }
 
     public boolean isCategory (String category) {
         if (events == null) {
-            LOGGER.info("isCategory = false, events == null ");
+            //LOGGER.info("isCategory = false, events == null ");
             return false;
         }
         if (selectEventNbr < 1) {
-            LOGGER.info("isCategory = false, selectEventNbr < 1 ");
+            //LOGGER.info("isCategory = false, selectEventNbr < 1 ");
             return false;
         }
         if (selectEventNbr > events.size()) {
-            LOGGER.info("isCategory = false, selectEventNbr > events.size() ");
+            //LOGGER.info("isCategory = false, selectEventNbr > events.size() ");
             return false;
         }
         if (events.get(selectEventNbr-1).getEvntCtgry().equalsIgnoreCase(category)) {
-            LOGGER.info("isCategory = true ");
+            //LOGGER.info("isCategory = true ");
             return true;
         }
-        LOGGER.info("isCategory = false, fallthru ");
+        //LOGGER.info("isCategory = false " + category + " not equal " + events.get(selectEventNbr-1).getEvntCtgry());
         return false;
     }
 

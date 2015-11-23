@@ -6,9 +6,16 @@ package gov.hhs.cms.prp.ws;
 
 import javax.persistence.EntityManagerFactory;
 
+import com.google.gson.reflect.TypeToken;
+import gov.hhs.cms.prp.entity.PrpAplctnEntity;
+import gov.hhs.cms.prp.entity.PrpEvntFinalEntity;
 import gov.hhs.coms.prp.dao.factory.DAOFactory;
+import com.google.gson.Gson;
 
 import javax.ws.rs.*;
+import java.lang.reflect.Type;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.logging.Logger;
 import javax.persistence.PersistenceUnit;
 import gov.hhs.cms.prp.entity.UserDetails;
@@ -35,15 +42,61 @@ public class PrpApplicationService {
     }
 
     @GET
-    @Path("events/{keyPsid}/{keyApplid}/{name}")
-    @Produces("application/json")
-    public String getEvents(@PathParam("keyPsid") Integer keyPsid , @PathParam("keyApplid") Integer keyApplid , @PathParam("name") String name) {
+     @Path("events/{keyPsid}/{keyApplid}/{name}")
+     @Produces("application/json")
+     public String getEvents(@PathParam("keyPsid") Integer keyPsid , @PathParam("keyApplid") Integer keyApplid , @PathParam("name") String name) {
 
-        DAOFactory mysqlDAOFactory =
-                DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+        //LOGGER.info("PrpApplicationService.getEvents() started");
+        DAOFactory mysqlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
         ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
         return applicationServiceDAO.getEvents(keyPsid, keyApplid);
+    }
+
+    @GET
+    @Path("updateevent/{event}/{name}")
+    @Produces("application/json")
+    public int   addEvent (@PathParam("event") String inEventString, @PathParam("name") String name) {
+
+        LOGGER.info("PrpApplicationService.addEvent, string: " + inEventString);
+        String eventString = unescapeString(inEventString);
+        LOGGER.info("PrpApplicationService.addEvent, string: " + eventString);
+
+        DAOFactory mysqlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
+
+        Gson gson  = new Gson();
+        Type listOfTestObject = new TypeToken<PrpEvntFinalEntity>() { }.getType();
+        PrpEvntFinalEntity event = gson.fromJson(eventString, listOfTestObject);
+
+        ApplicationServiceDAO applicationServiceDAO = mysqlDAOFactory.getApplicationServiceDAO();
+        return applicationServiceDAO.updateEvent(event);
+    }
+
+    private String unescapeString (String inString) {
+        StringBuffer sb    = new StringBuffer ();
+        int          lgth  = inString.length();
+        int          lgth2 = lgth - 2;
+        int          a     = 0;
+
+        for (; a<lgth2; a++) {
+            char x = inString.charAt(a);
+            if (x   != '%')   { sb.append(x); continue; }
+            String hexValue = inString.substring(a+1, a+3);
+            if      (hexValue.equalsIgnoreCase("7B")) {
+                sb.append('{');
+                a += 2;
+            }
+            else if (hexValue.equalsIgnoreCase("7D")) {
+                sb.append('}');
+                a += 2;
+            }
+            else sb.append(x);
+        }
+
+        for (; a<lgth; a++) {
+            sb.append(inString.charAt(a));
+        }
+        return sb.toString();
     }
 
     @GET
