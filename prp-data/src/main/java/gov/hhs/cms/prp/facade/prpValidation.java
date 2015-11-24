@@ -143,7 +143,7 @@ public class prpValidation {
         String eventString  = new Gson().toJson(event);
         String eventEscape  = escapeString(eventString);
         try {
-            String urlString    = "http://localhost:9093/prp-ws/hello/updateevent/"
+            String urlString    = "http://localhost:9093/prp-ws/hello/updateEvent/"
                                 + eventEscape
                                 + "/"
                                 + userDetails.getUsername();

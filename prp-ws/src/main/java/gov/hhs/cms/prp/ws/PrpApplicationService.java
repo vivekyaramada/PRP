@@ -54,13 +54,13 @@ public class PrpApplicationService {
     }
 
     @GET
-    @Path("updateevent/{event}/{name}")
+    @Path("updateEvent/{event}/{name}")
     @Produces("application/json")
-    public int   addEvent (@PathParam("event") String inEventString, @PathParam("name") String name) {
+    public int  updateEvent (@PathParam("event") String inEventString, @PathParam("name") String name) {
 
-        LOGGER.info("PrpApplicationService.addEvent, string: " + inEventString);
+        LOGGER.info("PrpApplicationService.updateEvent, string: " + inEventString);
         String eventString = unescapeString(inEventString);
-        LOGGER.info("PrpApplicationService.addEvent, string: " + eventString);
+        LOGGER.info("PrpApplicationService.updateEvent, string: " + eventString);
 
         DAOFactory mysqlDAOFactory = DAOFactory.getDAOFactory(DAOFactory.MYSQL);
 
