@@ -3,11 +3,12 @@
 
     <persistence-unit name="PRPpersistenceUnit">
         <class>gov.hhs.cms.prp.entity.PrpEvntNwEntity</class>
+        <class>gov.hhs.cms.prp.entity.PrpPlanoptionsEntity</class>
         <properties>
             <property name="openjpa.ConnectionURL" value="jdbc:mysql://192.168.99.100:33067/prp"/>
             <property name="openjpa.ConnectionDriverName" value="com.mysql.jdbc.Driver"/>
-            <property name="openjpa.ConnectionUserName" value="prpadmin"/>
-            <property name="openjpa.ConnectionPassword" value="abcd1234"/>
+            <property name="openjpa.ConnectionUserName"/>
+            <property name="openjpa.ConnectionPassword"/>
         </properties>
     </persistence-unit>
 </persistence>

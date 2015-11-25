@@ -1,6 +1,7 @@
 package gov.hhs.cms.prp.dao.bean;
 
 import gov.hhs.cms.prp.entity.PrpAplctnEntity;
+import gov.hhs.cms.prp.entity.PrpPlanoptionsEntity;
 import org.apache.log4j.Logger;
 
 import javax.persistence.*;
@@ -14,28 +15,49 @@ public class PrpAplctnDAOBean {
     @PersistenceUnit
     private EntityManagerFactory factory;
 
+    private EntityManager entityManager;
 
-    public void persistAplctn(PrpAplctnEntity prpAplctnEntity)
-    {
-        LOGGER.info("Attempting to persist PrpAplctnEntity");
-        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
-        EntityManager em = factory.createEntityManager();
-        em.getTransaction().begin();
-        em.persist(prpAplctnEntity);
-        em.getTransaction().commit();
-        em.close();
-        factory.close();
+    private EntityManagerFactory getEntityManagerFactory() {
+        if (null == factory) {
+            factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
+        }
+        return factory;
+    }
+
+    private EntityManager getEntityManager() {
+        if (null == entityManager) {
+            entityManager = getEntityManagerFactory().createEntityManager();
+        }
+        return entityManager;
     }
 
     public void mergeAplctn(PrpAplctnEntity prpAplctnEntity) {
         LOGGER.info("Attempting to merge PrpAplctnEntity");
-        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
-        EntityManager em = factory.createEntityManager();
+        EntityManager em = getEntityManager();
         em.getTransaction().begin();
         em.merge(prpAplctnEntity);
+        em.flush();
         em.getTransaction().commit();
-        em.close();
-        factory.close();
+
+    }
+
+    public void mergePlanoption(PrpPlanoptionsEntity prpPlanoptionsEntity) {
+        LOGGER.info("Attempting to merge PrpPlanoptionsEntity");
+        EntityManager em = getEntityManager();
+        em.getTransaction().begin();
+        em.merge(prpPlanoptionsEntity);
+        em.flush();
+        em.getTransaction().commit();
+
+    }
+
+    public void mergeEntity(Entity entity) {
+        LOGGER.info("Attempting to merge Entity: " + entity.toString());
+        EntityManager em = getEntityManager();
+        em.getTransaction().begin();
+        em.merge(entity);
+        em.flush();
+        em.getTransaction().commit();
     }
 
 }

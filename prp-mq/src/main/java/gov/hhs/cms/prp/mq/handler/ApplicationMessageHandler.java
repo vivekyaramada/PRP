@@ -5,6 +5,7 @@ import com.blackbear.flatworm.FileFormat;
 import com.blackbear.flatworm.MatchedRecord;
 import gov.hhs.cms.prp.dao.bean.PrpAplctnDAOBean;
 import gov.hhs.cms.prp.entity.PrpAplctnEntity;
+import gov.hhs.cms.prp.entity.PrpPlanoptionsEntity;
 
 import java.io.BufferedReader;
 import java.io.ByteArrayInputStream;
@@ -38,25 +39,27 @@ public class ApplicationMessageHandler extends MQMessageHandler {
             throw new Exception("Wrong message type.");
         }
 
-        List entityList;
+        List<Object> entityList;
         if (segmentType.equals("OPT2")) {
             if (messageBody.length() > 70) {
                 messageBody = insertNewlineBetweenSegments(messageBody, 70);
             }
             entityList = createObjectFromString(configFilePath, messageBody, "planOption", "planOption");
+            savePlanoptionEntities(entityList);
         } else {
             entityList = createObjectFromString(configFilePath, messageBody, "application", "application");
+            saveAplctnEntity(entityList);
         }
 
         LOGGER.log(Level.INFO, entityList.toString());
 
-        saveAplctnEntity(entityList);
+
     }
 
-    public List createObjectFromString(String configFilePath, String messageString, String recordName, String beanName) throws Exception {
+    public List<Object> createObjectFromString(String configFilePath, String messageString, String recordName, String beanName) throws Exception {
         LOGGER.log(Level.INFO, "Entering createObjectFromString");
-        PrpAplctnEntity entity = null;
-        List<PrpAplctnEntity> entityList = new ArrayList<PrpAplctnEntity>();
+        Object entity = null;
+        List<Object> entityList = new ArrayList<Object>();
 
         ConfigurationReader parser = new ConfigurationReader();
 
@@ -68,7 +71,7 @@ public class ApplicationMessageHandler extends MQMessageHandler {
         while ((results = ff.getNextRecord(bufIn)) != null) {
             LOGGER.log(Level.INFO, results.toString());
             if (results.getRecordName().equals(recordName)) {
-                entity = (PrpAplctnEntity)results.getBean(beanName);
+                entity = (Object)results.getBean(beanName);
                 LOGGER.log(Level.INFO, entity.toString());
                 entityList.add(entity);
             }
@@ -80,12 +83,21 @@ public class ApplicationMessageHandler extends MQMessageHandler {
 
     }
 
-    private void saveAplctnEntity(List<PrpAplctnEntity> entityList) {
+    private void saveAplctnEntity(List<Object> entityList) {
         PrpAplctnDAOBean prpAplctnDAOBean = (PrpAplctnDAOBean) getMySQLDAOFactory().getBean("saveaplctndaobean");
 
-        for (PrpAplctnEntity entity : entityList) {
+        for (Object entity : entityList) {
             // prpAplctnDAOBean.persistAplctn(entity);
-            prpAplctnDAOBean.mergeAplctn(entity);
+            prpAplctnDAOBean.mergeAplctn((PrpAplctnEntity) entity);
+        }
+    }
+
+    private void savePlanoptionEntities(List<Object> entityList) {
+        PrpAplctnDAOBean prpAplctnDAOBean = (PrpAplctnDAOBean) getMySQLDAOFactory().getBean("saveaplctndaobean");
+
+        for (Object entity : entityList) {
+            // prpAplctnDAOBean.persistAplctn(entity);
+            prpAplctnDAOBean.mergePlanoption((PrpPlanoptionsEntity) entity);
         }
     }
 
