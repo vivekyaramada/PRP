@@ -22,12 +22,12 @@
   </bean>
     
 <!--
-  <bean id="paymentJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+  <bean id="prpJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
     <property name="connectionFactory" ref="connectionFactory" />
-    <property name="defaultDestinationName" value="prp_payment_queue" />
+    <property name="defaultDestinationName" value="prp_sws_application_queue" />
   </bean>
 
-  <bean id="payment_producer" class="gov.hhs.cms.prp.mq.PaymentMessageProducer">
+  <bean id="prp_application_sender" class="gov.hhs.cms.prp.mq.ApplicationMessageSender">
     <property name="jmsTemplate" ref="paymentJmsTemplate" />
   </bean>
 -->
