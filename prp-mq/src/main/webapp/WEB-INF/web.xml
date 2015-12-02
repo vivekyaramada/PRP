@@ -7,4 +7,12 @@
   <listener>
     <listener-class>gov.hhs.cms.prp.servlet.AppContextListener</listener-class>
   </listener>
+  <servlet>
+    <servlet-name>MessagingTestServlet</servlet-name>
+    <servlet-class>gov.hhs.cms.prp.servlet.MessagingTestServlet</servlet-class>
+  </servlet>
+  <servlet-mapping>
+    <servlet-name>MessagingTestServlet</servlet-name>
+    <url-pattern>*.java</url-pattern>
+  </servlet-mapping>
 </web-app>

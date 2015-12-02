@@ -21,16 +21,14 @@
     <property name="targetConnectionFactory" ref="connectionFactory" />
   </bean>
     
-<!--
-  <bean id="prpJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
+  <bean id="applicationJmsTemplate" class="org.springframework.jms.core.JmsTemplate">
     <property name="connectionFactory" ref="connectionFactory" />
-    <property name="defaultDestinationName" value="prp_sws_application_queue" />
+    <property name="defaultDestinationName" value="sws_application_queue" />
   </bean>
 
-  <bean id="prp_application_sender" class="gov.hhs.cms.prp.mq.ApplicationMessageSender">
-    <property name="jmsTemplate" ref="paymentJmsTemplate" />
+  <bean id="application_message_sender" class="gov.hhs.cms.prp.mq.sender.ApplicationMessageSender">
+    <property name="jmsTemplate" ref="applicationJmsTemplate" />
   </bean>
--->
 
   <bean id="application_message_receiver" class="gov.hhs.cms.prp.mq.receiver.ApplicationMessageReceiver" />
 
@@ -42,7 +40,7 @@
   <bean id="applicatonMessageListenerContainer"
         class="org.springframework.jms.listener.DefaultMessageListenerContainer">
     <property name="connectionFactory" ref="cachingFactory" />
-    <property name="destinationName" value="prp_application_message_queue" />
+    <property name="destinationName" value="prp_application_queue" />
     <property name="concurrentConsumers" value="5" />
     <property name="maxConcurrentConsumers" value="10" />
     <property name="messageListener" ref="applicationMessageAdapter" />

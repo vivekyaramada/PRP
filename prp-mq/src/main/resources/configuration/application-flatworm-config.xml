@@ -8,9 +8,12 @@
                return-type="java.lang.Double"/>
     <converter name="integer" class="com.blackbear.flatworm.converters.CoreConverters" method="convertInteger"
                return-type="java.lang.Integer"/>
-    <converter name="date" class="gov.hhs.cms.prp.flatworm.converters.Converters" method="convertSqlDate"
+    <converter name="date" class="com.blackbear.flatworm.converters.CoreConverters" method="convertDate"
+               return-type="java.util.Date" />
+    <converter name="sqlDate" class="gov.hhs.cms.prp.flatworm.converters.Converters" method="convertSqlDate"
                return-type="java.sql.Date"/>
 
+    <!-- Record definitions for APPLICAT message -->
     <record name="application">
         <record-ident>
             <field-ident field-start="0" field-length="4">
@@ -23,10 +26,10 @@
                 <record-element length="4"/> <!-- Segment ID -->
                 <record-element length="10" beanref="application.applPsId" type="integer"/>
                 <record-element length="10" beanref="application.applId" type="integer"/>
-                <record-element length="8" beanref="application.applStartDate" type="date">
+                <record-element length="8" beanref="application.applStartDate" type="sqlDate">
                     <conversion-option name="format" value="yyyyMMdd"/>
                 </record-element>
-                <record-element length="8" beanref="application.applEndDate" type="date">
+                <record-element length="8" beanref="application.applEndDate" type="sqlDate">
                     <conversion-option name="format" value="yyyyMMdd"/>
                 </record-element>
                 <record-element length="2" beanref="application.applStatus" type="char"/>
@@ -37,11 +40,11 @@
                     <conversion-option name="pad-character" value=" "/>
                     <conversion-option name="justify" value="left"/>
                 </record-element>
-                <record-element length="8" beanref="application.applRcncltnDate" type="date">
+                <record-element length="8" beanref="application.applRcncltnDate" type="sqlDate">
                     <conversion-option name="format" value="yyyyMMdd"/>
                 </record-element>
                 <record-element length="1"/> <!-- Reconciliation date update indicator -->
-                <record-element length="8" beanref="application.applStp4Dt" type="date">
+                <record-element length="8" beanref="application.applStp4Dt" type="sqlDate">
                     <conversion-option name="pad-character" value=" "/>
                     <conversion-option name="justify" value="left"/>
                     <conversion-option name="format" value="yyyyMMdd"/>
@@ -84,4 +87,88 @@
             </line>
         </record-definition>
     </record>
+    <!-- End record definitions for APPLICAT message -->
+
+    <!-- Record definitions for APPLSTAT message -->
+    <record name="rlsr">
+        <record-ident>
+            <field-ident field-start="0" field-length="4">
+                <match-string>RLSR</match-string>
+            </field-ident>
+        </record-ident>
+        <record-definition>
+            <bean name="appStatusTO" class="gov.hhs.cms.prp.mq.to.ApplicationStatusTO"/>
+            <line>
+                <record-element length="10" beanref="appStatusTO.applicationIdentifier" type="integer">
+                    <conversion-option name="justify" value="right"/>
+                    <conversion-option name="pad-character" value="0"/>
+                </record-element>
+                <record-element length="1" beanref="appStatusTO.status" type="char"/>
+                <record-element length="8" beanref="appStatusTO.date" type="date">
+                    <conversion-option name="format" value="yyyyMMdd"/>
+                </record-element>
+                <record-element length="1" beanref="appStatusTO.transmissionMethod" type="char"/>
+                <record-element length="10" beanref="appStatusTO.submitterId" type="char">
+                    <conversion-option name="justify" value="left"/>
+                    <conversion-option name="pad-character" value=" "/>
+                </record-element>
+                <record-element length="1" beanref="appStatusTO.swsCopy" type="char"/>
+                <record-element length="5" type="char">
+                    <conversion-option name="pad-character" value=" " />
+                    <conversion-option name="justify" value="right" />
+                </record-element>
+            </line>
+        </record-definition>
+    </record>
+    <record name="eftr">
+        <record-ident>
+            <field-ident field-start="0" field-length="4">
+                <match-string>EFTR</match-string>
+            </field-ident>
+        </record-ident>
+        <record-definition>
+            <bean name="appStatusTO" class="gov.hhs.cms.prp.mq.to.ApplicationStatusTO"/>
+            <line>
+                <record-element length="10" beanref="appStatusTO.applicationIdentifier" type="integer">
+                    <conversion-option name="justify" value="right"/>
+                    <conversion-option name="pad-character" value="0"/>
+                </record-element>
+                <record-element length="1" beanref="appStatusTO.status" type="char"/>
+                <record-element length="5" type="char">
+                    <conversion-option name="pad-character" value=" " />
+                    <conversion-option name="justify" value="right" />
+                </record-element>
+            </line>
+        </record-definition>
+    </record>
+    <record name="rrfm">
+        <record-ident>
+            <field-ident field-start="0" field-length="4">
+                <match-string>RRFM</match-string>
+            </field-ident>
+        </record-ident>
+        <record-definition>
+            <bean name="appStatusTO" class="gov.hhs.cms.prp.mq.to.ApplicationStatusTO"/>
+            <line>
+                <record-element length="10" beanref="appStatusTO.applicationIdentifier" type="integer">
+                    <conversion-option name="justify" value="right"/>
+                    <conversion-option name="pad-character" value="0"/>
+                </record-element>
+                <record-element length="8" beanref="appStatusTO.date" type="date">
+                    <conversion-option name="format" value="yyyyMMdd"/>
+                </record-element>
+                <record-element length="1" beanref="appStatusTO.transmissionMethod" type="char"/>
+                <record-element length="10" beanref="appStatusTO.submitterId" type="char">
+                    <conversion-option name="justify" value="left"/>
+                    <conversion-option name="pad-character" value=" "/>
+                </record-element>
+                <record-element length="17" type="char">
+                    <conversion-option name="pad-character" value=" " />
+                    <conversion-option name="justify" value="right" />
+                </record-element>
+            </line>
+        </record-definition>
+    </record>
+    <!-- End record definitions for APPLSTAT message -->
+
 </file-format>
