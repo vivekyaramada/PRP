@@ -7,6 +7,7 @@ import javax.persistence.EntityManager;
 import javax.persistence.EntityManagerFactory;
 import javax.persistence.Persistence;
 import javax.persistence.PersistenceUnit;
+import java.sql.SQLException;
 import java.sql.Timestamp;
 
 /**
@@ -18,12 +19,11 @@ public class AddChecksDAOBean {
     @PersistenceUnit
     private EntityManagerFactory factory;
 
-    public void addchecks(String applPsId) {
+    public void addchecks(String applPsId) throws SQLException {
+        LOGGER.info("Calling Addchecks Method from DAOBean>>>>>>>>>>>>>");
         factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
         EntityManager em = factory.createEntityManager();
         em.getTransaction().begin();
-
-        LOGGER.info("Calling the query statement in addcheck method from DAO.>>>>>>>>>>>>>");
         PrpEvntNwEntity insertPrpEvntNwEntity = new PrpEvntNwEntity();
         insertPrpEvntNwEntity.setPlanSpnsrIdent(applPsId);
         insertPrpEvntNwEntity.setEvntTypeCd("CR");

@@ -20,9 +20,9 @@ public class AppContextListener implements ServletContextListener {
     }
 
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        LOGGER.log(Level.INFO, "contextInitialized");
+        LOGGER.log(Level.INFO, "contextInitialized+ nalgonda+Sathvik");
         PrpApplicationService prpApplicationService = new PrpApplicationService();
-        prpApplicationService.getConstants();
+      //  prpApplicationService.getConstants();
 
     }
 }

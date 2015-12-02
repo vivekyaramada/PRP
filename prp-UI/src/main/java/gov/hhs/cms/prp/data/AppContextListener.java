@@ -20,7 +20,7 @@ public class AppContextListener implements ServletContextListener {
     }
 
     public void contextInitialized(ServletContextEvent servletContextEvent) {
-        LOGGER.log(Level.INFO, "contextInitialized");
+        LOGGER.log(Level.INFO, "contextInitialized+ nalgonda1+ vivek>>>>>");
         LoginBean loginBean = new LoginBean();
         loginBean.getConstants();
 

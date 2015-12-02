@@ -12,12 +12,12 @@ import gov.hhs.cms.prp.ws.*;
 public class PrpApplicationServiceTest {
 
 
-    @Test
+  /*  @Test
     public void testgetMsg() throws Exception {
         PrpApplicationService prpApplicationService = new PrpApplicationService();
 
-        assertTrue(prpApplicationService.getMsg(100, "vivek") != null);
-        }
+        assertTrue(prpApplicationService.getMsg(100, "appurl") != null);
+        }*/
 /*
 @Test
     public void testcheckLogin() throws Exception {

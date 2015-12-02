@@ -1,6 +1,144 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <component name="dataSourceStorage">
   <data-source name="PRP" uuid="4dd155f4-012f-4863-abca-5f628da8d752">
-    <database-info product="" version="" jdbc-version="" driver-name="" driver-version=""/>
+    <database-info product="MySQL" version="5.5.45" jdbc-version="4.0" driver-name="MySQL Connector Java" driver-version="mysql-connector-java-5.1.35 ( Revision: 5fb9c5849535c13917c2cf9baaece6ef9693ef27 )">
+      <extra-name-characters>#@</extra-name-characters>
+      <identifier-quote-string>`</identifier-quote-string>
+    </database-info>
+    <case-sensitivity plain-identifiers="lower" quoted-identifiers="lower"/>
+    <schema name="" catalog="prp"/>
+    <table name="prp_aplctn" schema="" catalog="prp" type="TABLE">
+      <column name="APPL_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="APPL_PS_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="APPL_PS_COMPANY" sqlType="VARCHAR" precision="40" scale="0" nullable="false" jdbcType="12"/>
+      <column name="APPL_START_DATE" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="APPL_END_DATE" sqlType="DATE" precision="10" scale="0" nullable="false" jdbcType="91"/>
+      <column name="APPL_TRANS_METHOD" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="APPL_STATUS" sqlType="VARCHAR" precision="2" scale="0" nullable="false" jdbcType="12"/>
+      <column name="APPL_RETLIST_SW" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="APPL_EXTENSION" sqlType="VARCHAR" precision="1" scale="0" nullable="false" jdbcType="12"/>
+      <column name="APPL_TIMESTAMP" sqlType="TIMESTAMP" precision="19" scale="0" nullable="false" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="APPL_UPDT_PGM_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="APPL_RCNCLTN_DATE" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="APPL_STP4_DT" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="APPL_FRZ_DT" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <primary-key name="PRIMARY" columns="APPL_ID"/>
+    </table>
+    <table name="prp_audit" schema="" catalog="prp" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="username" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="timestamp" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="method" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="status" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="prp_const" schema="" catalog="prp" type="TABLE">
+      <column name="const_id" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="value" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="const_id"/>
+    </table>
+    <table name="prp_evnt_final" schema="" catalog="prp" type="TABLE">
+      <column name="PK_PRP_EVENT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EVNT_TYPE_CD" sqlType="CHAR" precision="2" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_ORGN_CD" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="PROC_TS" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="USER_NAME" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="PLAN_SPNSR_IDENT" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="APLCTN_IDENT" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CYC_DT" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="CYC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="EVNT_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="PROC_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="EXTRNL_RFRNC_APLCTN" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EXTRNL_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="RSN_CD" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="TRANS_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="PYBL_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="INTRM_ADJSTMT_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="UNAPLD_CASH_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="RCVBL_PRNCPAL_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="RCVBL_INTRST_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="EVNT_CTGRY" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_CTGRY_DATA" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PK_PRP_EVENT_ID"/>
+    </table>
+    <table name="prp_evnt_nw" schema="" catalog="prp" type="TABLE">
+      <column name="PK_PRP_EVENT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EVNT_TYPE_CD" sqlType="CHAR" precision="2" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_ORGN_CD" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="PROC_TS" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93"/>
+      <column name="USER_NAME" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="PLAN_SPNSR_IDENT" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="APLCTN_IDENT" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CYC_DT" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="CYC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="EVNT_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="PROC_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="EXTRNL_RFRNC_APLCTN" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EXTRNL_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="RSN_CD" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="TRANS_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="PYBL_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="INTRM_ADJSTMT_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="UNAPLD_CASH_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="RCVBL_PRNCPAL_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="RCVBL_INTRST_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="EVNT_CTGRY" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_CTGRY_DATA" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PK_PRP_EVENT_ID"/>
+    </table>
+    <table name="prp_evnt_stag" schema="" catalog="prp" type="TABLE">
+      <column name="PK_PRP_EVENT_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="EVNT_TYPE_CD" sqlType="CHAR" precision="2" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_ORGN_CD" sqlType="CHAR" precision="1" scale="0" nullable="true" jdbcType="1"/>
+      <column name="PROC_TS" sqlType="TIMESTAMP" precision="19" scale="0" nullable="true" jdbcType="93" def="Q1VSUkVOVF9USU1FU1RBTVA=" version="true"/>
+      <column name="USER_NAME" sqlType="CHAR" precision="30" scale="0" nullable="true" jdbcType="1"/>
+      <column name="PLAN_SPNSR_IDENT" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="APLCTN_IDENT" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="CYC_DT" sqlType="DATE" precision="10" scale="0" nullable="true" jdbcType="91"/>
+      <column name="CYC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="EVNT_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="PROC_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="EXTRNL_RFRNC_APLCTN" sqlType="CHAR" precision="10" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EXTRNL_RFRNC_NUM" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="RSN_CD" sqlType="SMALLINT" precision="5" scale="0" nullable="true" jdbcType="5"/>
+      <column name="TRANS_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="PYBL_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="INTRM_ADJSTMT_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="UNAPLD_CASH_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="RCVBL_PRNCPAL_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="RCVBL_INTRST_AMT" sqlType="DECIMAL" precision="13" scale="2" nullable="true" jdbcType="3"/>
+      <column name="EVNT_CTGRY" sqlType="CHAR" precision="3" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_CTGRY_DATA" sqlType="VARCHAR" precision="255" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="PK_PRP_EVENT_ID"/>
+    </table>
+    <table name="prp_role_mtd" schema="" catalog="prp" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="role" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="method" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="prp_users" schema="" catalog="prp" type="TABLE">
+      <column name="id" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4" autoIncrement="true"/>
+      <column name="usr_nm" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="passwd" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="prp_usr_role" schema="" catalog="prp" type="TABLE">
+      <column name="id" sqlType="VARCHAR" precision="100" scale="0" nullable="false" jdbcType="12"/>
+      <column name="usr_name" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <column name="role" sqlType="VARCHAR" precision="45" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="id"/>
+    </table>
+    <table name="rds_evnt_type_cd" schema="" catalog="prp" type="TABLE">
+      <column name="EVNT_TYPE_ID" sqlType="INT" precision="10" scale="0" nullable="false" jdbcType="4"/>
+      <column name="EVNT_TYPE_CD" sqlType="CHAR" precision="2" scale="0" nullable="true" jdbcType="1"/>
+      <column name="EVNT_TYPE_DESC" sqlType="VARCHAR" precision="100" scale="0" nullable="true" jdbcType="12"/>
+      <column name="EVNT_TYPE_NAME" sqlType="VARCHAR" precision="50" scale="0" nullable="true" jdbcType="12"/>
+      <primary-key name="PRIMARY" columns="EVNT_TYPE_ID"/>
+    </table>
   </data-source>
 </component>

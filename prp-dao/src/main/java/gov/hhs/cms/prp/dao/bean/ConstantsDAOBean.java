@@ -26,15 +26,22 @@ public class ConstantsDAOBean {
     @org.springframework.cache.annotation.Cacheable(value="eventypecache")
     public  String getEventType()
     {
-        LOGGER.log(Level.INFO, "Entering getEventType>>>>>>>");
-        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
-        EntityManager em = factory.createEntityManager();
-        String sql = "SELECT e FROM PrpConstEntity e";
-        Query query = em.createQuery(sql);
-        Collection<PrpConstEntity> list = (Collection<PrpConstEntity>) query.getResultList();
-        em.close();
-        factory.close();
-        return new Gson().toJson(list);
+        try {
+            LOGGER.info("Calling getEventType Method from DAOBean>>>>>>>>>>>>>");
+            factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
+            EntityManager em = factory.createEntityManager();
+            String sql = "SELECT e FROM PrpConstEntity e";
+            Query query = em.createQuery(sql);
+            Collection<PrpConstEntity> list = (Collection<PrpConstEntity>) query.getResultList();
+            em.close();
+            factory.close();
+            return new Gson().toJson(list);
+        }
+        catch (Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
 

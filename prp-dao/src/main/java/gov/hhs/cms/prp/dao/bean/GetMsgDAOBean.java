@@ -3,7 +3,7 @@ package gov.hhs.cms.prp.dao.bean;
 import com.google.gson.Gson;
 import gov.hhs.cms.prp.entity.PrpAplctnEntity;
 import gov.hhs.cms.prp.entity.PrpConstEntity;
-import org.apache.log4j.Logger;
+import java.util.logging.Logger;
 import org.springframework.cache.annotation.*;
 
 import javax.persistence.*;
@@ -22,14 +22,22 @@ public class GetMsgDAOBean {
 
     public String getMsg(int applPsId)
     {
-        factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
-        EntityManager em = factory.createEntityManager();
-        String sql = "SELECT e FROM PrpAplctnEntity e where e.applPsId =" + applPsId;
-        Query query = em.createQuery(sql);
-        Collection<PrpAplctnEntity> list = (Collection<PrpAplctnEntity>) query.getResultList();
-        em.close();
-        factory.close();
-        return new Gson().toJson(list);
+        try {
+            LOGGER.info("Calling getMsg Method from DAOBean>>>>>>>>>>>>>");
+            factory = Persistence.createEntityManagerFactory("REPORTINGJPA");
+            EntityManager em = factory.createEntityManager();
+            String sql = "SELECT e FROM PrpAplctnEntity e where e.applPsId =" + applPsId;
+            Query query = em.createQuery(sql);
+            Collection<PrpAplctnEntity> list = (Collection<PrpAplctnEntity>) query.getResultList();
+            em.close();
+            factory.close();
+            return new Gson().toJson(list);
+        }
+        catch(Exception e)
+        {
+            e.printStackTrace();
+            return null;
+        }
     }
 }
 
