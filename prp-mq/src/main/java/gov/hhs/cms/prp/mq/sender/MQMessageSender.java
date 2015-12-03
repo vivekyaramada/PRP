@@ -21,6 +21,15 @@ public abstract class MQMessageSender {
         jmsTemplate.convertAndSend(Object);
     }
 
+    public abstract void send(String messageId, Object payload);
+
+    protected abstract String getConfigFilePath();
+
+    public static void sendMessage(String messageId, Object payload) {
+        MQMessageSender messageSender = MQMessageSenderFactory.getMessageSender(messageId);
+        messageSender.send(messageId, payload);
+    }
+
     public String getMessageHeader(String messageId, int numberOfSegments) {
         // Message ID
         StringBuilder header = new StringBuilder(StringUtils.rightPad(messageId, 8, " "));
