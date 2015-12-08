@@ -1,10 +1,11 @@
 package gov.hhs.cms.prp.dao.bean;
 
-import gov.hhs.cms.prp.entity.PrpAplctnEntity;
-import gov.hhs.cms.prp.entity.PrpPlanoptionsEntity;
 import org.apache.log4j.Logger;
 
-import javax.persistence.*;
+import javax.persistence.EntityManager;
+import javax.persistence.EntityManagerFactory;
+import javax.persistence.Persistence;
+import javax.persistence.PersistenceUnit;
 
 /**
  * Created by jarsen on 11/18/2015.
@@ -31,28 +32,7 @@ public class PrpAplctnDAOBean {
         return entityManager;
     }
 
-    public void mergeAplctn(PrpAplctnEntity prpAplctnEntity) {
-        LOGGER.info("Attempting to merge PrpAplctnEntity");
-        EntityManager em = getEntityManager();
-        em.getTransaction().begin();
-        em.merge(prpAplctnEntity);
-        em.flush();
-        em.getTransaction().commit();
-
-    }
-
-    public void mergePlanoption(PrpPlanoptionsEntity prpPlanoptionsEntity) {
-        LOGGER.info("Attempting to merge PrpPlanoptionsEntity");
-        EntityManager em = getEntityManager();
-        em.getTransaction().begin();
-        em.merge(prpPlanoptionsEntity);
-        em.flush();
-        em.getTransaction().commit();
-
-    }
-
-    public void mergeEntity(Entity entity) {
-        LOGGER.info("Attempting to merge Entity: " + entity.toString());
+    public void mergeEntity(Object entity) {
         EntityManager em = getEntityManager();
         em.getTransaction().begin();
         em.merge(entity);

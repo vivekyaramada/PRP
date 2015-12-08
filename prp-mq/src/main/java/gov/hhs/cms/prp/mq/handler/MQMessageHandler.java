@@ -3,6 +3,7 @@ package gov.hhs.cms.prp.mq.handler;
 import com.blackbear.flatworm.ConfigurationReader;
 import com.blackbear.flatworm.FileFormat;
 import com.blackbear.flatworm.MatchedRecord;
+import com.blackbear.flatworm.errors.FlatwormException;
 import gov.hhs.coms.prp.dao.factory.MySQLDAOFactory;
 
 import java.io.BufferedReader;
@@ -12,7 +13,6 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
-import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -22,8 +22,16 @@ public abstract class MQMessageHandler {
 
     private final static Logger LOGGER = Logger.getLogger(MQMessageHandler.class.getName());
 
+    public static final int MESSAGE_ID_LENGTH = 8;
+    public static final int MESSAGE_HEADER_LENGTH = 50;
+    public static final int SEGMENT_ID_LENGTH = 4;
 
     protected static MySQLDAOFactory mySQLDAOFactory;
+
+    protected FileFormat format;
+
+    protected ConfigurationReader reader = new ConfigurationReader();
+    protected abstract String getConfigFilePath();
 
     protected static MySQLDAOFactory getMySQLDAOFactory() {
         if (mySQLDAOFactory == null) {
@@ -46,31 +54,26 @@ public abstract class MQMessageHandler {
         return builder.toString();
     }
 
-    public static List<Object> createObjectsFromString(String configFilePath, String messageString, String recordName, String beanName) throws Exception {
-        LOGGER.log(Level.INFO, "Entering createObjectsFromString");
+    protected FileFormat getFileFormat() throws FlatwormException {
+        return reader.loadConfigurationFile(getConfigFilePath());
+    }
+
+
+    public static List<Object> createObjectsFromString(FileFormat fileFormat, String message, String recordName, String beanName) throws Exception {
         Object entity = null;
         List<Object> entityList = new ArrayList<Object>();
 
-        ConfigurationReader parser = new ConfigurationReader();
-
-        // TODO Load the configuration file at startup and store the FileFormat object in a Map with the ones for the other message types.
-        FileFormat ff = parser.loadConfigurationFile(configFilePath);
-        InputStream stream = new ByteArrayInputStream(messageString.getBytes(StandardCharsets.UTF_8));
+        InputStream stream = new ByteArrayInputStream(message.getBytes(StandardCharsets.UTF_8));
         BufferedReader bufIn = new BufferedReader(new InputStreamReader(stream));
         MatchedRecord results;
-        while ((results = ff.getNextRecord(bufIn)) != null) {
-            LOGGER.log(Level.INFO, results.toString());
+        while ((results = fileFormat.getNextRecord(bufIn)) != null) {
             if (results.getRecordName().equals(recordName)) {
                 entity = (Object)results.getBean(beanName);
-                LOGGER.log(Level.INFO, entity.toString());
                 entityList.add(entity);
             }
         }
 
-        LOGGER.log(Level.INFO, entityList.toString());
-        LOGGER.log(Level.INFO, "Exiting createObjectsFromString");
         return entityList;
-
     }
 
 }

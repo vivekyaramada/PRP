@@ -12,7 +12,6 @@ public class ApplicationMessageReceiver extends MQMessageReceiver {
 
     private final static Logger LOGGER = Logger.getLogger(ApplicationMessageReceiver.class.getName());
 
-    private final static String CONFIG_PATH = "configuration/application-flatworm-config.xml";
 
     public void processMessage(String message) {
 
@@ -20,10 +19,10 @@ public class ApplicationMessageReceiver extends MQMessageReceiver {
 
         ApplicationMessageHandler handler = new ApplicationMessageHandler();
         try {
-            handler.handleMessage(CONFIG_PATH, message);
+            handler.handleMessage(message);
         } catch (Exception e) {
             LOGGER.log(Level.SEVERE, "Error occurred: " + e.getMessage());
-            LOGGER.log(Level.SEVERE, "Error cause: " + e.getCause().getMessage());
+            LOGGER.log(Level.SEVERE, "Error cause: " + e.getCause());
             LOGGER.log(Level.SEVERE, e.getMessage(), e);
         }
     }
