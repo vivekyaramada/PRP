@@ -37,7 +37,7 @@ public class CheckLoginBean {
 
                 if(list.get(i).getPasswd().equals(datalogin.getPassword()))
                 {
-                    return "success";
+                    return "applications";
                 }
             }
 

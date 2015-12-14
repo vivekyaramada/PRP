@@ -69,9 +69,8 @@
     <orderEntry type="library" name="Maven: net.sf.ehcache:ehcache:2.9.0" level="project" />
     <orderEntry type="library" name="Maven: org.slf4j:slf4j-api:1.7.7" level="project" />
     <orderEntry type="library" name="Maven: org.primefaces:primefaces:5.2" level="project" />
-    <orderEntry type="library" scope="PROVIDED" name="Maven: javax.faces:jsf-api:2.1" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.1.11" level="project" />
-    <orderEntry type="library" name="Maven: com.sun.faces:jsf-impl:2.1.11" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.faces:jsf-api:2.0.6" level="project" />
+    <orderEntry type="library" name="Maven: com.sun.faces:jsf-impl:2.0.6" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:jstl:1.2" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet:servlet-api:2.5" level="project" />
     <orderEntry type="library" name="Maven: javax.servlet.jsp:jsp-api:2.1" level="project" />
