@@ -46,4 +46,21 @@
     <property name="messageListener" ref="applicationMessageAdapter" />
   </bean>
 
+  <bean id="retiree_message_receiver" class="gov.hhs.cms.prp.mq.receiver.RetireeMessageReceiver" />
+
+  <bean id="retireeMessageAdapter" class="org.springframework.jms.listener.adapter.MessageListenerAdapter">
+    <property name="delegate" ref="retiree_message_receiver" />
+    <property name="defaultListenerMethod" value="processMessage" />
+  </bean>
+
+  <bean id="retireeMessageListenerContainer"
+        class="org.springframework.jms.listener.DefaultMessageListenerContainer">
+    <property name="connectionFactory" ref="cachingFactory" />
+    <property name="destinationName" value="prp_retiree_queue" />
+    <property name="concurrentConsumers" value="5" />
+    <property name="maxConcurrentConsumers" value="10" />
+    <property name="messageListener" ref="retireeMessageAdapter" />
+  </bean>
+
+
 </beans>

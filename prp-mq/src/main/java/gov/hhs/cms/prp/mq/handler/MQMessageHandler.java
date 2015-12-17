@@ -58,6 +58,48 @@ public abstract class MQMessageHandler {
         return reader.loadConfigurationFile(getConfigFilePath());
     }
 
+    /*
+     * Insert newline character between segments for messages like RETLIST that have
+     * a header, a footer, and an arbitrary number of repeating segments between them.
+     */
+    public static String insertNewLineBetweenSegments(String message, int headerLength, int segmentLength, int trailerLength) {
+
+        String header = "";
+        String trailer = "";
+        String messageBody = "";
+        StringBuilder builder = new StringBuilder();
+        String newLine = "\n";
+
+        if (headerLength > 0) {
+            header = message.substring(0, headerLength);
+        }
+
+        if (trailerLength > 0) {
+            trailer = message.substring(message.length() - trailerLength);
+        }
+
+        if (message.length() > (headerLength + trailerLength)) {
+            messageBody = message.substring(headerLength, (message.length() - headerLength - trailerLength ));
+            messageBody = insertNewlineBetweenSegments(messageBody, segmentLength);
+        }
+
+        if (header.length() > 0) {
+            builder.append(header);
+            builder.append(newLine);
+        }
+
+        if (messageBody.length() > 0) {
+            builder.append(messageBody);
+        }
+
+        if (trailer.length() > 0) {
+            builder.append(newLine);
+            builder.append(trailer);
+        }
+
+        return builder.toString();
+    }
+
 
     public static List<Object> createObjectsFromString(FileFormat fileFormat, String message, String recordName, String beanName) throws Exception {
         Object entity = null;
