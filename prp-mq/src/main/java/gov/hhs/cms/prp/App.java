@@ -2,6 +2,7 @@ package gov.hhs.cms.prp;
 
 import com.blackbear.flatworm.errors.FlatwormCreatorException;
 import gov.hhs.cms.prp.mq.MQMessageConstants;
+import gov.hhs.cms.prp.mq.handler.RetireeMessageHandler;
 import gov.hhs.cms.prp.mq.sender.ApplicationMessageSender;
 import gov.hhs.cms.prp.mq.to.ApplicationStatusTO;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
@@ -22,9 +23,14 @@ public class App {
 
     public static void main(String[] args) {
 
-        generateApplStatMessage();
+        // generateApplStatMessage();
 
-        System.out.println("Message creation finished...");
+        // System.out.println("Message creation finished...");
+
+        handleRetireeListMessage();
+
+        System.out.println("Message handled...");
+
         System.exit(0);
     }
 
@@ -59,6 +65,18 @@ public class App {
             CONTEXT.close();
         }
 
+    }
+
+    public static void handleRetireeListMessage() {
+
+        String message = "RETLIST 201512171520470123000100000000004Y        RETH12015_GENERAL_MOTORS_RETIREE_FILE.CSV|0000025100|0000103460|RETLIST                                                                                                                                                                                             00000002  RLST0000103460GMRET123            2015010120151231ROBERT                        PARMSTRONG                               123456789A123456789DC19500815101   201512150000025100      RLST0000103460GMRET123            2015010120151231LUDMILLA                      GIVANOVA                                 234567890S234567890BT19490215203   201512150000025100      RETT12015_GENERAL_MOTORS_RETIREE_FILE.CSV|0000025100|0000103460|RETLIST                                                                                                                                                                                             00000002  ";
+
+        RetireeMessageHandler handler = new RetireeMessageHandler();
+        try {
+            handler.handleMessage(message);
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
     }
 
 }

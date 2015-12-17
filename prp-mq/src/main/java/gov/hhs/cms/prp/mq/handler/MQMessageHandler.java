@@ -13,6 +13,7 @@ import java.io.InputStreamReader;
 import java.nio.charset.StandardCharsets;
 import java.util.ArrayList;
 import java.util.List;
+import java.util.logging.Level;
 import java.util.logging.Logger;
 
 /**
@@ -29,6 +30,9 @@ public abstract class MQMessageHandler {
     protected static MySQLDAOFactory mySQLDAOFactory;
 
     protected FileFormat format;
+    protected String messageId;
+    protected String messageHeader;
+    protected String messageBody;
 
     protected ConfigurationReader reader = new ConfigurationReader();
     protected abstract String getConfigFilePath();
@@ -40,7 +44,21 @@ public abstract class MQMessageHandler {
         return mySQLDAOFactory;
     }
 
-    public static String insertNewlineBetweenSegments(String messageBody, int segmentLength) {
+    public void handleMessage(String message) throws Exception {
+
+        messageId = message.substring(0, MESSAGE_ID_LENGTH).trim();
+        LOGGER.log(Level.INFO, "messageId: " + messageId);
+        messageHeader = message.substring(0, MESSAGE_HEADER_LENGTH);
+        LOGGER.log(Level.INFO, "messageHeader: " + messageHeader);
+        messageBody = message.substring(MESSAGE_HEADER_LENGTH);
+        LOGGER.log(Level.INFO, "messageBody: " + messageBody);
+    }
+
+    /*
+     * Insert newline character between segments for messages where all of the segments
+     * are the same (like APPLICAT messageBody with OPT2 segments)
+     */
+    public static String insertNewLineBetweenSegments(String messageBody, int segmentLength) {
         int nbrOfSegments = messageBody.length() / segmentLength;
         int position = 0;
         String lineFeed = "\n";
@@ -62,25 +80,25 @@ public abstract class MQMessageHandler {
      * Insert newline character between segments for messages like RETLIST that have
      * a header, a footer, and an arbitrary number of repeating segments between them.
      */
-    public static String insertNewLineBetweenSegments(String message, int headerLength, int segmentLength, int trailerLength) {
+    public static String insertNewLineBetweenSegments(String messageBody, int headerLength, int segmentLength, int trailerLength) {
 
         String header = "";
         String trailer = "";
-        String messageBody = "";
+        String detail = "";
         StringBuilder builder = new StringBuilder();
         String newLine = "\n";
 
         if (headerLength > 0) {
-            header = message.substring(0, headerLength);
+            header = messageBody.substring(0, headerLength);
         }
 
         if (trailerLength > 0) {
-            trailer = message.substring(message.length() - trailerLength);
+            trailer = messageBody.substring(messageBody.length() - trailerLength);
         }
 
-        if (message.length() > (headerLength + trailerLength)) {
-            messageBody = message.substring(headerLength, (message.length() - headerLength - trailerLength ));
-            messageBody = insertNewlineBetweenSegments(messageBody, segmentLength);
+        if (messageBody.length() > (headerLength + trailerLength)) {
+            detail = messageBody.substring(headerLength, (messageBody.length() - trailerLength ));
+            detail = insertNewLineBetweenSegments(detail, segmentLength);
         }
 
         if (header.length() > 0) {
@@ -88,8 +106,8 @@ public abstract class MQMessageHandler {
             builder.append(newLine);
         }
 
-        if (messageBody.length() > 0) {
-            builder.append(messageBody);
+        if (detail.length() > 0) {
+            builder.append(detail);
         }
 
         if (trailer.length() > 0) {

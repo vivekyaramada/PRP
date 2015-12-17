@@ -27,7 +27,7 @@
                     <conversion-option name="justify" value="left"/>
                 </record-element>
                 <record-element length="8" beanref="retireeListHeader.numberOfRecords" type="integer"/>
-                <record-element length="27"/> <!-- Filler -->
+                <record-element length="2"/> <!-- Filler -->
             </line>
         </record-definition>
     </record>
@@ -52,8 +52,12 @@
                     <conversion-option name="pad-character" value=" "/>
                     <conversion-option name="justify" value="left"/>
                 </record-element>
-                <record-element length="8" beanref="retireeListDetail.coverageEffectiveDate" type="date"/>
-                <record-element length="8" beanref="retireeListDetail.coverageTerminationDate" type="date"/>
+                <record-element length="8" beanref="retireeListDetail.coverageEffectiveDate" type="date">
+                    <conversion-option name="format" value="yyyyMMdd"/>
+                </record-element>
+                <record-element length="8" beanref="retireeListDetail.coverageTerminationDate" type="date">
+                    <conversion-option name="format" value="yyyyMMdd"/>
+                </record-element>
                 <record-element length="30" beanref="retireeListDetail.beneFirstName" type="char">
                     <conversion-option name="pad-character" value=" "/>
                     <conversion-option name="justify" value="left"/>
@@ -65,11 +69,15 @@
                 </record-element>
                 <record-element length="9" beanref="retireeListDetail.beneSsn" type="char"/>
                 <record-element length="12" beanref="retireeListDetail.beneHicn" type="char" />
-                <record-element length="8" beanref="retireeListDetail.beneBirthDate" type="date" />
+                <record-element length="8" beanref="retireeListDetail.beneBirthDate" type="date">
+                    <conversion-option name="format" value="yyyyMMdd"/>
+                </record-element>
                 <record-element length="1" beanref="retireeListDetail.beneSexCode" type="char" />
                 <record-element length="2" beanref="retireeListDetail.beneRelationshipCode" type="char" />
                 <record-element length="3" beanref="retireeListDetail.recordActionCode" type="char" />
-                <record-element length="8" beanref="retireeListDetail.fileReceiptDate" type="date" />
+                <record-element length="8" beanref="retireeListDetail.fileReceiptDate" type="date">
+                    <conversion-option name="format" value="yyyyMMdd"/>
+                </record-element>
                 <record-element length="10" beanref="retireeListDetail.planId" type="integer">
                     <conversion-option name="pad-character" value="0"/>
                     <conversion-option name="justify" value="right"/>
@@ -97,7 +105,7 @@
                     <conversion-option name="justify" value="left"/>
                 </record-element>
                 <record-element length="8" beanref="retireeListTrailer.numberOfRecords" type="integer"/>
-                <record-element length="27"/> <!-- Filler -->
+                <record-element length="2"/> <!-- Filler -->
             </line>
         </record-definition>
     </record>
@@ -115,7 +123,7 @@
         <record-definition>
             <bean name="retireeFileHeader" class="gov.hhs.cms.prp.mq.to.RetireeListHeaderTrailerTO"/>
             <line>
-                <record-element length="10" beanref=""
+                <record-element length="10" beanref="retireeFileHeader.applicationId" type="char"/>
                 <record-element length="1" beanref="retireeFileHeader.transMethod" type="char"/>
                 <record-element length="255" beanref="retireeFileHeader.fileName" type="char">
                     <conversion-option name="pad-character" value=" "/>

@@ -18,6 +18,7 @@ public class RetireeMessageReceiver extends MQMessageReceiver {
         LOGGER.log(Level.INFO, "\nMessage Received: " + message);
 
         ApplicationMessageHandler handler = new ApplicationMessageHandler();
+
         try {
             handler.handleMessage(message);
         } catch (Exception e) {

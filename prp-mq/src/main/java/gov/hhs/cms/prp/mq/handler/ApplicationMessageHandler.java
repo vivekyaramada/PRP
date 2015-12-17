@@ -40,7 +40,7 @@ public class ApplicationMessageHandler extends MQMessageHandler {
         List<Object> entityList;
         if (segmentType.equals("OPT2")) {
             if (messageBody.length() > OPT2_SEGMENT_LENGTH) {
-                messageBody = insertNewlineBetweenSegments(messageBody, OPT2_SEGMENT_LENGTH);
+                messageBody = insertNewLineBetweenSegments(messageBody, OPT2_SEGMENT_LENGTH);
             }
             entityList = createObjectsFromString(getFileFormat(), messageBody, PLAN_OPTION_RECORD_NAME, PLAN_OPTION_BEAN_NAME);
             saveEntities(entityList);
