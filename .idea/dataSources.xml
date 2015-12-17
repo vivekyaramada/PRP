@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
-  <component name="DataSourceManagerImpl" format="xml" hash="3923932690">
+  <component name="DataSourceManagerImpl" format="xml" hash="1702858129">
     <data-source source="LOCAL" name="PRP" uuid="4dd155f4-012f-4863-abca-5f628da8d752">
       <driver-ref>mysql</driver-ref>
       <synchronize>true</synchronize>
       <jdbc-driver>com.mysql.jdbc.Driver</jdbc-driver>
-      <jdbc-url>jdbc:mysql://127.0.0.1:3306/prp</jdbc-url>
+      <jdbc-url>jdbc:mysql://192.168.99.100:33067/prp</jdbc-url>
       <driver-properties>
         <property name="zeroDateTimeBehavior" value="convertToNull" />
         <property name="tinyInt1isBit" value="false" />
