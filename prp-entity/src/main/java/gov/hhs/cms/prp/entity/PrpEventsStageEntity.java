@@ -8,11 +8,11 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * Created by VivekKumar.ReddyYara on 10/20/2015.
+ * Created by VivekKumar.ReddyYara on 1/11/2016.
  */
 @Entity
-@javax.persistence.Table(name = "prp_evnt_stag", schema = "", catalog = "prp")
-public class PrpEvntStagEntity {
+@javax.persistence.Table(name = "prp_events_stage", schema = "", catalog = "prp")
+public class PrpEventsStageEntity {
     private int pkPrpEventId;
 
     @Id
@@ -294,7 +294,7 @@ public class PrpEvntStagEntity {
         if (this == o) return true;
         if (o == null || getClass() != o.getClass()) return false;
 
-        PrpEvntStagEntity that = (PrpEvntStagEntity) o;
+        PrpEventsStageEntity that = (PrpEventsStageEntity) o;
 
         if (pkPrpEventId != that.pkPrpEventId) return false;
         if (evntTypeCd != null ? !evntTypeCd.equals(that.evntTypeCd) : that.evntTypeCd != null) return false;

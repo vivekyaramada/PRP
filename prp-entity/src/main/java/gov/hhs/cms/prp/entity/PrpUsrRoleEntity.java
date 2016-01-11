@@ -12,6 +12,8 @@ public class PrpUsrRoleEntity {
     private String usrName;
     private String role;
 
+
+
     @Id
     @Column(name = "id")
     public String getId() {
