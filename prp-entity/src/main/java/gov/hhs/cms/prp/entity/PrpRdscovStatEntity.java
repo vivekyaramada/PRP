@@ -25,6 +25,30 @@ public class PrpRdscovStatEntity {
     private String originId;
     private String cvgRsnCd;
 
+    public void setBeneId(Integer beneId) {
+        this.beneId = beneId;
+    }
+
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+    public void setRdsEffDate(Integer rdsEffDate) {
+        this.rdsEffDate = rdsEffDate;
+    }
+
+    public void setRdsTermDate(Integer rdsTermDate) {
+        this.rdsTermDate = rdsTermDate;
+    }
+
+    public void setCvgEffDate(Integer cvgEffDate) {
+        this.cvgEffDate = cvgEffDate;
+    }
+
+    public void setCvgTermDate(Integer cvgTermDate) {
+        this.cvgTermDate = cvgTermDate;
+    }
+
     @Id
     @Column(name = "BENE_ID")
     public int getBeneId() {

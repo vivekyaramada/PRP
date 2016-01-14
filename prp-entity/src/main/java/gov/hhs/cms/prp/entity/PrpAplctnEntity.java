@@ -25,6 +25,18 @@ public class PrpAplctnEntity {
     private Date applStp4Dt;
     private Date applFrzDt;
 
+    public void setApplId(Integer applId) {
+        this.applId = applId;
+    }
+
+    public void setApplPsId(Integer applPsId) {
+        this.applPsId = applPsId;
+    }
+
+    public void setApplUpdtPgmId(Integer applUpdtPgmId) {
+        this.applUpdtPgmId = applUpdtPgmId;
+    }
+
     @Id
     @Column(name = "APPL_ID")
     public int getApplId() {

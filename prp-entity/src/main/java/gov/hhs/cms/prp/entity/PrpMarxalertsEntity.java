@@ -1,20 +1,46 @@
 package gov.hhs.cms.prp.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
  * Created by VivekKumar.ReddyYara on 1/11/2016.
  */
 @Entity
-@javax.persistence.Table(name = "prp_marxalerts", schema = "", catalog = "prp")
+@Table(name = "prp_marxalerts", schema = "", catalog = "prp")
 public class PrpMarxalertsEntity {
     private int alrtNum;
+    private String hicn;
+    private String psId;
+    private String applId;
+    private String originId;
+    private Integer alrtRecvDt;
+    private String status;
+    private Integer statusDate;
+    private String groupNum;
+    private String firstName;
+    private String middleInit;
+    private String lastName;
+    private String relationship;
+    private String sexCode;
+    private Integer dob;
+    private Integer cvgEffDt;
+    private Integer cvgTermDt;
+    private Integer rdsEffDt;
+    private Integer rdsTermDt;
+    private Integer prtdAtmptDt;
+    private Integer alrtSentDt;
+    private Timestamp timestamp;
+    private Integer beneId;
+    private String fileId;
+    private Integer sequence;
+
+    public void setAlrtNum(Integer alrtNum) {
+        this.alrtNum = alrtNum;
+    }
 
     @Id
-    @javax.persistence.Column(name = "ALRT_NUM")
+    @Column(name = "ALRT_NUM")
     public int getAlrtNum() {
         return alrtNum;
     }
@@ -23,10 +49,8 @@ public class PrpMarxalertsEntity {
         this.alrtNum = alrtNum;
     }
 
-    private String hicn;
-
     @Basic
-    @javax.persistence.Column(name = "HICN")
+    @Column(name = "HICN")
     public String getHicn() {
         return hicn;
     }
@@ -35,10 +59,8 @@ public class PrpMarxalertsEntity {
         this.hicn = hicn;
     }
 
-    private String psId;
-
     @Basic
-    @javax.persistence.Column(name = "PS_ID")
+    @Column(name = "PS_ID")
     public String getPsId() {
         return psId;
     }
@@ -47,10 +69,8 @@ public class PrpMarxalertsEntity {
         this.psId = psId;
     }
 
-    private String applId;
-
     @Basic
-    @javax.persistence.Column(name = "APPL_ID")
+    @Column(name = "APPL_ID")
     public String getApplId() {
         return applId;
     }
@@ -59,10 +79,8 @@ public class PrpMarxalertsEntity {
         this.applId = applId;
     }
 
-    private String originId;
-
     @Basic
-    @javax.persistence.Column(name = "ORIGIN_ID")
+    @Column(name = "ORIGIN_ID")
     public String getOriginId() {
         return originId;
     }
@@ -71,10 +89,8 @@ public class PrpMarxalertsEntity {
         this.originId = originId;
     }
 
-    private Integer alrtRecvDt;
-
     @Basic
-    @javax.persistence.Column(name = "ALRT_RECV_DT")
+    @Column(name = "ALRT_RECV_DT")
     public Integer getAlrtRecvDt() {
         return alrtRecvDt;
     }
@@ -83,10 +99,8 @@ public class PrpMarxalertsEntity {
         this.alrtRecvDt = alrtRecvDt;
     }
 
-    private String status;
-
     @Basic
-    @javax.persistence.Column(name = "STATUS")
+    @Column(name = "STATUS")
     public String getStatus() {
         return status;
     }
@@ -95,10 +109,8 @@ public class PrpMarxalertsEntity {
         this.status = status;
     }
 
-    private Integer statusDate;
-
     @Basic
-    @javax.persistence.Column(name = "STATUS_DATE")
+    @Column(name = "STATUS_DATE")
     public Integer getStatusDate() {
         return statusDate;
     }
@@ -107,10 +119,8 @@ public class PrpMarxalertsEntity {
         this.statusDate = statusDate;
     }
 
-    private String groupNum;
-
     @Basic
-    @javax.persistence.Column(name = "GROUP_NUM")
+    @Column(name = "GROUP_NUM")
     public String getGroupNum() {
         return groupNum;
     }
@@ -119,10 +129,8 @@ public class PrpMarxalertsEntity {
         this.groupNum = groupNum;
     }
 
-    private String firstName;
-
     @Basic
-    @javax.persistence.Column(name = "FIRST_NAME")
+    @Column(name = "FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -131,10 +139,8 @@ public class PrpMarxalertsEntity {
         this.firstName = firstName;
     }
 
-    private String middleInit;
-
     @Basic
-    @javax.persistence.Column(name = "MIDDLE_INIT")
+    @Column(name = "MIDDLE_INIT")
     public String getMiddleInit() {
         return middleInit;
     }
@@ -143,10 +149,8 @@ public class PrpMarxalertsEntity {
         this.middleInit = middleInit;
     }
 
-    private String lastName;
-
     @Basic
-    @javax.persistence.Column(name = "LAST_NAME")
+    @Column(name = "LAST_NAME")
     public String getLastName() {
         return lastName;
     }
@@ -155,10 +159,8 @@ public class PrpMarxalertsEntity {
         this.lastName = lastName;
     }
 
-    private String relationship;
-
     @Basic
-    @javax.persistence.Column(name = "RELATIONSHIP")
+    @Column(name = "RELATIONSHIP")
     public String getRelationship() {
         return relationship;
     }
@@ -167,10 +169,8 @@ public class PrpMarxalertsEntity {
         this.relationship = relationship;
     }
 
-    private String sexCode;
-
     @Basic
-    @javax.persistence.Column(name = "SEX_CODE")
+    @Column(name = "SEX_CODE")
     public String getSexCode() {
         return sexCode;
     }
@@ -179,10 +179,8 @@ public class PrpMarxalertsEntity {
         this.sexCode = sexCode;
     }
 
-    private Integer dob;
-
     @Basic
-    @javax.persistence.Column(name = "DOB")
+    @Column(name = "DOB")
     public Integer getDob() {
         return dob;
     }
@@ -191,10 +189,8 @@ public class PrpMarxalertsEntity {
         this.dob = dob;
     }
 
-    private Integer cvgEffDt;
-
     @Basic
-    @javax.persistence.Column(name = "CVG_EFF_DT")
+    @Column(name = "CVG_EFF_DT")
     public Integer getCvgEffDt() {
         return cvgEffDt;
     }
@@ -203,10 +199,8 @@ public class PrpMarxalertsEntity {
         this.cvgEffDt = cvgEffDt;
     }
 
-    private Integer cvgTermDt;
-
     @Basic
-    @javax.persistence.Column(name = "CVG_TERM_DT")
+    @Column(name = "CVG_TERM_DT")
     public Integer getCvgTermDt() {
         return cvgTermDt;
     }
@@ -215,10 +209,8 @@ public class PrpMarxalertsEntity {
         this.cvgTermDt = cvgTermDt;
     }
 
-    private Integer rdsEffDt;
-
     @Basic
-    @javax.persistence.Column(name = "RDS_EFF_DT")
+    @Column(name = "RDS_EFF_DT")
     public Integer getRdsEffDt() {
         return rdsEffDt;
     }
@@ -227,10 +219,8 @@ public class PrpMarxalertsEntity {
         this.rdsEffDt = rdsEffDt;
     }
 
-    private Integer rdsTermDt;
-
     @Basic
-    @javax.persistence.Column(name = "RDS_TERM_DT")
+    @Column(name = "RDS_TERM_DT")
     public Integer getRdsTermDt() {
         return rdsTermDt;
     }
@@ -239,10 +229,8 @@ public class PrpMarxalertsEntity {
         this.rdsTermDt = rdsTermDt;
     }
 
-    private Integer prtdAtmptDt;
-
     @Basic
-    @javax.persistence.Column(name = "PRTD_ATMPT_DT")
+    @Column(name = "PRTD_ATMPT_DT")
     public Integer getPrtdAtmptDt() {
         return prtdAtmptDt;
     }
@@ -251,10 +239,8 @@ public class PrpMarxalertsEntity {
         this.prtdAtmptDt = prtdAtmptDt;
     }
 
-    private Integer alrtSentDt;
-
     @Basic
-    @javax.persistence.Column(name = "ALRT_SENT_DT")
+    @Column(name = "ALRT_SENT_DT")
     public Integer getAlrtSentDt() {
         return alrtSentDt;
     }
@@ -263,10 +249,8 @@ public class PrpMarxalertsEntity {
         this.alrtSentDt = alrtSentDt;
     }
 
-    private Timestamp timestamp;
-
     @Basic
-    @javax.persistence.Column(name = "TIMESTAMP")
+    @Column(name = "TIMESTAMP")
     public Timestamp getTimestamp() {
         return timestamp;
     }
@@ -275,10 +259,8 @@ public class PrpMarxalertsEntity {
         this.timestamp = timestamp;
     }
 
-    private Integer beneId;
-
     @Basic
-    @javax.persistence.Column(name = "BENE_ID")
+    @Column(name = "BENE_ID")
     public Integer getBeneId() {
         return beneId;
     }
@@ -287,10 +269,8 @@ public class PrpMarxalertsEntity {
         this.beneId = beneId;
     }
 
-    private String fileId;
-
     @Basic
-    @javax.persistence.Column(name = "FILE_ID")
+    @Column(name = "FILE_ID")
     public String getFileId() {
         return fileId;
     }
@@ -299,10 +279,8 @@ public class PrpMarxalertsEntity {
         this.fileId = fileId;
     }
 
-    private Integer sequence;
-
     @Basic
-    @javax.persistence.Column(name = "SEQUENCE")
+    @Column(name = "SEQUENCE")
     public Integer getSequence() {
         return sequence;
     }

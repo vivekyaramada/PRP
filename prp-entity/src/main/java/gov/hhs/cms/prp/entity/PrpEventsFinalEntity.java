@@ -1,8 +1,6 @@
 package gov.hhs.cms.prp.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.math.BigDecimal;
 import java.sql.Date;
 import java.sql.Timestamp;
@@ -11,12 +9,38 @@ import java.sql.Timestamp;
  * Created by VivekKumar.ReddyYara on 1/11/2016.
  */
 @Entity
-@javax.persistence.Table(name = "prp_events_final", schema = "", catalog = "prp")
+@Table(name = "prp_events_final", schema = "", catalog = "prp")
 public class PrpEventsFinalEntity {
     private int pkPrpEventId;
+    private String evntTypeCd;
+    private String evntOrgnCd;
+    private Timestamp procTs;
+    private String userName;
+    private String planSpnsrIdent;
+    private String aplctnIdent;
+    private Short evntNum;
+    private Date cycDt;
+    private Short cycNum;
+    private Short evntRfrncNum;
+    private Short procRfrncNum;
+    private String extrnlRfrncAplctn;
+    private Short extrnlRfrncNum;
+    private Short rsnCd;
+    private BigDecimal transAmt;
+    private BigDecimal pyblAmt;
+    private BigDecimal intrmAdjstmtAmt;
+    private BigDecimal unapldCashAmt;
+    private BigDecimal rcvblPrncpalAmt;
+    private BigDecimal rcvblIntrstAmt;
+    private String evntCtgry;
+    private String evntCtgryData;
+
+    public void setPkPrpEventId(Integer pkPrpEventId) {
+        this.pkPrpEventId = pkPrpEventId;
+    }
 
     @Id
-    @javax.persistence.Column(name = "PK_PRP_EVENT_ID")
+    @Column(name = "PK_PRP_EVENT_ID")
     public int getPkPrpEventId() {
         return pkPrpEventId;
     }
@@ -25,10 +49,8 @@ public class PrpEventsFinalEntity {
         this.pkPrpEventId = pkPrpEventId;
     }
 
-    private String evntTypeCd;
-
     @Basic
-    @javax.persistence.Column(name = "EVNT_TYPE_CD")
+    @Column(name = "EVNT_TYPE_CD")
     public String getEvntTypeCd() {
         return evntTypeCd;
     }
@@ -37,10 +59,8 @@ public class PrpEventsFinalEntity {
         this.evntTypeCd = evntTypeCd;
     }
 
-    private String evntOrgnCd;
-
     @Basic
-    @javax.persistence.Column(name = "EVNT_ORGN_CD")
+    @Column(name = "EVNT_ORGN_CD")
     public String getEvntOrgnCd() {
         return evntOrgnCd;
     }
@@ -49,10 +69,8 @@ public class PrpEventsFinalEntity {
         this.evntOrgnCd = evntOrgnCd;
     }
 
-    private Timestamp procTs;
-
     @Basic
-    @javax.persistence.Column(name = "PROC_TS")
+    @Column(name = "PROC_TS")
     public Timestamp getProcTs() {
         return procTs;
     }
@@ -61,10 +79,8 @@ public class PrpEventsFinalEntity {
         this.procTs = procTs;
     }
 
-    private String userName;
-
     @Basic
-    @javax.persistence.Column(name = "USER_NAME")
+    @Column(name = "USER_NAME")
     public String getUserName() {
         return userName;
     }
@@ -73,10 +89,8 @@ public class PrpEventsFinalEntity {
         this.userName = userName;
     }
 
-    private String planSpnsrIdent;
-
     @Basic
-    @javax.persistence.Column(name = "PLAN_SPNSR_IDENT")
+    @Column(name = "PLAN_SPNSR_IDENT")
     public String getPlanSpnsrIdent() {
         return planSpnsrIdent;
     }
@@ -85,10 +99,8 @@ public class PrpEventsFinalEntity {
         this.planSpnsrIdent = planSpnsrIdent;
     }
 
-    private String aplctnIdent;
-
     @Basic
-    @javax.persistence.Column(name = "APLCTN_IDENT")
+    @Column(name = "APLCTN_IDENT")
     public String getAplctnIdent() {
         return aplctnIdent;
     }
@@ -97,10 +109,8 @@ public class PrpEventsFinalEntity {
         this.aplctnIdent = aplctnIdent;
     }
 
-    private Short evntNum;
-
     @Basic
-    @javax.persistence.Column(name = "EVNT_NUM")
+    @Column(name = "EVNT_NUM")
     public Short getEvntNum() {
         return evntNum;
     }
@@ -109,10 +119,8 @@ public class PrpEventsFinalEntity {
         this.evntNum = evntNum;
     }
 
-    private Date cycDt;
-
     @Basic
-    @javax.persistence.Column(name = "CYC_DT")
+    @Column(name = "CYC_DT")
     public Date getCycDt() {
         return cycDt;
     }
@@ -121,10 +129,8 @@ public class PrpEventsFinalEntity {
         this.cycDt = cycDt;
     }
 
-    private Short cycNum;
-
     @Basic
-    @javax.persistence.Column(name = "CYC_NUM")
+    @Column(name = "CYC_NUM")
     public Short getCycNum() {
         return cycNum;
     }
@@ -133,10 +139,8 @@ public class PrpEventsFinalEntity {
         this.cycNum = cycNum;
     }
 
-    private Short evntRfrncNum;
-
     @Basic
-    @javax.persistence.Column(name = "EVNT_RFRNC_NUM")
+    @Column(name = "EVNT_RFRNC_NUM")
     public Short getEvntRfrncNum() {
         return evntRfrncNum;
     }
@@ -145,10 +149,8 @@ public class PrpEventsFinalEntity {
         this.evntRfrncNum = evntRfrncNum;
     }
 
-    private Short procRfrncNum;
-
     @Basic
-    @javax.persistence.Column(name = "PROC_RFRNC_NUM")
+    @Column(name = "PROC_RFRNC_NUM")
     public Short getProcRfrncNum() {
         return procRfrncNum;
     }
@@ -157,10 +159,8 @@ public class PrpEventsFinalEntity {
         this.procRfrncNum = procRfrncNum;
     }
 
-    private String extrnlRfrncAplctn;
-
     @Basic
-    @javax.persistence.Column(name = "EXTRNL_RFRNC_APLCTN")
+    @Column(name = "EXTRNL_RFRNC_APLCTN")
     public String getExtrnlRfrncAplctn() {
         return extrnlRfrncAplctn;
     }
@@ -169,10 +169,8 @@ public class PrpEventsFinalEntity {
         this.extrnlRfrncAplctn = extrnlRfrncAplctn;
     }
 
-    private Short extrnlRfrncNum;
-
     @Basic
-    @javax.persistence.Column(name = "EXTRNL_RFRNC_NUM")
+    @Column(name = "EXTRNL_RFRNC_NUM")
     public Short getExtrnlRfrncNum() {
         return extrnlRfrncNum;
     }
@@ -181,10 +179,8 @@ public class PrpEventsFinalEntity {
         this.extrnlRfrncNum = extrnlRfrncNum;
     }
 
-    private Short rsnCd;
-
     @Basic
-    @javax.persistence.Column(name = "RSN_CD")
+    @Column(name = "RSN_CD")
     public Short getRsnCd() {
         return rsnCd;
     }
@@ -193,10 +189,8 @@ public class PrpEventsFinalEntity {
         this.rsnCd = rsnCd;
     }
 
-    private BigDecimal transAmt;
-
     @Basic
-    @javax.persistence.Column(name = "TRANS_AMT")
+    @Column(name = "TRANS_AMT")
     public BigDecimal getTransAmt() {
         return transAmt;
     }
@@ -205,10 +199,8 @@ public class PrpEventsFinalEntity {
         this.transAmt = transAmt;
     }
 
-    private BigDecimal pyblAmt;
-
     @Basic
-    @javax.persistence.Column(name = "PYBL_AMT")
+    @Column(name = "PYBL_AMT")
     public BigDecimal getPyblAmt() {
         return pyblAmt;
     }
@@ -217,10 +209,8 @@ public class PrpEventsFinalEntity {
         this.pyblAmt = pyblAmt;
     }
 
-    private BigDecimal intrmAdjstmtAmt;
-
     @Basic
-    @javax.persistence.Column(name = "INTRM_ADJSTMT_AMT")
+    @Column(name = "INTRM_ADJSTMT_AMT")
     public BigDecimal getIntrmAdjstmtAmt() {
         return intrmAdjstmtAmt;
     }
@@ -229,10 +219,8 @@ public class PrpEventsFinalEntity {
         this.intrmAdjstmtAmt = intrmAdjstmtAmt;
     }
 
-    private BigDecimal unapldCashAmt;
-
     @Basic
-    @javax.persistence.Column(name = "UNAPLD_CASH_AMT")
+    @Column(name = "UNAPLD_CASH_AMT")
     public BigDecimal getUnapldCashAmt() {
         return unapldCashAmt;
     }
@@ -241,10 +229,8 @@ public class PrpEventsFinalEntity {
         this.unapldCashAmt = unapldCashAmt;
     }
 
-    private BigDecimal rcvblPrncpalAmt;
-
     @Basic
-    @javax.persistence.Column(name = "RCVBL_PRNCPAL_AMT")
+    @Column(name = "RCVBL_PRNCPAL_AMT")
     public BigDecimal getRcvblPrncpalAmt() {
         return rcvblPrncpalAmt;
     }
@@ -253,10 +239,8 @@ public class PrpEventsFinalEntity {
         this.rcvblPrncpalAmt = rcvblPrncpalAmt;
     }
 
-    private BigDecimal rcvblIntrstAmt;
-
     @Basic
-    @javax.persistence.Column(name = "RCVBL_INTRST_AMT")
+    @Column(name = "RCVBL_INTRST_AMT")
     public BigDecimal getRcvblIntrstAmt() {
         return rcvblIntrstAmt;
     }
@@ -265,10 +249,8 @@ public class PrpEventsFinalEntity {
         this.rcvblIntrstAmt = rcvblIntrstAmt;
     }
 
-    private String evntCtgry;
-
     @Basic
-    @javax.persistence.Column(name = "EVNT_CTGRY")
+    @Column(name = "EVNT_CTGRY")
     public String getEvntCtgry() {
         return evntCtgry;
     }
@@ -277,10 +259,8 @@ public class PrpEventsFinalEntity {
         this.evntCtgry = evntCtgry;
     }
 
-    private String evntCtgryData;
-
     @Basic
-    @javax.persistence.Column(name = "EVNT_CTGRY_DATA")
+    @Column(name = "EVNT_CTGRY_DATA")
     public String getEvntCtgryData() {
         return evntCtgryData;
     }

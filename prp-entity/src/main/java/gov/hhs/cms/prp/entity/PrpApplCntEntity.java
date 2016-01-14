@@ -14,6 +14,14 @@ public class PrpApplCntEntity {
     private String totCntCd;
     private int cntVal;
 
+    public void setApplSeqNum(Integer applSeqNum) {
+        this.applSeqNum = applSeqNum;
+    }
+
+    public void setCntVal(Integer cntVal) {
+        this.cntVal = cntVal;
+    }
+
     @Id
     @Column(name = "FILE_ID")
     public String getFileId() {

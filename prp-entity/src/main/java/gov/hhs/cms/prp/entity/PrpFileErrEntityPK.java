@@ -9,6 +9,9 @@ import java.io.Serializable;
  */
 public class PrpFileErrEntityPK implements Serializable {
     private String fileId;
+    private String errCd;
+    private String errCtgryCd;
+    private int errSeqNum;
 
     @Column(name = "FILE_ID")
     @Id
@@ -20,8 +23,6 @@ public class PrpFileErrEntityPK implements Serializable {
         this.fileId = fileId;
     }
 
-    private String errCd;
-
     @Column(name = "ERR_CD")
     @Id
     public String getErrCd() {
@@ -32,8 +33,6 @@ public class PrpFileErrEntityPK implements Serializable {
         this.errCd = errCd;
     }
 
-    private String errCtgryCd;
-
     @Column(name = "ERR_CTGRY_CD")
     @Id
     public String getErrCtgryCd() {
@@ -43,8 +42,6 @@ public class PrpFileErrEntityPK implements Serializable {
     public void setErrCtgryCd(String errCtgryCd) {
         this.errCtgryCd = errCtgryCd;
     }
-
-    private int errSeqNum;
 
     @Column(name = "ERR_SEQ_NUM")
     @Id

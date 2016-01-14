@@ -19,6 +19,14 @@ public class PrpRxExtCntEntity {
     private Timestamp pstgTs;
     private String pstgPgm;
 
+    public void setCostYearNum(Short costYearNum) {
+        this.costYearNum = costYearNum;
+    }
+
+    public void setCostMnthNum(Short costMnthNum) {
+        this.costMnthNum = costMnthNum;
+    }
+
     @Id
     @Column(name = "APPL_ID")
     public String getApplId() {

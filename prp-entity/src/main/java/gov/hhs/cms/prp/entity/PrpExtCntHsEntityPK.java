@@ -10,6 +10,11 @@ import java.sql.Timestamp;
  */
 public class PrpExtCntHsEntityPK implements Serializable {
     private String applId;
+    private String groupNumber;
+    private Timestamp deleteTs;
+    private short costYearNum;
+    private short costMnthNum;
+    private String srcTypeCd;
 
     @Column(name = "APPL_ID")
     @Id
@@ -21,8 +26,6 @@ public class PrpExtCntHsEntityPK implements Serializable {
         this.applId = applId;
     }
 
-    private String groupNumber;
-
     @Column(name = "GROUP_NUMBER")
     @Id
     public String getGroupNumber() {
@@ -32,8 +35,6 @@ public class PrpExtCntHsEntityPK implements Serializable {
     public void setGroupNumber(String groupNumber) {
         this.groupNumber = groupNumber;
     }
-
-    private Timestamp deleteTs;
 
     @Column(name = "DELETE_TS")
     @Id
@@ -45,8 +46,6 @@ public class PrpExtCntHsEntityPK implements Serializable {
         this.deleteTs = deleteTs;
     }
 
-    private short costYearNum;
-
     @Column(name = "COST_YEAR_NUM")
     @Id
     public short getCostYearNum() {
@@ -57,8 +56,6 @@ public class PrpExtCntHsEntityPK implements Serializable {
         this.costYearNum = costYearNum;
     }
 
-    private short costMnthNum;
-
     @Column(name = "COST_MNTH_NUM")
     @Id
     public short getCostMnthNum() {
@@ -68,8 +65,6 @@ public class PrpExtCntHsEntityPK implements Serializable {
     public void setCostMnthNum(short costMnthNum) {
         this.costMnthNum = costMnthNum;
     }
-
-    private String srcTypeCd;
 
     @Column(name = "SRC_TYPE_CD")
     @Id

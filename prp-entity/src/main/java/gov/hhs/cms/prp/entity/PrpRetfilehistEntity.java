@@ -1,20 +1,38 @@
 package gov.hhs.cms.prp.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
  * Created by VivekKumar.ReddyYara on 1/11/2016.
  */
 @Entity
-@javax.persistence.Table(name = "prp_retfilehist", schema = "", catalog = "prp")
+@Table(name = "prp_retfilehist", schema = "", catalog = "prp")
 public class PrpRetfilehistEntity {
     private String fileId;
+    private String psId;
+    private String applId;
+    private int receiptDt;
+    private int responseDt;
+    private String status;
+    private String prevStatus;
+    private String errorReason;
+    private int addCnt;
+    private int updateCnt;
+    private int deleteCnt;
+    private int errorCnt;
+    private int totalCnt;
+    private String transMethod;
+    private String inputFile;
+    private String responseFile;
+    private String mailboxFile;
+    private String cobcPlanNum;
+    private String updtPgm;
+    private Timestamp timestamp;
+    private String originId;
 
     @Id
-    @javax.persistence.Column(name = "FILE_ID")
+    @Column(name = "FILE_ID")
     public String getFileId() {
         return fileId;
     }
@@ -23,10 +41,8 @@ public class PrpRetfilehistEntity {
         this.fileId = fileId;
     }
 
-    private String psId;
-
     @Basic
-    @javax.persistence.Column(name = "PS_ID")
+    @Column(name = "PS_ID")
     public String getPsId() {
         return psId;
     }
@@ -35,10 +51,8 @@ public class PrpRetfilehistEntity {
         this.psId = psId;
     }
 
-    private String applId;
-
     @Basic
-    @javax.persistence.Column(name = "APPL_ID")
+    @Column(name = "APPL_ID")
     public String getApplId() {
         return applId;
     }
@@ -47,10 +61,12 @@ public class PrpRetfilehistEntity {
         this.applId = applId;
     }
 
-    private int receiptDt;
+    public void setReceiptDt(Integer receiptDt) {
+        this.receiptDt = receiptDt;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "RECEIPT_DT")
+    @Column(name = "RECEIPT_DT")
     public int getReceiptDt() {
         return receiptDt;
     }
@@ -59,10 +75,12 @@ public class PrpRetfilehistEntity {
         this.receiptDt = receiptDt;
     }
 
-    private int responseDt;
+    public void setResponseDt(Integer responseDt) {
+        this.responseDt = responseDt;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "RESPONSE_DT")
+    @Column(name = "RESPONSE_DT")
     public int getResponseDt() {
         return responseDt;
     }
@@ -71,10 +89,8 @@ public class PrpRetfilehistEntity {
         this.responseDt = responseDt;
     }
 
-    private String status;
-
     @Basic
-    @javax.persistence.Column(name = "STATUS")
+    @Column(name = "STATUS")
     public String getStatus() {
         return status;
     }
@@ -83,10 +99,8 @@ public class PrpRetfilehistEntity {
         this.status = status;
     }
 
-    private String prevStatus;
-
     @Basic
-    @javax.persistence.Column(name = "PREV_STATUS")
+    @Column(name = "PREV_STATUS")
     public String getPrevStatus() {
         return prevStatus;
     }
@@ -95,10 +109,8 @@ public class PrpRetfilehistEntity {
         this.prevStatus = prevStatus;
     }
 
-    private String errorReason;
-
     @Basic
-    @javax.persistence.Column(name = "ERROR_REASON")
+    @Column(name = "ERROR_REASON")
     public String getErrorReason() {
         return errorReason;
     }
@@ -107,10 +119,12 @@ public class PrpRetfilehistEntity {
         this.errorReason = errorReason;
     }
 
-    private int addCnt;
+    public void setAddCnt(Integer addCnt) {
+        this.addCnt = addCnt;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "ADD_CNT")
+    @Column(name = "ADD_CNT")
     public int getAddCnt() {
         return addCnt;
     }
@@ -119,10 +133,12 @@ public class PrpRetfilehistEntity {
         this.addCnt = addCnt;
     }
 
-    private int updateCnt;
+    public void setUpdateCnt(Integer updateCnt) {
+        this.updateCnt = updateCnt;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "UPDATE_CNT")
+    @Column(name = "UPDATE_CNT")
     public int getUpdateCnt() {
         return updateCnt;
     }
@@ -131,10 +147,12 @@ public class PrpRetfilehistEntity {
         this.updateCnt = updateCnt;
     }
 
-    private int deleteCnt;
+    public void setDeleteCnt(Integer deleteCnt) {
+        this.deleteCnt = deleteCnt;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "DELETE_CNT")
+    @Column(name = "DELETE_CNT")
     public int getDeleteCnt() {
         return deleteCnt;
     }
@@ -143,10 +161,12 @@ public class PrpRetfilehistEntity {
         this.deleteCnt = deleteCnt;
     }
 
-    private int errorCnt;
+    public void setErrorCnt(Integer errorCnt) {
+        this.errorCnt = errorCnt;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "ERROR_CNT")
+    @Column(name = "ERROR_CNT")
     public int getErrorCnt() {
         return errorCnt;
     }
@@ -155,10 +175,12 @@ public class PrpRetfilehistEntity {
         this.errorCnt = errorCnt;
     }
 
-    private int totalCnt;
+    public void setTotalCnt(Integer totalCnt) {
+        this.totalCnt = totalCnt;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "TOTAL_CNT")
+    @Column(name = "TOTAL_CNT")
     public int getTotalCnt() {
         return totalCnt;
     }
@@ -167,10 +189,8 @@ public class PrpRetfilehistEntity {
         this.totalCnt = totalCnt;
     }
 
-    private String transMethod;
-
     @Basic
-    @javax.persistence.Column(name = "TRANS_METHOD")
+    @Column(name = "TRANS_METHOD")
     public String getTransMethod() {
         return transMethod;
     }
@@ -179,10 +199,8 @@ public class PrpRetfilehistEntity {
         this.transMethod = transMethod;
     }
 
-    private String inputFile;
-
     @Basic
-    @javax.persistence.Column(name = "INPUT_FILE")
+    @Column(name = "INPUT_FILE")
     public String getInputFile() {
         return inputFile;
     }
@@ -191,10 +209,8 @@ public class PrpRetfilehistEntity {
         this.inputFile = inputFile;
     }
 
-    private String responseFile;
-
     @Basic
-    @javax.persistence.Column(name = "RESPONSE_FILE")
+    @Column(name = "RESPONSE_FILE")
     public String getResponseFile() {
         return responseFile;
     }
@@ -203,10 +219,8 @@ public class PrpRetfilehistEntity {
         this.responseFile = responseFile;
     }
 
-    private String mailboxFile;
-
     @Basic
-    @javax.persistence.Column(name = "MAILBOX_FILE")
+    @Column(name = "MAILBOX_FILE")
     public String getMailboxFile() {
         return mailboxFile;
     }
@@ -215,10 +229,8 @@ public class PrpRetfilehistEntity {
         this.mailboxFile = mailboxFile;
     }
 
-    private String cobcPlanNum;
-
     @Basic
-    @javax.persistence.Column(name = "COBC_PLAN_NUM")
+    @Column(name = "COBC_PLAN_NUM")
     public String getCobcPlanNum() {
         return cobcPlanNum;
     }
@@ -227,10 +239,8 @@ public class PrpRetfilehistEntity {
         this.cobcPlanNum = cobcPlanNum;
     }
 
-    private String updtPgm;
-
     @Basic
-    @javax.persistence.Column(name = "UPDT_PGM")
+    @Column(name = "UPDT_PGM")
     public String getUpdtPgm() {
         return updtPgm;
     }
@@ -239,10 +249,8 @@ public class PrpRetfilehistEntity {
         this.updtPgm = updtPgm;
     }
 
-    private Timestamp timestamp;
-
     @Basic
-    @javax.persistence.Column(name = "TIMESTAMP")
+    @Column(name = "TIMESTAMP")
     public Timestamp getTimestamp() {
         return timestamp;
     }
@@ -251,10 +259,8 @@ public class PrpRetfilehistEntity {
         this.timestamp = timestamp;
     }
 
-    private String originId;
-
     @Basic
-    @javax.persistence.Column(name = "ORIGIN_ID")
+    @Column(name = "ORIGIN_ID")
     public String getOriginId() {
         return originId;
     }

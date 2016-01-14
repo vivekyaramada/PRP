@@ -15,6 +15,10 @@ public class PrpApplTotEntity {
     private String totCntCd;
     private BigDecimal totAmt;
 
+    public void setApplSeqNum(Integer applSeqNum) {
+        this.applSeqNum = applSeqNum;
+    }
+
     @Id
     @Column(name = "FILE_ID")
     public String getFileId() {

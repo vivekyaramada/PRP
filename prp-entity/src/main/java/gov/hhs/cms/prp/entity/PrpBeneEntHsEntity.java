@@ -20,6 +20,22 @@ public class PrpBeneEntHsEntity {
     private Timestamp deleteTs;
     private String deletePgmId;
 
+    public void setBeneId(Integer beneId) {
+        this.beneId = beneId;
+    }
+
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+    public void setEffDate(Integer effDate) {
+        this.effDate = effDate;
+    }
+
+    public void setTermDate(Integer termDate) {
+        this.termDate = termDate;
+    }
+
     @Id
     @Column(name = "BENE_ID")
     public int getBeneId() {

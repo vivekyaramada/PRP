@@ -10,6 +10,9 @@ import java.sql.Timestamp;
  */
 public class PrpBeneEntHsEntityPK implements Serializable {
     private int beneId;
+    private String entmntType;
+    private int sequence;
+    private Timestamp pstgTs;
 
     @Column(name = "BENE_ID")
     @Id
@@ -21,8 +24,6 @@ public class PrpBeneEntHsEntityPK implements Serializable {
         this.beneId = beneId;
     }
 
-    private String entmntType;
-
     @Column(name = "ENTMNT_TYPE")
     @Id
     public String getEntmntType() {
@@ -33,8 +34,6 @@ public class PrpBeneEntHsEntityPK implements Serializable {
         this.entmntType = entmntType;
     }
 
-    private int sequence;
-
     @Column(name = "SEQUENCE")
     @Id
     public int getSequence() {
@@ -44,8 +43,6 @@ public class PrpBeneEntHsEntityPK implements Serializable {
     public void setSequence(int sequence) {
         this.sequence = sequence;
     }
-
-    private Timestamp pstgTs;
 
     @Column(name = "PSTG_TS")
     @Id

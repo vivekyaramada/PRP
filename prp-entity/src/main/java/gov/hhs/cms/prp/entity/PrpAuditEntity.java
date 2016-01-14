@@ -15,6 +15,10 @@ public class PrpAuditEntity {
     private String method;
     private String status;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Id
     @Column(name = "id")
     public int getId() {

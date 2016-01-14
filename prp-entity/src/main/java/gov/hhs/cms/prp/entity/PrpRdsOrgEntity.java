@@ -18,6 +18,8 @@ public class PrpRdsOrgEntity {
     private Timestamp stusTs;
     private String updtPgm;
     private Timestamp updtTs;
+    private String stusCtgryCd;
+    private String stusCd;
 
     @Id
     @Column(name = "ORG_ID")
@@ -129,5 +131,25 @@ public class PrpRdsOrgEntity {
         result = 31 * result + (updtPgm != null ? updtPgm.hashCode() : 0);
         result = 31 * result + (updtTs != null ? updtTs.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "STUS_CTGRY_CD")
+    public String getStusCtgryCd() {
+        return stusCtgryCd;
+    }
+
+    public void setStusCtgryCd(String stusCtgryCd) {
+        this.stusCtgryCd = stusCtgryCd;
+    }
+
+    @Basic
+    @Column(name = "STUS_CD")
+    public String getStusCd() {
+        return stusCd;
+    }
+
+    public void setStusCd(String stusCd) {
+        this.stusCd = stusCd;
     }
 }

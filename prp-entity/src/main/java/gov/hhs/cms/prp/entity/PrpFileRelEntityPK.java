@@ -10,6 +10,9 @@ import java.sql.Timestamp;
  */
 public class PrpFileRelEntityPK implements Serializable {
     private String relFileId;
+    private String fileId;
+    private String relTypeCd;
+    private Timestamp pstgTs;
 
     @Column(name = "REL_FILE_ID")
     @Id
@@ -21,8 +24,6 @@ public class PrpFileRelEntityPK implements Serializable {
         this.relFileId = relFileId;
     }
 
-    private String fileId;
-
     @Column(name = "FILE_ID")
     @Id
     public String getFileId() {
@@ -33,8 +34,6 @@ public class PrpFileRelEntityPK implements Serializable {
         this.fileId = fileId;
     }
 
-    private String relTypeCd;
-
     @Column(name = "REL_TYPE_CD")
     @Id
     public String getRelTypeCd() {
@@ -44,8 +43,6 @@ public class PrpFileRelEntityPK implements Serializable {
     public void setRelTypeCd(String relTypeCd) {
         this.relTypeCd = relTypeCd;
     }
-
-    private Timestamp pstgTs;
 
     @Column(name = "PSTG_TS")
     @Id

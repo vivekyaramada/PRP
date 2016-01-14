@@ -1,20 +1,43 @@
 package gov.hhs.cms.prp.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
  * Created by VivekKumar.ReddyYara on 1/11/2016.
  */
 @Entity
-@javax.persistence.Table(name = "prp_ndmtrans", schema = "", catalog = "prp")
+@Table(name = "prp_ndmtrans", schema = "", catalog = "prp")
+@IdClass(PrpNdmtransEntityPK.class)
 public class PrpNdmtransEntity {
     private String originId;
+    private String tranType;
+    private String acctId;
+    private String nodeId;
+    private String ndmApplId;
+    private String netId;
+    private String ipAddress;
+    private String capsInd;
+    private String processName;
+    private String useridPasswd;
+    private String newname;
+    private String frm1Symbolic;
+    private String to1Symbolic;
+    private String testFile1;
+    private String prodFile1;
+    private String trigSymbolic;
+    private String testTrigger;
+    private String prodTrigger;
+    private String frm2Symbolic;
+    private String to2Symbolic;
+    private String testFile2;
+    private String prodFile2;
+    private String testProdInd;
+    private String updtOper;
+    private Timestamp timestamp;
 
     @Id
-    @javax.persistence.Column(name = "ORIGIN_ID")
+    @Column(name = "ORIGIN_ID")
     public String getOriginId() {
         return originId;
     }
@@ -23,10 +46,8 @@ public class PrpNdmtransEntity {
         this.originId = originId;
     }
 
-    private String tranType;
-
     @Id
-    @javax.persistence.Column(name = "TRAN_TYPE")
+    @Column(name = "TRAN_TYPE")
     public String getTranType() {
         return tranType;
     }
@@ -35,10 +56,8 @@ public class PrpNdmtransEntity {
         this.tranType = tranType;
     }
 
-    private String acctId;
-
     @Basic
-    @javax.persistence.Column(name = "ACCT_ID")
+    @Column(name = "ACCT_ID")
     public String getAcctId() {
         return acctId;
     }
@@ -47,10 +66,8 @@ public class PrpNdmtransEntity {
         this.acctId = acctId;
     }
 
-    private String nodeId;
-
     @Basic
-    @javax.persistence.Column(name = "NODE_ID")
+    @Column(name = "NODE_ID")
     public String getNodeId() {
         return nodeId;
     }
@@ -59,10 +76,8 @@ public class PrpNdmtransEntity {
         this.nodeId = nodeId;
     }
 
-    private String ndmApplId;
-
     @Basic
-    @javax.persistence.Column(name = "NDM_APPL_ID")
+    @Column(name = "NDM_APPL_ID")
     public String getNdmApplId() {
         return ndmApplId;
     }
@@ -71,10 +86,8 @@ public class PrpNdmtransEntity {
         this.ndmApplId = ndmApplId;
     }
 
-    private String netId;
-
     @Basic
-    @javax.persistence.Column(name = "NET_ID")
+    @Column(name = "NET_ID")
     public String getNetId() {
         return netId;
     }
@@ -83,10 +96,8 @@ public class PrpNdmtransEntity {
         this.netId = netId;
     }
 
-    private String ipAddress;
-
     @Basic
-    @javax.persistence.Column(name = "IP_ADDRESS")
+    @Column(name = "IP_ADDRESS")
     public String getIpAddress() {
         return ipAddress;
     }
@@ -95,10 +106,8 @@ public class PrpNdmtransEntity {
         this.ipAddress = ipAddress;
     }
 
-    private String capsInd;
-
     @Basic
-    @javax.persistence.Column(name = "CAPS_IND")
+    @Column(name = "CAPS_IND")
     public String getCapsInd() {
         return capsInd;
     }
@@ -107,10 +116,8 @@ public class PrpNdmtransEntity {
         this.capsInd = capsInd;
     }
 
-    private String processName;
-
     @Basic
-    @javax.persistence.Column(name = "PROCESS_NAME")
+    @Column(name = "PROCESS_NAME")
     public String getProcessName() {
         return processName;
     }
@@ -119,10 +126,8 @@ public class PrpNdmtransEntity {
         this.processName = processName;
     }
 
-    private String useridPasswd;
-
     @Basic
-    @javax.persistence.Column(name = "USERID_PASSWD")
+    @Column(name = "USERID_PASSWD")
     public String getUseridPasswd() {
         return useridPasswd;
     }
@@ -131,10 +136,8 @@ public class PrpNdmtransEntity {
         this.useridPasswd = useridPasswd;
     }
 
-    private String newname;
-
     @Basic
-    @javax.persistence.Column(name = "NEWNAME")
+    @Column(name = "NEWNAME")
     public String getNewname() {
         return newname;
     }
@@ -143,10 +146,8 @@ public class PrpNdmtransEntity {
         this.newname = newname;
     }
 
-    private String frm1Symbolic;
-
     @Basic
-    @javax.persistence.Column(name = "FRM1_SYMBOLIC")
+    @Column(name = "FRM1_SYMBOLIC")
     public String getFrm1Symbolic() {
         return frm1Symbolic;
     }
@@ -155,10 +156,8 @@ public class PrpNdmtransEntity {
         this.frm1Symbolic = frm1Symbolic;
     }
 
-    private String to1Symbolic;
-
     @Basic
-    @javax.persistence.Column(name = "TO1_SYMBOLIC")
+    @Column(name = "TO1_SYMBOLIC")
     public String getTo1Symbolic() {
         return to1Symbolic;
     }
@@ -167,10 +166,8 @@ public class PrpNdmtransEntity {
         this.to1Symbolic = to1Symbolic;
     }
 
-    private String testFile1;
-
     @Basic
-    @javax.persistence.Column(name = "TEST_FILE1")
+    @Column(name = "TEST_FILE1")
     public String getTestFile1() {
         return testFile1;
     }
@@ -179,10 +176,8 @@ public class PrpNdmtransEntity {
         this.testFile1 = testFile1;
     }
 
-    private String prodFile1;
-
     @Basic
-    @javax.persistence.Column(name = "PROD_FILE1")
+    @Column(name = "PROD_FILE1")
     public String getProdFile1() {
         return prodFile1;
     }
@@ -191,10 +186,8 @@ public class PrpNdmtransEntity {
         this.prodFile1 = prodFile1;
     }
 
-    private String trigSymbolic;
-
     @Basic
-    @javax.persistence.Column(name = "TRIG_SYMBOLIC")
+    @Column(name = "TRIG_SYMBOLIC")
     public String getTrigSymbolic() {
         return trigSymbolic;
     }
@@ -203,10 +196,8 @@ public class PrpNdmtransEntity {
         this.trigSymbolic = trigSymbolic;
     }
 
-    private String testTrigger;
-
     @Basic
-    @javax.persistence.Column(name = "TEST_TRIGGER")
+    @Column(name = "TEST_TRIGGER")
     public String getTestTrigger() {
         return testTrigger;
     }
@@ -215,10 +206,8 @@ public class PrpNdmtransEntity {
         this.testTrigger = testTrigger;
     }
 
-    private String prodTrigger;
-
     @Basic
-    @javax.persistence.Column(name = "PROD_TRIGGER")
+    @Column(name = "PROD_TRIGGER")
     public String getProdTrigger() {
         return prodTrigger;
     }
@@ -227,10 +216,8 @@ public class PrpNdmtransEntity {
         this.prodTrigger = prodTrigger;
     }
 
-    private String frm2Symbolic;
-
     @Basic
-    @javax.persistence.Column(name = "FRM2_SYMBOLIC")
+    @Column(name = "FRM2_SYMBOLIC")
     public String getFrm2Symbolic() {
         return frm2Symbolic;
     }
@@ -239,10 +226,8 @@ public class PrpNdmtransEntity {
         this.frm2Symbolic = frm2Symbolic;
     }
 
-    private String to2Symbolic;
-
     @Basic
-    @javax.persistence.Column(name = "TO2_SYMBOLIC")
+    @Column(name = "TO2_SYMBOLIC")
     public String getTo2Symbolic() {
         return to2Symbolic;
     }
@@ -251,10 +236,8 @@ public class PrpNdmtransEntity {
         this.to2Symbolic = to2Symbolic;
     }
 
-    private String testFile2;
-
     @Basic
-    @javax.persistence.Column(name = "TEST_FILE2")
+    @Column(name = "TEST_FILE2")
     public String getTestFile2() {
         return testFile2;
     }
@@ -263,10 +246,8 @@ public class PrpNdmtransEntity {
         this.testFile2 = testFile2;
     }
 
-    private String prodFile2;
-
     @Basic
-    @javax.persistence.Column(name = "PROD_FILE2")
+    @Column(name = "PROD_FILE2")
     public String getProdFile2() {
         return prodFile2;
     }
@@ -275,10 +256,8 @@ public class PrpNdmtransEntity {
         this.prodFile2 = prodFile2;
     }
 
-    private String testProdInd;
-
     @Basic
-    @javax.persistence.Column(name = "TEST_PROD_IND")
+    @Column(name = "TEST_PROD_IND")
     public String getTestProdInd() {
         return testProdInd;
     }
@@ -287,10 +266,8 @@ public class PrpNdmtransEntity {
         this.testProdInd = testProdInd;
     }
 
-    private String updtOper;
-
     @Basic
-    @javax.persistence.Column(name = "UPDT_OPER")
+    @Column(name = "UPDT_OPER")
     public String getUpdtOper() {
         return updtOper;
     }
@@ -299,10 +276,8 @@ public class PrpNdmtransEntity {
         this.updtOper = updtOper;
     }
 
-    private Timestamp timestamp;
-
     @Basic
-    @javax.persistence.Column(name = "TIMESTAMP")
+    @Column(name = "TIMESTAMP")
     public Timestamp getTimestamp() {
         return timestamp;
     }

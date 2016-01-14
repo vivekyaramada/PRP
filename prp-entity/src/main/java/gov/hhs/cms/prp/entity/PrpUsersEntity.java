@@ -12,6 +12,10 @@ public class PrpUsersEntity {
     private String usrNm;
     private String passwd;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Id
     @Column(name = "id")
     public int getId() {

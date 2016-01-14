@@ -24,6 +24,20 @@ public class PrpBeneficiaryEntity {
     private Timestamp timestamp;
     private String currHicn;
     private Date mbdUpdtDt;
+    private String stusCtgryCd;
+    private String stusCd;
+
+    public void setBeneId(Integer beneId) {
+        this.beneId = beneId;
+    }
+
+    public void setDob(Integer dob) {
+        this.dob = dob;
+    }
+
+    public void setDod(Integer dod) {
+        this.dod = dod;
+    }
 
     @Id
     @Column(name = "BENE_ID")
@@ -207,5 +221,25 @@ public class PrpBeneficiaryEntity {
         result = 31 * result + (currHicn != null ? currHicn.hashCode() : 0);
         result = 31 * result + (mbdUpdtDt != null ? mbdUpdtDt.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "STUS_CTGRY_CD")
+    public String getStusCtgryCd() {
+        return stusCtgryCd;
+    }
+
+    public void setStusCtgryCd(String stusCtgryCd) {
+        this.stusCtgryCd = stusCtgryCd;
+    }
+
+    @Basic
+    @Column(name = "STUS_CD")
+    public String getStusCd() {
+        return stusCd;
+    }
+
+    public void setStusCd(String stusCd) {
+        this.stusCd = stusCd;
     }
 }

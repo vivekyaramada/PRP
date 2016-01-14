@@ -19,6 +19,22 @@ public class PrpApplErrEntity {
     private String rxGrpNum;
     private String errInfo;
 
+    public void setApplSeqNum(Integer applSeqNum) {
+        this.applSeqNum = applSeqNum;
+    }
+
+    public void setErrSeqNum(Integer errSeqNum) {
+        this.errSeqNum = errSeqNum;
+    }
+
+    public void setCostYearNum(Short costYearNum) {
+        this.costYearNum = costYearNum;
+    }
+
+    public void setCostMnthNum(Short costMnthNum) {
+        this.costMnthNum = costMnthNum;
+    }
+
     @Id
     @Column(name = "FILE_ID")
     public String getFileId() {

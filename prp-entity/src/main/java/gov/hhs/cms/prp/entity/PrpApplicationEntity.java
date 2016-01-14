@@ -25,6 +25,14 @@ public class PrpApplicationEntity {
     private Date stp4Dt;
     private Date frzDt;
 
+    public void setStartDate(Integer startDate) {
+        this.startDate = startDate;
+    }
+
+    public void setEndDate(Integer endDate) {
+        this.endDate = endDate;
+    }
+
     @Id
     @Column(name = "ID")
     public String getId() {

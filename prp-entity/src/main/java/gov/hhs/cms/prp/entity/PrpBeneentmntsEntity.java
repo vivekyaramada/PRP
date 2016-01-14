@@ -18,6 +18,22 @@ public class PrpBeneentmntsEntity {
     private String updtPgm;
     private Timestamp timestamp;
 
+    public void setBeneId(Integer beneId) {
+        this.beneId = beneId;
+    }
+
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+    public void setEffDate(Integer effDate) {
+        this.effDate = effDate;
+    }
+
+    public void setTermDate(Integer termDate) {
+        this.termDate = termDate;
+    }
+
     @Id
     @Column(name = "BENE_ID")
     public int getBeneId() {

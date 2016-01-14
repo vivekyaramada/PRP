@@ -9,6 +9,10 @@ import java.io.Serializable;
  */
 public class PrpRxGrpCntEntityPK implements Serializable {
     private String applId;
+    private String groupNumber;
+    private short costYearNum;
+    private short costMnthNum;
+    private String srcTypeCd;
 
     @Column(name = "APPL_ID")
     @Id
@@ -20,8 +24,6 @@ public class PrpRxGrpCntEntityPK implements Serializable {
         this.applId = applId;
     }
 
-    private String groupNumber;
-
     @Column(name = "GROUP_NUMBER")
     @Id
     public String getGroupNumber() {
@@ -31,8 +33,6 @@ public class PrpRxGrpCntEntityPK implements Serializable {
     public void setGroupNumber(String groupNumber) {
         this.groupNumber = groupNumber;
     }
-
-    private short costYearNum;
 
     @Column(name = "COST_YEAR_NUM")
     @Id
@@ -44,8 +44,6 @@ public class PrpRxGrpCntEntityPK implements Serializable {
         this.costYearNum = costYearNum;
     }
 
-    private short costMnthNum;
-
     @Column(name = "COST_MNTH_NUM")
     @Id
     public short getCostMnthNum() {
@@ -55,8 +53,6 @@ public class PrpRxGrpCntEntityPK implements Serializable {
     public void setCostMnthNum(short costMnthNum) {
         this.costMnthNum = costMnthNum;
     }
-
-    private String srcTypeCd;
 
     @Column(name = "SRC_TYPE_CD")
     @Id

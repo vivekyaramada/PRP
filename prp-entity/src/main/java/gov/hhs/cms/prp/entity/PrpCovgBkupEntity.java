@@ -29,6 +29,26 @@ public class PrpCovgBkupEntity {
     private Integer beneId;
     private Date cvgFrzDt;
 
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
+
+    public void setRdsEffDate(Integer rdsEffDate) {
+        this.rdsEffDate = rdsEffDate;
+    }
+
+    public void setRdsTermDate(Integer rdsTermDate) {
+        this.rdsTermDate = rdsTermDate;
+    }
+
+    public void setCvgEffDate(Integer cvgEffDate) {
+        this.cvgEffDate = cvgEffDate;
+    }
+
+    public void setCvgTermDate(Integer cvgTermDate) {
+        this.cvgTermDate = cvgTermDate;
+    }
+
     @Id
     @Column(name = "HICN")
     public String getHicn() {

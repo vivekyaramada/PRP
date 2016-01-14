@@ -24,6 +24,30 @@ public class PrpFileHsEntity {
     private Timestamp termTs;
     private String termPgmId;
 
+    public void setResponseDt(Integer responseDt) {
+        this.responseDt = responseDt;
+    }
+
+    public void setAddCnt(Integer addCnt) {
+        this.addCnt = addCnt;
+    }
+
+    public void setUpdateCnt(Integer updateCnt) {
+        this.updateCnt = updateCnt;
+    }
+
+    public void setErrorCnt(Integer errorCnt) {
+        this.errorCnt = errorCnt;
+    }
+
+    public void setDeleteCnt(Integer deleteCnt) {
+        this.deleteCnt = deleteCnt;
+    }
+
+    public void setTotalCnt(Integer totalCnt) {
+        this.totalCnt = totalCnt;
+    }
+
     @Id
     @Column(name = "FILE_ID")
     public String getFileId() {

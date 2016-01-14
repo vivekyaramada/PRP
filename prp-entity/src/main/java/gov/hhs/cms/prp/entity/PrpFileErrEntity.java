@@ -15,6 +15,10 @@ public class PrpFileErrEntity {
     private int errSeqNum;
     private String errInfo;
 
+    public void setErrSeqNum(Integer errSeqNum) {
+        this.errSeqNum = errSeqNum;
+    }
+
     @Id
     @Column(name = "FILE_ID")
     public String getFileId() {

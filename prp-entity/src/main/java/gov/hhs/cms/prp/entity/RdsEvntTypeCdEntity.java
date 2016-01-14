@@ -13,6 +13,10 @@ public class RdsEvntTypeCdEntity {
     private String evntTypeDesc;
     private String evntTypeName;
 
+    public void setEvntTypeId(Integer evntTypeId) {
+        this.evntTypeId = evntTypeId;
+    }
+
     @Id
     @Column(name = "EVNT_TYPE_ID")
     public int getEvntTypeId() {

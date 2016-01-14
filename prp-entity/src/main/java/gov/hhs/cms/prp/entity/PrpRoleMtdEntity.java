@@ -12,6 +12,10 @@ public class PrpRoleMtdEntity {
     private String role;
     private String method;
 
+    public void setId(Integer id) {
+        this.id = id;
+    }
+
     @Id
     @Column(name = "id")
     public int getId() {

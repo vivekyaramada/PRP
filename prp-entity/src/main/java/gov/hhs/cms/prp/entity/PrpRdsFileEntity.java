@@ -5,7 +5,7 @@ import java.sql.Date;
 import java.sql.Timestamp;
 
 /**
- * Created by VivekKumar.ReddyYara on 1/11/2016.
+ * Created by VivekKumar.ReddyYara on 1/13/2016.
  */
 @Entity
 @Table(name = "prp_rds_file", schema = "", catalog = "prp")
@@ -23,6 +23,11 @@ public class PrpRdsFileEntity {
     private Timestamp updtTs;
     private Date processDt;
     private Date receiptDt;
+    private String fileTypeCd;
+    private String orgTypCd;
+    private String orgId;
+    private String stusCtgryCd;
+    private String stusCd;
 
     @Id
     @Column(name = "FILE_ID")
@@ -194,5 +199,55 @@ public class PrpRdsFileEntity {
         result = 31 * result + (processDt != null ? processDt.hashCode() : 0);
         result = 31 * result + (receiptDt != null ? receiptDt.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "FILE_TYPE_CD")
+    public String getFileTypeCd() {
+        return fileTypeCd;
+    }
+
+    public void setFileTypeCd(String fileTypeCd) {
+        this.fileTypeCd = fileTypeCd;
+    }
+
+    @Basic
+    @Column(name = "ORG_TYP_CD")
+    public String getOrgTypCd() {
+        return orgTypCd;
+    }
+
+    public void setOrgTypCd(String orgTypCd) {
+        this.orgTypCd = orgTypCd;
+    }
+
+    @Basic
+    @Column(name = "ORG_ID")
+    public String getOrgId() {
+        return orgId;
+    }
+
+    public void setOrgId(String orgId) {
+        this.orgId = orgId;
+    }
+
+    @Basic
+    @Column(name = "STUS_CTGRY_CD")
+    public String getStusCtgryCd() {
+        return stusCtgryCd;
+    }
+
+    public void setStusCtgryCd(String stusCtgryCd) {
+        this.stusCtgryCd = stusCtgryCd;
+    }
+
+    @Basic
+    @Column(name = "STUS_CD")
+    public String getStusCd() {
+        return stusCd;
+    }
+
+    public void setStusCd(String stusCd) {
+        this.stusCd = stusCd;
     }
 }

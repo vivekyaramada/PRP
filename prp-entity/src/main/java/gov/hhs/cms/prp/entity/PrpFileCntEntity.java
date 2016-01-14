@@ -13,6 +13,10 @@ public class PrpFileCntEntity {
     private String totCntCd;
     private int cntVal;
 
+    public void setCntVal(Integer cntVal) {
+        this.cntVal = cntVal;
+    }
+
     @Id
     @Column(name = "FILE_ID")
     public String getFileId() {

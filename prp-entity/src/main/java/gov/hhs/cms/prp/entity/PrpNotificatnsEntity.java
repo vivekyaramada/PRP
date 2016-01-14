@@ -1,20 +1,44 @@
 package gov.hhs.cms.prp.entity;
 
-import javax.persistence.Basic;
-import javax.persistence.Entity;
-import javax.persistence.Id;
+import javax.persistence.*;
 import java.sql.Timestamp;
 
 /**
  * Created by VivekKumar.ReddyYara on 1/11/2016.
  */
 @Entity
-@javax.persistence.Table(name = "prp_notificatns", schema = "", catalog = "prp")
+@Table(name = "prp_notificatns", schema = "", catalog = "prp")
+@IdClass(PrpNotificatnsEntityPK.class)
 public class PrpNotificatnsEntity {
     private String fileId;
+    private int sequence;
+    private String hicn;
+    private String corrHicn;
+    private String linkKey;
+    private String ssn;
+    private String firstName;
+    private String middleInit;
+    private String lastName;
+    private String dob;
+    private String sexCode;
+    private String relationship;
+    private String cvgEffDate;
+    private String cvgTermDate;
+    private String groupNumber;
+    private String actionType;
+    private String status;
+    private String subsidySw;
+    private String splitCvgSw;
+    private int rdsEffDate;
+    private int rdsTermDate;
+    private String errorCode;
+    private String cobcDcn;
+    private String updtPgm;
+    private Timestamp timestamp;
+    private Integer beneId;
 
     @Id
-    @javax.persistence.Column(name = "FILE_ID")
+    @Column(name = "FILE_ID")
     public String getFileId() {
         return fileId;
     }
@@ -23,10 +47,12 @@ public class PrpNotificatnsEntity {
         this.fileId = fileId;
     }
 
-    private int sequence;
+    public void setSequence(Integer sequence) {
+        this.sequence = sequence;
+    }
 
     @Id
-    @javax.persistence.Column(name = "SEQUENCE")
+    @Column(name = "SEQUENCE")
     public int getSequence() {
         return sequence;
     }
@@ -35,10 +61,8 @@ public class PrpNotificatnsEntity {
         this.sequence = sequence;
     }
 
-    private String hicn;
-
     @Basic
-    @javax.persistence.Column(name = "HICN")
+    @Column(name = "HICN")
     public String getHicn() {
         return hicn;
     }
@@ -47,10 +71,8 @@ public class PrpNotificatnsEntity {
         this.hicn = hicn;
     }
 
-    private String corrHicn;
-
     @Basic
-    @javax.persistence.Column(name = "CORR_HICN")
+    @Column(name = "CORR_HICN")
     public String getCorrHicn() {
         return corrHicn;
     }
@@ -59,10 +81,8 @@ public class PrpNotificatnsEntity {
         this.corrHicn = corrHicn;
     }
 
-    private String linkKey;
-
     @Basic
-    @javax.persistence.Column(name = "LINK_KEY")
+    @Column(name = "LINK_KEY")
     public String getLinkKey() {
         return linkKey;
     }
@@ -71,10 +91,8 @@ public class PrpNotificatnsEntity {
         this.linkKey = linkKey;
     }
 
-    private String ssn;
-
     @Basic
-    @javax.persistence.Column(name = "SSN")
+    @Column(name = "SSN")
     public String getSsn() {
         return ssn;
     }
@@ -83,10 +101,8 @@ public class PrpNotificatnsEntity {
         this.ssn = ssn;
     }
 
-    private String firstName;
-
     @Basic
-    @javax.persistence.Column(name = "FIRST_NAME")
+    @Column(name = "FIRST_NAME")
     public String getFirstName() {
         return firstName;
     }
@@ -95,10 +111,8 @@ public class PrpNotificatnsEntity {
         this.firstName = firstName;
     }
 
-    private String middleInit;
-
     @Basic
-    @javax.persistence.Column(name = "MIDDLE_INIT")
+    @Column(name = "MIDDLE_INIT")
     public String getMiddleInit() {
         return middleInit;
     }
@@ -107,10 +121,8 @@ public class PrpNotificatnsEntity {
         this.middleInit = middleInit;
     }
 
-    private String lastName;
-
     @Basic
-    @javax.persistence.Column(name = "LAST_NAME")
+    @Column(name = "LAST_NAME")
     public String getLastName() {
         return lastName;
     }
@@ -119,10 +131,8 @@ public class PrpNotificatnsEntity {
         this.lastName = lastName;
     }
 
-    private String dob;
-
     @Basic
-    @javax.persistence.Column(name = "DOB")
+    @Column(name = "DOB")
     public String getDob() {
         return dob;
     }
@@ -131,10 +141,8 @@ public class PrpNotificatnsEntity {
         this.dob = dob;
     }
 
-    private String sexCode;
-
     @Basic
-    @javax.persistence.Column(name = "SEX_CODE")
+    @Column(name = "SEX_CODE")
     public String getSexCode() {
         return sexCode;
     }
@@ -143,10 +151,8 @@ public class PrpNotificatnsEntity {
         this.sexCode = sexCode;
     }
 
-    private String relationship;
-
     @Basic
-    @javax.persistence.Column(name = "RELATIONSHIP")
+    @Column(name = "RELATIONSHIP")
     public String getRelationship() {
         return relationship;
     }
@@ -155,10 +161,8 @@ public class PrpNotificatnsEntity {
         this.relationship = relationship;
     }
 
-    private String cvgEffDate;
-
     @Basic
-    @javax.persistence.Column(name = "CVG_EFF_DATE")
+    @Column(name = "CVG_EFF_DATE")
     public String getCvgEffDate() {
         return cvgEffDate;
     }
@@ -167,10 +171,8 @@ public class PrpNotificatnsEntity {
         this.cvgEffDate = cvgEffDate;
     }
 
-    private String cvgTermDate;
-
     @Basic
-    @javax.persistence.Column(name = "CVG_TERM_DATE")
+    @Column(name = "CVG_TERM_DATE")
     public String getCvgTermDate() {
         return cvgTermDate;
     }
@@ -179,10 +181,8 @@ public class PrpNotificatnsEntity {
         this.cvgTermDate = cvgTermDate;
     }
 
-    private String groupNumber;
-
     @Basic
-    @javax.persistence.Column(name = "GROUP_NUMBER")
+    @Column(name = "GROUP_NUMBER")
     public String getGroupNumber() {
         return groupNumber;
     }
@@ -191,10 +191,8 @@ public class PrpNotificatnsEntity {
         this.groupNumber = groupNumber;
     }
 
-    private String actionType;
-
     @Basic
-    @javax.persistence.Column(name = "ACTION_TYPE")
+    @Column(name = "ACTION_TYPE")
     public String getActionType() {
         return actionType;
     }
@@ -203,10 +201,8 @@ public class PrpNotificatnsEntity {
         this.actionType = actionType;
     }
 
-    private String status;
-
     @Basic
-    @javax.persistence.Column(name = "STATUS")
+    @Column(name = "STATUS")
     public String getStatus() {
         return status;
     }
@@ -215,10 +211,8 @@ public class PrpNotificatnsEntity {
         this.status = status;
     }
 
-    private String subsidySw;
-
     @Basic
-    @javax.persistence.Column(name = "SUBSIDY_SW")
+    @Column(name = "SUBSIDY_SW")
     public String getSubsidySw() {
         return subsidySw;
     }
@@ -227,10 +221,8 @@ public class PrpNotificatnsEntity {
         this.subsidySw = subsidySw;
     }
 
-    private String splitCvgSw;
-
     @Basic
-    @javax.persistence.Column(name = "SPLIT_CVG_SW")
+    @Column(name = "SPLIT_CVG_SW")
     public String getSplitCvgSw() {
         return splitCvgSw;
     }
@@ -239,10 +231,12 @@ public class PrpNotificatnsEntity {
         this.splitCvgSw = splitCvgSw;
     }
 
-    private int rdsEffDate;
+    public void setRdsEffDate(Integer rdsEffDate) {
+        this.rdsEffDate = rdsEffDate;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "RDS_EFF_DATE")
+    @Column(name = "RDS_EFF_DATE")
     public int getRdsEffDate() {
         return rdsEffDate;
     }
@@ -251,10 +245,12 @@ public class PrpNotificatnsEntity {
         this.rdsEffDate = rdsEffDate;
     }
 
-    private int rdsTermDate;
+    public void setRdsTermDate(Integer rdsTermDate) {
+        this.rdsTermDate = rdsTermDate;
+    }
 
     @Basic
-    @javax.persistence.Column(name = "RDS_TERM_DATE")
+    @Column(name = "RDS_TERM_DATE")
     public int getRdsTermDate() {
         return rdsTermDate;
     }
@@ -263,10 +259,8 @@ public class PrpNotificatnsEntity {
         this.rdsTermDate = rdsTermDate;
     }
 
-    private String errorCode;
-
     @Basic
-    @javax.persistence.Column(name = "ERROR_CODE")
+    @Column(name = "ERROR_CODE")
     public String getErrorCode() {
         return errorCode;
     }
@@ -275,10 +269,8 @@ public class PrpNotificatnsEntity {
         this.errorCode = errorCode;
     }
 
-    private String cobcDcn;
-
     @Basic
-    @javax.persistence.Column(name = "COBC_DCN")
+    @Column(name = "COBC_DCN")
     public String getCobcDcn() {
         return cobcDcn;
     }
@@ -287,10 +279,8 @@ public class PrpNotificatnsEntity {
         this.cobcDcn = cobcDcn;
     }
 
-    private String updtPgm;
-
     @Basic
-    @javax.persistence.Column(name = "UPDT_PGM")
+    @Column(name = "UPDT_PGM")
     public String getUpdtPgm() {
         return updtPgm;
     }
@@ -299,10 +289,8 @@ public class PrpNotificatnsEntity {
         this.updtPgm = updtPgm;
     }
 
-    private Timestamp timestamp;
-
     @Basic
-    @javax.persistence.Column(name = "TIMESTAMP")
+    @Column(name = "TIMESTAMP")
     public Timestamp getTimestamp() {
         return timestamp;
     }
@@ -311,10 +299,8 @@ public class PrpNotificatnsEntity {
         this.timestamp = timestamp;
     }
 
-    private Integer beneId;
-
     @Basic
-    @javax.persistence.Column(name = "BENE_ID")
+    @Column(name = "BENE_ID")
     public Integer getBeneId() {
         return beneId;
     }

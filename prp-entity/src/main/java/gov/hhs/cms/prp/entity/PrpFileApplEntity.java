@@ -18,6 +18,13 @@ public class PrpFileApplEntity {
     private Timestamp pstgTs;
     private Timestamp stusTs;
     private String stusPgm;
+    private String stusCtgryCd;
+    private String stusCd;
+    private String applId;
+
+    public void setApplSeqNum(Integer applSeqNum) {
+        this.applSeqNum = applSeqNum;
+    }
 
     @Id
     @Column(name = "FILE_ID")
@@ -129,5 +136,35 @@ public class PrpFileApplEntity {
         result = 31 * result + (stusTs != null ? stusTs.hashCode() : 0);
         result = 31 * result + (stusPgm != null ? stusPgm.hashCode() : 0);
         return result;
+    }
+
+    @Basic
+    @Column(name = "STUS_CTGRY_CD")
+    public String getStusCtgryCd() {
+        return stusCtgryCd;
+    }
+
+    public void setStusCtgryCd(String stusCtgryCd) {
+        this.stusCtgryCd = stusCtgryCd;
+    }
+
+    @Basic
+    @Column(name = "STUS_CD")
+    public String getStusCd() {
+        return stusCd;
+    }
+
+    public void setStusCd(String stusCd) {
+        this.stusCd = stusCd;
+    }
+
+    @Basic
+    @Column(name = "APPL_ID")
+    public String getApplId() {
+        return applId;
+    }
+
+    public void setApplId(String applId) {
+        this.applId = applId;
     }
 }

@@ -29,6 +29,18 @@ public class PrpBeneHsEntity {
     private String stusCd;
     private Date mbdUpdtDt;
 
+    public void setBeneId(Integer beneId) {
+        this.beneId = beneId;
+    }
+
+    public void setDob(Integer dob) {
+        this.dob = dob;
+    }
+
+    public void setDod(Integer dod) {
+        this.dod = dod;
+    }
+
     @Id
     @Column(name = "BENE_ID")
     public int getBeneId() {
