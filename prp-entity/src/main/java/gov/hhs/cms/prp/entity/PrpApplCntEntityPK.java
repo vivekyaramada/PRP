@@ -5,7 +5,7 @@ import javax.persistence.Id;
 import java.io.Serializable;
 
 /**
- * Created by VivekKumar.ReddyYara on 1/11/2016.
+ * Created by VivekKumar.ReddyYara on 1/13/2016.
  */
 public class PrpApplCntEntityPK implements Serializable {
     private String fileId;
